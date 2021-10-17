@@ -18,17 +18,11 @@ Tokpa is the simple name of Benin Internation market Dantokpa. Dantokpa is the m
 
 * Cloudinary
 * Google Places API
-* Fedapay Api
+<!-- * Fedapay Api -->
 
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-Ruby: 2.7.0
-Rails: 6.0.2
-
 
 ### Setup
 First, clone the repo to your computer
