@@ -16,8 +16,9 @@ Tokpa is the simple name of Benin Internation market Dantokpa. Dantokpa is the m
 
 ## Technologies outside the curriculum
 
-* Cloudinary
-* Google Places API
+* [Cloudinary](https://cloudinary.com/)
+* [Google Places API](https://developers.google.com/maps)
+* [MailGun](https://www.mailgun.com/)
 <!-- * Fedapay Api -->
 
 ## Getting Started
