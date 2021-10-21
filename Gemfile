@@ -16,10 +16,14 @@ gem 'mini_magick'
 gem 'rexml'
 gem 'faker'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem "rolify"
+gem 'mailgun-ruby', '~>1.2.5'
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  
 end
 
 group :development do
@@ -27,11 +31,11 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'letter_opener_web'
 end
 
 group :test do
   gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 
