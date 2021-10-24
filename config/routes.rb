@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :brands
+  resources :addresses
+  resources :adresses
+  resources :profiles
   mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
   root 'home#index'
   devise_for :users
