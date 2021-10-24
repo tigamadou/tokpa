@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_24_120705) do
+ActiveRecord::Schema.define(version: 2021_10_24_132714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
     t.index ["profile_id"], name: "index_address_profiles_on_profile_id"
   end
 
-  create_table "address_profils", force: :cascade do |t|
-    t.bigint "profile_id", null: false
-    t.bigint "address_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["address_id"], name: "index_address_profils_on_address_id"
-    t.index ["profile_id"], name: "index_address_profils_on_profile_id"
-  end
-
   create_table "address_vendors", force: :cascade do |t|
     t.bigint "address_id", null: false
     t.bigint "vendor_id", null: false
@@ -43,12 +34,12 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.string "name"
-    t.string "line_1"
+    t.string "name", null: false
+    t.string "line_1", null: false
     t.string "line_2"
-    t.string "country"
-    t.string "city"
-    t.string "zip"
+    t.string "country", null: false
+    t.string "city", null: false
+    t.string "zip", null: false
     t.string "long"
     t.string "lat"
     t.datetime "created_at", precision: 6, null: false
@@ -56,12 +47,12 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "adresses", force: :cascade do |t|
-    t.string "name"
-    t.string "line_1"
+    t.string "name", null: false
+    t.string "line_1", null: false
     t.string "line_2"
-    t.string "country"
-    t.string "city"
-    t.string "zip"
+    t.string "country", null: false
+    t.string "city", null: false
+    t.string "zip", null: false
     t.string "long"
     t.string "lat"
     t.datetime "created_at", precision: 6, null: false
@@ -69,8 +60,8 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "brands", force: :cascade do |t|
-    t.string "name"
-    t.string "slug"
+    t.string "name", null: false
+    t.string "slug", null: false
     t.string "image"
     t.boolean "activated"
     t.datetime "created_at", precision: 6, null: false
@@ -78,8 +69,8 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "cart_products", force: :cascade do |t|
-    t.integer "quantity"
-    t.decimal "total"
+    t.integer "quantity", null: false
+    t.decimal "total", null: false
     t.bigint "cart_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -89,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.decimal "total"
+    t.decimal "total", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -97,8 +88,8 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.string "slug"
+    t.string "name", null: false
+    t.string "slug", null: false
     t.string "image"
     t.boolean "activated"
     t.datetime "created_at", precision: 6, null: false
@@ -114,9 +105,16 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
     t.index ["vendor_id"], name: "index_favorites_on_vendor_id"
   end
 
+  create_table "options", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "order_products", force: :cascade do |t|
-    t.integer "quantity"
-    t.decimal "total"
+    t.integer "quantity", null: false
+    t.decimal "total", null: false
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -126,9 +124,9 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "reference"
-    t.decimal "total"
-    t.boolean "paid"
+    t.string "reference", null: false
+    t.decimal "total", null: false
+    t.boolean "paid", default: false
     t.bigint "user_id", null: false
     t.bigint "vendor_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -138,35 +136,29 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "product_options", force: :cascade do |t|
-    t.string "name"
-    t.string "slug"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "product_variant_option_values", force: :cascade do |t|
-    t.bigint "product_variant_id", null: false
-    t.bigint "product_variant_option_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_variant_id"], name: "index_product_variant_option_values_on_product_variant_id"
-    t.index ["product_variant_option_id"], name: "index_product_variant_option_values_on_product_variant_optionid"
-  end
-
-  create_table "product_variant_options", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "product_option_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_product_variant_options_on_product_id"
+    t.index ["product_id"], name: "index_product_options_on_product_id"
+    t.index ["product_option_id"], name: "index_product_options_on_product_option_id"
+  end
+
+  create_table "product_variant_options", force: :cascade do |t|
+    t.string "value"
+    t.bigint "product_variant_id", null: false
+    t.bigint "product_option_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["product_option_id"], name: "index_product_variant_options_on_product_option_id"
+    t.index ["product_variant_id"], name: "index_product_variant_options_on_product_variant_id"
   end
 
   create_table "product_variants", force: :cascade do |t|
-    t.decimal "price"
-    t.string "sku"
+    t.decimal "price", null: false
+    t.string "sku", null: false
     t.string "image"
-    t.integer "quantity"
+    t.integer "quantity", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -174,12 +166,12 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.string "slug"
-    t.text "description"
-    t.boolean "active"
-    t.boolean "available"
-    t.boolean "validated"
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.text "description", null: false
+    t.boolean "active", default: false
+    t.boolean "available", default: false
+    t.boolean "validated", default: false
     t.bigint "subcategory_id", null: false
     t.bigint "brand_id", null: false
     t.bigint "vendor_id", null: false
@@ -191,9 +183,9 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone_1"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "phone_1", null: false
     t.string "phone_2"
     t.string "image"
     t.bigint "user_id", null: false
@@ -213,9 +205,9 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "subcategories", force: :cascade do |t|
-    t.string "name"
-    t.string "slug"
-    t.boolean "activated"
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.boolean "activated", default: false
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -252,17 +244,17 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   end
 
   create_table "vendors", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+    t.string "name", null: false
+    t.text "description", null: false
     t.string "image"
     t.string "cover"
-    t.boolean "online"
-    t.string "legal_name"
-    t.date "incorporation_date"
-    t.date "registration_date"
-    t.string "registration_address"
-    t.string "registration_number"
-    t.boolean "verified"
+    t.boolean "online", default: false
+    t.string "legal_name", null: false
+    t.date "incorporation_date", null: false
+    t.date "registration_date", null: false
+    t.string "registration_address", null: false
+    t.string "registration_number", null: false
+    t.boolean "verified", default: false
     t.boolean "activated"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -270,8 +262,6 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
 
   add_foreign_key "address_profiles", "addresses"
   add_foreign_key "address_profiles", "profiles"
-  add_foreign_key "address_profils", "addresses"
-  add_foreign_key "address_profils", "profiles"
   add_foreign_key "address_vendors", "addresses"
   add_foreign_key "address_vendors", "vendors"
   add_foreign_key "cart_products", "carts"
@@ -283,10 +273,10 @@ ActiveRecord::Schema.define(version: 2021_10_24_120705) do
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "orders", "vendors"
-  add_foreign_key "product_variant_option_values", "product_variant_options"
-  add_foreign_key "product_variant_option_values", "product_variants"
+  add_foreign_key "product_options", "product_options"
+  add_foreign_key "product_options", "products"
   add_foreign_key "product_variant_options", "product_options"
-  add_foreign_key "product_variant_options", "products"
+  add_foreign_key "product_variant_options", "product_variants"
   add_foreign_key "product_variants", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "subcategories"
