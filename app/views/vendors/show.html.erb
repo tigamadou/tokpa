@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vendor.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @vendor.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @vendor.image %>
+</p>
+
+<p>
+  <strong>Cover:</strong>
+  <%= @vendor.cover %>
+</p>
+
+<p>
+  <strong>Online:</strong>
+  <%= @vendor.online %>
+</p>
+
+<p>
+  <strong>Legal name:</strong>
+  <%= @vendor.legal_name %>
+</p>
+
+<p>
+  <strong>Incorporation date:</strong>
+  <%= @vendor.incorporation_date %>
+</p>
+
+<p>
+  <strong>Registration date:</strong>
+  <%= @vendor.registration_date %>
+</p>
+
+<p>
+  <strong>Registration address:</strong>
+  <%= @vendor.registration_address %>
+</p>
+
+<p>
+  <strong>Registration number:</strong>
+  <%= @vendor.registration_number %>
+</p>
+
+<p>
+  <strong>Verified:</strong>
+  <%= @vendor.verified %>
+</p>
+
+<p>
+  <strong>Activated:</strong>
+  <%= @vendor.activated %>
+</p>
+
+<%= link_to 'Edit', edit_vendor_path(@vendor) %> |
+<%= link_to 'Back', vendors_path %>

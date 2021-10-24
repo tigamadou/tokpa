@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product variant:</strong>
+  <%= @product_variant_option_value.product_variant_id %>
+</p>
+
+<p>
+  <strong>Product variant option:</strong>
+  <%= @product_variant_option_value.product_variant_option_id %>
+</p>
+
+<%= link_to 'Edit', edit_product_variant_option_value_path(@product_variant_option_value) %> |
+<%= link_to 'Back', product_variant_option_values_path %>
