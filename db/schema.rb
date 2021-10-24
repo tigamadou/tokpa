@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_132714) do
   end
 
   create_table "product_variant_options", force: :cascade do |t|
-    t.string "value"
+    t.string "value", null: false
     t.bigint "product_variant_id", null: false
     t.bigint "product_option_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -183,6 +183,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_132714) do
   end
 
   create_table "profiles", force: :cascade do |t|
+    t.boolean "online", default: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "phone_1", null: false
