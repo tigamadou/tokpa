@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # resources :categories
   # resources :brands
   # resources :addresses
-  # resources :adresses
+  
   
   
   root 'home#index'
@@ -43,6 +43,9 @@ Rails.application.routes.draw do
       patch '/update', to: 'vendor#update'
       put '/update', to: 'vendor#update'
     end
+
+    resources :orders
+    resources :addresses
   end
 
   mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?

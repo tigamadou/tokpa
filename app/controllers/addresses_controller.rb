@@ -5,7 +5,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses or /addresses.json
   def index
-    @addresses = Address.all
+    @addresses = current_user.profile.addresses
   end
 
   # GET /addresses/1 or /addresses/1.json
@@ -27,6 +27,9 @@ class AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
+        # current_user.profile.address_profiles.build(id: @address.id)
+        AddressProfile.create(profile_id: current_user.profile.id, address_id: @address.id)
+        
         format.html { redirect_to @address, notice: "Address was successfully created." }
         format.json { render :show, status: :created, location: @address }
       else

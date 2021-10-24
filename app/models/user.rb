@@ -11,14 +11,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,  :confirmable, :trackable
 
-  has_one :profile
+  has_one :profile,  dependent: :destroy 
   has_many :addresses, through: :profile
-  has_one :cart
+  has_one :cart,  dependent: :destroy 
 
-  has_many :favorite
+  has_many :favorite,  dependent: :destroy 
   has_many :vendors, through: :favorite
 
-  has_many :orders, foreign_key: 'user_id', class_name: "Order"
+  has_many :orders, foreign_key: 'user_id', class_name: "Order",  dependent: :destroy 
 
   def before_add_method(role)
     # do something before it gets added

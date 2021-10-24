@@ -4,4 +4,6 @@ class Address < ApplicationRecord
     validates :country, presence: true
     validates :city, presence: true
     validates :zip, presence: true
+
+    has_many :address_profiles,  dependent: :destroy 
 end

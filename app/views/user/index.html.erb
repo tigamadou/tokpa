@@ -20,7 +20,7 @@
 <% if current_user.profile.image.attached? %>
   <%= cl_image_tag current_user.profile.image.key, :width=>150, :crop=>"fill" %>
 <% end %>
-<h2> My Orders </h2>
+<h2><%= link_to 'My Orders', orders_path %> </h2>
 <table>
   <thead>
     <tr>
@@ -47,7 +47,7 @@
     <% end %>
   </tbody>
 </table>
-<h2> My Addresses </h2>
+<h2> <%= link_to 'My Addresses', addresses_path %>  </h2>
 <table>
   <thead>
     <tr>
@@ -74,7 +74,7 @@
         <td><%= adress.long %></td>
         <td><%= adress.lat %></td>
         <td><%= link_to 'Show', adress %></td>
-        <td><%= link_to 'Edit', edit_adress_path(adress) %></td>
+        <td><%= link_to 'Edit', edit_address_path(adress) %></td>
         <td><%= link_to 'Destroy', adress, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
