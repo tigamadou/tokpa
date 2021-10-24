@@ -21,4 +21,7 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+<p>
+  <%= link_to 'Become a vendor', controller: "users/registrations",action: "new", vendor: "true"%>
+</p>
 <%= render "devise/shared/links" %>

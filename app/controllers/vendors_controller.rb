@@ -1,30 +1,27 @@
 class VendorsController < ApplicationController
+  before_action :authenticate_user!, :is_vendor
   before_action :set_vendor, only: %i[ show edit update destroy ]
-
-  # GET /vendors or /vendors.json
   def index
     @vendors = Vendor.all
   end
 
-  # GET /vendors/1 or /vendors/1.json
   def show
   end
 
-  # GET /vendors/new
   def new
+    redirect_to user_root_path if current_user.vendor
     @vendor = Vendor.new
   end
 
-  # GET /vendors/1/edit
   def edit
   end
 
-  # POST /vendors or /vendors.json
   def create
     @vendor = Vendor.new(vendor_params)
 
     respond_to do |format|
       if @vendor.save
+        UserVendor.create(user_id: current_user.id, vendor_id: @vendor.id)
         format.html { redirect_to @vendor, notice: "Vendor was successfully created." }
         format.json { render :show, status: :created, location: @vendor }
       else
@@ -34,7 +31,6 @@ class VendorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /vendors/1 or /vendors/1.json
   def update
     respond_to do |format|
       if @vendor.update(vendor_params)
@@ -47,7 +43,6 @@ class VendorsController < ApplicationController
     end
   end
 
-  # DELETE /vendors/1 or /vendors/1.json
   def destroy
     @vendor.destroy
     respond_to do |format|
@@ -57,13 +52,15 @@ class VendorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_vendor
       @vendor = Vendor.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def vendor_params
       params.require(:vendor).permit(:name, :description, :image, :cover, :online, :legal_name, :incorporation_date, :registration_date, :registration_address, :registration_number, :verified, :activated)
+    end
+
+    def is_vendor
+      redirect_to user_root_path if !current_user.has_role? :vendor
     end
 end

@@ -16,8 +16,8 @@ class User < ApplicationRecord
   has_one :cart,  dependent: :destroy 
   
 
-  has_many :favorite,  dependent: :destroy 
-  has_many :favorites, through: :favorite
+  has_many :favorites,  dependent: :destroy 
+  
 
   has_one :user_vendor
   has_one :vendor, through: :user_vendor
