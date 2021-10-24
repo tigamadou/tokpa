@@ -29,7 +29,7 @@ user = User.create(
     confirmed_at: DateTime.now
 )
 
-user.add_role :user
+user.add_role :customer
 
 vendorUser = User.create(
     email: 'vendor@gmail.com',

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   
   root 'home#index'
-  devise_for :users, controllers: { sessions: "session"}  
+  devise_for :users, controllers: { sessions: "session",registrations:'users/registrations'}  
   
   
   get '/account', to: 'user#index', as: :user_root
@@ -37,15 +37,17 @@ Rails.application.routes.draw do
     end
 
     
-    scope '/vendor' do
-      get '/', to: 'vendor#show'
-      get '/edit', to: 'vendor#edit'
-      patch '/update', to: 'vendor#update'
-      put '/update', to: 'vendor#update'
-    end
+    # scope '/vendor' do
+    #   get '/new', to: 'vendor#new'
+    #   get '/', to: 'vendor#show'
+    #   get '/edit', to: 'vendor#edit'
+    #   patch '/update', to: 'vendor#update'
+    #   put '/update', to: 'vendor#update'
+    # end
 
     resources :orders
     resources :addresses
+    resources :vendors
   end
 
   mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?

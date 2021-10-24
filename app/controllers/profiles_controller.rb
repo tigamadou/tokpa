@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
     @profile.user_id = current_user.id
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: "Profile was successfully created." }
+        format.html { redirect_to user_root_path, notice: "Profile was successfully created." }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new, status: :unprocessable_entity }
