@@ -13,7 +13,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
+    redirect_to user_root_path if current_user.profile
     @profile = Profile.new
+    
   end
 
   # GET /profiles/1/edit
@@ -23,7 +25,7 @@ class ProfilesController < ApplicationController
   # POST /profiles or /profiles.json
   def create
     @profile = Profile.new(profile_params)
-
+    @profile.user_id = current_user.id
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: "Profile was successfully created." }
@@ -39,7 +41,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: "Profile was successfully updated." }
+        format.html { redirect_to user_root_path, notice: "Profile was successfully updated." }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,6 +68,6 @@ class ProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :phone_1, :phone_2, :image, :user_id)
+      params.require(:profile).permit(:first_name, :last_name, :phone_1, :phone_2, :image)
     end
 end

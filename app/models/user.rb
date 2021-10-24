@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :favorite
   has_many :vendors, through: :favorite
 
+  has_many :orders, foreign_key: 'user_id', class_name: "Order"
+
   def before_add_method(role)
     # do something before it gets added
   end

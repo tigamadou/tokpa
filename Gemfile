@@ -19,10 +19,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "rolify"
 gem 'mailgun-ruby', '~>1.2.5'
 gem 'devise'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  
+  gem 'dotenv-rails'
 end
 
 group :development do

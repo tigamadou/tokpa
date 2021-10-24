@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     put '/update', to: 'user#update'
 
     scope '/profile' do
-      get '/', to: 'profiles#show', as: :show_profile
+      get '/',  to: redirect('/account')
       get '/new', to: 'profiles#new', as: :new_profile
       post '/create', to: 'profiles#create', as: :create_profile
       get '/edit', to: 'profiles#edit', as: :edit_profile
