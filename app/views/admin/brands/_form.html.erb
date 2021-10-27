@@ -1,0 +1,34 @@
+<%= form_with(model: brand, url: url) do |form| %>
+  <% if brand.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+      <ul>
+        <% brand.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :slug %>
+    <%= form.text_field :slug %>
+  </div>
+  <div class="field">
+    <%= form.label :image %>
+    <% if brand.image.attached? %>
+      <%= cl_image_tag brand.image.key, :width=>150, :crop=>"fill" %>
+    <% end %>
+    <%= form.file_field :image %>
+  </div>
+  <div class="field">
+    <%= form.label :activated %>
+    <%= form.check_box :activated %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

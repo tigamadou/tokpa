@@ -1,0 +1,20 @@
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+<p>
+  <strong>Slug:</strong>
+  <%= @category.slug %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <% if @category.image.attached? %>
+    <%= cl_image_tag @category.image.key, :width=>150, :crop=>"fill" %>
+  <% end %>
+</p>
+<p>
+  <strong>Activated:</strong>
+  <%= @category.activated %>
+</p>
+<%= link_to 'Edit', edit_admin_category_path(@category) %> |
+<%= link_to 'Back', admin_categories_path %>

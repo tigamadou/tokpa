@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
   
+  mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
+ 
   # resources :product_variant_options
   # resources :options
   # resources :cart_products
-  # resources :carts
+  
   # resources :order_products
   # resources :orders
-  # resources :product_variants
-  # resources :products
-  # resources :vendors
-  # resources :subcategories
-  # resources :categories
+ 
   # resources :brands
   # resources :addresses
   
@@ -48,7 +46,23 @@ Rails.application.routes.draw do
     resources :orders
     resources :addresses
     resources :vendors
+    resources :carts
   end
 
-  mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
+  namespace :admin do
+    resources :options
+    resources :orders 
+    resources :users
+    resources :brands
+    resources :addresses
+    resources :categories
+    resources :subcategories
+    resources :vendors do
+      resources :products do
+        resources :product_variants
+      end
+    end
+  end
+
+  
 end

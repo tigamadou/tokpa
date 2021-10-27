@@ -1,0 +1,20 @@
+<p>
+  <strong>Name:</strong>
+  <%= @brand.name %>
+</p>
+<p>
+  <strong>Slug:</strong>
+  <%= @brand.slug %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <% if @brand.image.attached? %>
+    <%= cl_image_tag @brand.image.key, :width=>150, :crop=>"fill" %>
+  <% end %>
+</p>
+<p>
+  <strong>Activated:</strong>
+  <%= @brand.activated %>
+</p>
+<%= link_to 'Edit', edit_admin_brand_path(@brand) %> |
+<%= link_to 'Back', admin_brands_path %>
