@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   # resources :order_products
   # resources :orders
  
-  # resources :brands
   # resources :addresses
   
   
@@ -63,6 +62,7 @@ Rails.application.routes.draw do
     resources :vendors do
       resources :products do
         resources :product_variants
+        resources :product_variant_options
       end
     end
 

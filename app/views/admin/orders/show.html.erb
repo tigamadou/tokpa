@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reference:</strong>
+  <%= @order.reference %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @order.total %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @order.paid %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @order.vendor_id %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
