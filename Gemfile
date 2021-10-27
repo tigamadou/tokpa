@@ -20,7 +20,7 @@ gem "rolify"
 gem 'mailgun-ruby', '~>1.2.5'
 gem 'devise'
 gem 'cloudinary'
-
+gem 'simple_form'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'

@@ -55,13 +55,17 @@ Rails.application.routes.draw do
     resources :users
     resources :brands
     resources :addresses
-    resources :categories
-    resources :subcategories
+    resources :subcategories, only: %i[show   destroy]
+    resources :categories do
+      resources :subcategories, only: %i[index create new edit update]
+    end
+
     resources :vendors do
       resources :products do
         resources :product_variants
       end
     end
+
   end
 
   

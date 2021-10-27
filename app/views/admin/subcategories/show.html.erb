@@ -1,24 +1,14 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @subcategory.name %>
 </p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @subcategory.slug %>
-</p>
-
 <p>
   <strong>Activated:</strong>
   <%= @subcategory.activated %>
 </p>
-
 <p>
   <strong>Category:</strong>
-  <%= @subcategory.category_id %>
+  <%= @subcategory.category.name %>
 </p>
-
-<%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
-<%= link_to 'Back', subcategories_path %>
+<%= link_to 'Edit', edit_admin_category_subcategory_path(@subcategory.category, @subcategory) %> |
+<%= link_to 'Back', admin_category_subcategories_path(@subcategory.category) %>

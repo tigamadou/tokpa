@@ -1,8 +1,8 @@
-<%= form_with(model: subcategory) do |form| %>
+<%= form_with(model: subcategory, url: url) do |form| %>
+  <%= form.hidden_field :category_id , value: params[:category_id]%>
   <% if subcategory.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(subcategory.errors.count, "error") %> prohibited this subcategory from being saved:</h2>
-
       <ul>
         <% subcategory.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,27 +10,18 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
   <div class="field">
     <%= form.label :slug %>
     <%= form.text_field :slug %>
   </div>
-
   <div class="field">
     <%= form.label :activated %>
     <%= form.check_box :activated %>
   </div>
-
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

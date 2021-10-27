@@ -16,12 +16,13 @@ class Admin::SubcategoriesController < ApplicationController
   end
 
   def create
+    
     @subcategory = Subcategory.new(subcategory_params)
-
+    @subcategory.slug = @subcategory.name.parameterize
     respond_to do |format|
       if @subcategory.save
-        format.html { redirect_to @subcategory, notice: "Subcategory was successfully created." }
-        format.json { render :show, status: :created, location: @subcategory }
+        format.html { redirect_to admin_subcategory_path(@subcategory), notice: "Subcategory was successfully created." }
+        
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @subcategory.errors, status: :unprocessable_entity }
@@ -31,12 +32,11 @@ class Admin::SubcategoriesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @subcategory.update(subcategory_params)
-        format.html { redirect_to @subcategory, notice: "Subcategory was successfully updated." }
-        format.json { render :show, status: :ok, location: @subcategory }
+      @subcategory.slug = subcategory_params[:name].parameterize
+      if @subcategory.update(subcategory_params)        
+        format.html { redirect_to admin_subcategory_path(@subcategory), notice: "Subcategory was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @subcategory.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,7 +44,7 @@ class Admin::SubcategoriesController < ApplicationController
   def destroy
     @subcategory.destroy
     respond_to do |format|
-      format.html { redirect_to subcategories_url, notice: "Subcategory was successfully destroyed." }
+      format.html { redirect_to admin_category_subcategories_path(@subcategory.category), notice: "Subcategory was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -55,6 +55,6 @@ class Admin::SubcategoriesController < ApplicationController
     end
 
     def subcategory_params
-      params.require(:subcategory).permit(:name, :slug, :activated, :category_id)
+      params.require(:subcategory).permit(:name, :activated,:category_id)
     end
 end

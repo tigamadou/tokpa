@@ -1,6 +1,4 @@
 <h1>Editing Subcategory</h1>
-
-<%= render 'form', subcategory: @subcategory %>
-
-<%= link_to 'Show', @subcategory %> |
-<%= link_to 'Back', subcategories_path %>
+<%= render 'form', subcategory: @subcategory, url: admin_category_subcategory_path(@subcategory.category, @subcategory) %>
+<%= link_to 'Show', admin_subcategory_path(@subcategory) %> |
+<%= link_to 'Back', admin_category_subcategories_path(@subcategory.category) %>
