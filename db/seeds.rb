@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require_relative 'seeders/category_seeder'
 
 # Create default admin user
 def create_user
@@ -62,16 +56,6 @@ def create_options(n)
     end
 end
 
-def create_categories(n)
-    n.times do
-        name= Faker::Lorem.word
-        cat = Category.create(name: name, slug: name.parameterize, activated: true)
-        10.times do
-            name2= Faker::Lorem.word
-            Subcategory.create(name: name2, slug: name2.parameterize, category_id: cat.id)
-        end
-    end
-end
 admin = User.create(
     email: 'admin@tokpa.com',
     password: '123456',
@@ -104,4 +88,4 @@ create_vendors 9
 # Creating Brands
 create_brands(50)
 create_options(50)
-create_categories(10)
+create_categories
