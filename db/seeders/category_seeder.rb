@@ -13,9 +13,9 @@ def create_categories
         'Metallurgy, Chemicals, Rubber & Plastics',
         'Packaging, Advertising & Office'
     ]
+    puts 'seeding categories...'
     categories.each do |category|
-        
         Category.create(name: category, slug: category.parameterize)
-        puts category
     end
+    puts "#{categories.count} categories seeded!"
 end

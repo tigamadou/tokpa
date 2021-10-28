@@ -1,4 +1,5 @@
 require_relative 'seeders/category_seeder'
+require_relative 'seeders/brand_seeder'
 
 # Create default admin user
 def create_user
@@ -42,12 +43,6 @@ def create_vendors(n)
     end
 end
 
-def create_brands(n)
-    n.times do
-        name= Faker::Lorem.word
-        Brand.create(name: name, slug: name.parameterize)
-    end
-end
 
 def create_options(n)
     n.times do
@@ -86,6 +81,6 @@ create_vendor(vendor)
 create_vendors 9
 
 # Creating Brands
-create_brands(50)
+create_brands
 create_options(50)
 create_categories
