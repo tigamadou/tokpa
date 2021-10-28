@@ -61,8 +61,9 @@ Rails.application.routes.draw do
 
     resources :vendors 
     resources :products do
-      resources :product_variants
-      resources :product_variant_options
+      resources :product_variants, as: 'variants', path: 'variants' do
+        resources :product_variant_options, as: 'options', path: 'otpions'
+      end
     end
 
   end

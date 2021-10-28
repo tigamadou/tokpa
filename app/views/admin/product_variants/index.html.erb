@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<h1>Product Variants</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Sku</th>
+      <th>Quantity</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @variants.each do |variant| %>
+      <tr>
+        <td>
+          <% if variant.image.attached? %>
+            <%= cl_image_tag variant.image.key, :width=>60, :crop=>"fill" %>
+          <% end %>
+        </td>
+        <td><%= variant.price %></td>
+        <td><%= variant.sku %></td>
+        <td><%= variant.quantity %></td>
+        <td><%= variant.product_id %></td>
+        <td><%= link_to 'Show', admin_product_variant_path(variant.product, variant) %></td>
+        <td><%= link_to 'Edit', edit_admin_product_variant_path(variant.product, variant) %></td>
+        <td><%= link_to 'Destroy', admin_product_variant_path(variant.product, variant), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Product Variant', new_admin_product_variant_path %>

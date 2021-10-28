@@ -1,0 +1,37 @@
+<%= form_with(model: variant, url: url) do |form| %>
+  <% if variant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(variant.errors.count, "error") %> prohibited this product_variant from being saved:</h2>
+      <ul>
+        <% variant.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.hidden_field :product_id , value: params[:product_id]%>
+  <div>
+    <% if variant.image.attached? %>
+      <%= cl_image_tag variant.image.key, :width=>500, :crop=>"fill" %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+  <div class="field">
+    <%= form.label :sku %>
+    <%= form.text_field :sku %>
+  </div>
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

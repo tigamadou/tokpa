@@ -3,8 +3,8 @@ class Product < ApplicationRecord
   belongs_to :brand
   belongs_to :vendor
 
-  has_many :product_variant, dependent: :destroy 
-  has_many :product_variant_option, through: :product_variant
+  has_many :variants, foreign_key: 'product_id',class_name: 'ProductVariant', dependent: :destroy 
+  has_many :product_variant_options, through: :product_variants
   
   validates :name, presence: :true
   validates :description, presence: :true
