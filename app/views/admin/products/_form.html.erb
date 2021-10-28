@@ -63,10 +63,12 @@
       <%= product_option_form.label :product_options %>
       <%= product_option_form.select(:option_id, Option.all.collect{ |v| [v.name,v.id] },{:include_blank => "Select Option"}) %>
     </div>
-    <div class="field">
-      <%= product_option_form.label :destroy %>
-      <%= product_option_form.check_box :_destroy %>
-    </div>
+    <% if product.product_variant_options.count == 0%>
+      <div class="field">
+        <%= product_option_form.label :destroy %>
+        <%= product_option_form.check_box :_destroy %>
+      </div>
+    <% end %>
   <% end %>
   <div class="actions">
     <%= form.submit %>

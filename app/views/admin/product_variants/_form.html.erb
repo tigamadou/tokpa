@@ -21,16 +21,24 @@
   </div>
   <div class="field">
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, required: :true %>
   </div>
   <div class="field">
     <%= form.label :sku %>
-    <%= form.text_field :sku %>
+    <%= form.text_field :sku, required: :true %>
   </div>
   <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, required: :true %>
   </div>
+  <h1>Options <%=@product.options.count %></h1>
+  <%= form.fields_for :product_variant_options do |option_form| %>
+    <div class="field">
+      <%= option_form.label "#{ProductOption.find(option_form.object.product_option_id).option.name}" %>
+      <%= option_form.hidden_field :product_option_id,value: "#{option_form.object.product_option_id }" %>
+      <%= option_form.text_field :value, required: :true %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= form.submit %>
   </div>

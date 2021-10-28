@@ -34,7 +34,7 @@ class Admin::ProductsController < ApplicationController
         @vendors = Vendor.all
         @brands = Brand.all
         @subcategories = Subcategory.all
-        
+        2.times { @product.product_options.build }
         format.html { render :new, status: :unprocessable_entity }
       end
     end
