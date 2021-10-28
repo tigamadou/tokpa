@@ -2,7 +2,7 @@ class Admin::SubcategoriesController < ApplicationController
   before_action :set_subcategory, only: %i[ show edit update destroy ]
 
   def index
-    @subcategories = Subcategory.all
+    @subcategories = Category.find(params[:category_id]).subcategories
   end
 
   def show

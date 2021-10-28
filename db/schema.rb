@@ -165,11 +165,11 @@ ActiveRecord::Schema.define(version: 2021_10_24_232921) do
 
   create_table "product_options", force: :cascade do |t|
     t.bigint "product_id", null: false
-    t.bigint "product_option_id", null: false
+    t.bigint "option_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_id"], name: "index_product_options_on_option_id"
     t.index ["product_id"], name: "index_product_options_on_product_id"
-    t.index ["product_option_id"], name: "index_product_options_on_product_option_id"
   end
 
   create_table "product_variant_options", force: :cascade do |t|
@@ -314,7 +314,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_232921) do
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "orders", "vendors"
-  add_foreign_key "product_options", "product_options"
+  add_foreign_key "product_options", "options"
   add_foreign_key "product_options", "products"
   add_foreign_key "product_variant_options", "product_options"
   add_foreign_key "product_variant_options", "product_variants"

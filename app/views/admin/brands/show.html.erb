@@ -3,10 +3,6 @@
   <%= @brand.name %>
 </p>
 <p>
-  <strong>Slug:</strong>
-  <%= @brand.slug %>
-</p>
-<p>
   <strong>Image:</strong>
   <% if @brand.image.attached? %>
     <%= cl_image_tag @brand.image.key, :width=>150, :crop=>"fill" %>

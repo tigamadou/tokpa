@@ -18,7 +18,7 @@ class Admin::BrandsController < ApplicationController
 
   def create
     @brand = Brand.new(brand_params)
-
+    @brand.slug = brand_params[:name].parameterize
     respond_to do |format|
       if @brand.save
         format.html { redirect_to admin_brand_path(@brand), notice: "Brand was successfully created." }
@@ -32,6 +32,7 @@ class Admin::BrandsController < ApplicationController
 
   def update
     respond_to do |format|
+      @brand.slug = brand_params[:name].parameterize
       if @brand.update(brand_params)
         format.html { redirect_to admin_brand_path(@brand), notice: "Brand was successfully updated." }
         

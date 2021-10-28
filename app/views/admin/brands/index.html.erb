@@ -4,7 +4,6 @@
     <tr>
       <th>Image</th>
       <th>Name</th>
-      <th>Slug</th>
       <th>Activated</th>
       <th colspan="3"></th>
     </tr>
@@ -18,7 +17,6 @@
           <% end %>
         </td>
         <td><%= brand.name %></td>
-        <td><%= brand.slug %></td>
         <td><%= brand.activated %></td>
         <td><%= link_to 'Show', admin_brand_path(brand) %></td>
         <td><%= link_to 'Edit', edit_admin_brand_path(brand) %></td>

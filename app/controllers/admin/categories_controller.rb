@@ -17,7 +17,7 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-
+    @category.slug = category_params[:name].parameterize
     respond_to do |format|
       if @category.save
         format.html { redirect_to admin_category_path(@category), notice: "Category was successfully created." }
@@ -31,6 +31,7 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     respond_to do |format|
+      @category.slug = category_params[:name].parameterize
       if @category.update(category_params)
         format.html { redirect_to admin_category_path(@category), notice: "Category was successfully updated." }
         

@@ -17,7 +17,7 @@ class Admin::OptionsController < ApplicationController
 
   def create
     @option = Option.new(admin_option_params)
-
+    @option.slug = admin_option_params[:name].parameterize
     respond_to do |format|
       if @option.save
         format.html { redirect_to admin_option_path(@option), notice: "Option was successfully created." }
@@ -31,6 +31,7 @@ class Admin::OptionsController < ApplicationController
 
   def update
     respond_to do |format|
+      @option.slug = admin_option_params[:name].parameterize
       if @option.update(admin_option_params)
         format.html { redirect_to admin_option_path(@option), notice: "Option was successfully updated." }
       else

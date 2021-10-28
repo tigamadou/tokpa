@@ -14,10 +14,6 @@
     <%= form.text_field :name %>
   </div>
   <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug %>
-  </div>
-  <div class="field">
     <%= form.label :image %>
     <% if brand.image.attached? %>
       <%= cl_image_tag brand.image.key, :width=>150, :crop=>"fill" %>

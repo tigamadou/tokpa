@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+<p>
+  <strong>Slug:</strong>
+  <%= @product.slug %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+<p>
+  <strong>Active:</strong>
+  <%= @product.active %>
+</p>
+<p>
+  <strong>Available:</strong>
+  <%= @product.available %>
+</p>
+<p>
+  <strong>Validated:</strong>
+  <%= @product.validated %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= @product.subcategory.category.name %>
+</p>
+<p>
+  <strong>Subcategory:</strong>
+  <%= @product.subcategory.name %>
+</p>
+<p>
+  <strong>Brand:</strong>
+  <%= @product.brand.name %>
+</p>
+<p>
+  <strong>Vendor:</strong>
+  <%= @product.vendor.name %>
+</p>
+<h1>Options <%=@product.product_options.count %></h1>
+<% @product.product_options.each_with_index do  |product_option,index|%>
+  <p>
+    <strong> Name </strong>
+    <%= product_option.option.name %>
+  </p>
+<% end %>
+<%= link_to 'Edit', edit_admin_product_path(@product) %> |
+<%= link_to 'Back', admin_products_path %>

@@ -59,11 +59,10 @@ Rails.application.routes.draw do
       resources :subcategories, only: %i[index create new edit update]
     end
 
-    resources :vendors do
-      resources :products do
-        resources :product_variants
-        resources :product_variant_options
-      end
+    resources :vendors 
+    resources :products do
+      resources :product_variants
+      resources :product_variant_options
     end
 
   end

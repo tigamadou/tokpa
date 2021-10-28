@@ -50,7 +50,8 @@
       <%= form.label :user %>
       <%= select_tag(:user_id, options_for_select(@users.collect{ |v| [v.profile.first_name,v.id] })) %>
     </div>
-  <% else %>
+  <% end %>
+  <% if action_name == "create" %>
     <div class="field">
       <%= form.label :user %>
       <%= select_tag(:user_id, options_for_select(@users.collect{ |v| [v.profile.first_name,v.id] },[vendor.user.profile.first_name,vendor.user.id ]),disabled:true) %>

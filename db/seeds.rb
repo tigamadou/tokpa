@@ -47,6 +47,31 @@ def create_vendors(n)
         create_vendor user
     end
 end
+
+def create_brands(n)
+    n.times do
+        name= Faker::Lorem.word
+        Brand.create(name: name, slug: name.parameterize)
+    end
+end
+
+def create_options(n)
+    n.times do
+        name= Faker::Lorem.word
+        Option.create(name: name, slug: name.parameterize)
+    end
+end
+
+def create_categories(n)
+    n.times do
+        name= Faker::Lorem.word
+        cat = Category.create(name: name, slug: name.parameterize, activated: true)
+        10.times do
+            name2= Faker::Lorem.word
+            Subcategory.create(name: name2, slug: name2.parameterize, category_id: cat.id)
+        end
+    end
+end
 admin = User.create(
     email: 'admin@tokpa.com',
     password: '123456',
@@ -75,3 +100,8 @@ create_profile(user)
 create_profile(vendor)
 create_vendor(vendor)
 create_vendors 9
+
+# Creating Brands
+create_brands(50)
+create_options(50)
+create_categories(10)
