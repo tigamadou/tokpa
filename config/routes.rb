@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
  
   # resources :product_variant_options
@@ -49,6 +50,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get '/', to: 'dashboard#index'
     resources :options
     resources :orders 
     resources :users

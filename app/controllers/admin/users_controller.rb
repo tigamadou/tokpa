@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_user!, :global_admin_role_required
   before_action :set_user, only: %i[ show edit update destroy ]
 
   def index

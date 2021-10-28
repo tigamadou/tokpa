@@ -1,4 +1,5 @@
 class Admin::OrderProductsController < ApplicationController
+  before_action :authenticate_user!, :global_admin_role_required
   before_action :set_order_product, only: %i[ show edit update destroy ]
 
   # GET /order_products or /order_products.json

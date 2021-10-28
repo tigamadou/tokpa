@@ -1,5 +1,7 @@
 class Admin::SubcategoriesController < ApplicationController
+  before_action :authenticate_user!, :global_admin_role_required
   before_action :set_subcategory, only: %i[ show edit update destroy ]
+  
 
   def index
     @subcategories = Category.find(params[:category_id]).subcategories
