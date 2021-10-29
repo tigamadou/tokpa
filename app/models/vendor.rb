@@ -10,14 +10,14 @@ class Vendor < ApplicationRecord
     validates :registration_number, presence: true
 
     
-    has_many :address_vendor
-    has_many :addresses, through: :address_vendor
-    has_many :order
-    has_many :product
+    has_many :address_vendor, dependent: :destroy 
+    has_many :addresses, through: :address_vendor, dependent: :destroy 
+    has_many :order, dependent: :destroy 
+    has_many :product, dependent: :destroy 
 
     has_many :favorites, class_name: 'Favorite', foreign_key: 'vendor_id', dependent: :destroy
-    has_many :followers, through: :favorites, source: 'user'
+    has_many :followers, through: :favorites, source: 'user', dependent: :destroy 
 
-    has_one :user_vendor, dependent: :destroy
+    has_one :user_vendor, dependent: :destroy, dependent: :destroy 
     has_one :user, through: :user_vendor, dependent: :destroy 
 end
