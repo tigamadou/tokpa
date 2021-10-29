@@ -743,7 +743,7 @@ def create_categories
     subcat = 0
     categories.map do |category|
         cat = Category.create(name: category.keys[0].to_s, slug: category.keys[0].to_s.parameterize)
-        cat.image.attach(io: File.open('app/assets/images/empty.jpg'), filename: 'empty.jpg',  identify: false)
+        cat.image.attach(io: File.open("app/assets/images/#{category.keys[0].to_s.parameterize}/1.jpg"), filename: 'empty.jpg',  identify: false)
         Subcategory.create(name: category.keys[0].to_s, slug: category.keys[0].to_s.parameterize, category_id: cat.id)
         category.values[0].map do |subcategorie|
             Subcategory.create(name: subcategorie, slug: subcategorie.parameterize, category_id: cat.id)

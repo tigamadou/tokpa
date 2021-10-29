@@ -54,7 +54,9 @@ def create_variants(n, product)
         )
 
         if(variant.save)
-            p "variant created!"
+            dir = "app/assets/images/#{product.subcategory.category.slug}/*.jpg"
+            images = Dir[dir].count { |file| File.file?(file) }
+            variant.image.attach(io: File.open("app/assets/images/#{product.subcategory.category.slug}/#{rand(1..images)}.jpg"), filename: 'empty.jpg',  identify: false)
         else
             p variant.errors
         end
