@@ -15,7 +15,7 @@ class Admin::ProductsController < ApplicationController
     @vendors = Vendor.all
     @brands = Brand.all
     @subcategories = Subcategory.all
-    2.times { @product.product_options.build }
+    Option.all.count.times{ @product.product_options.build }
     
   end
 

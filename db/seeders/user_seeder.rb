@@ -43,5 +43,5 @@ def initDefaultUser
     create_profile(admin)
     create_profile(user)
     create_profile(vendor)
-    create_vendor(vendor)
+    
 end

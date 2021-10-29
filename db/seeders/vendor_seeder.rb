@@ -11,11 +11,10 @@ def create_vendor(user)
         registration_number: Faker::IDNumber.valid
     )
     UserVendor.create(user_id: user.id, vendor_id: vendor.id)
+    create_products(10, vendor)
 end
 
-def create_products(n)
-    
-end
+
 
 def create_vendors(n)
     n.times do 
