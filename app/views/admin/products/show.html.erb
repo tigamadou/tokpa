@@ -55,6 +55,11 @@
   <thead>
     <tr>
       <th>Image</th>
+      <% @product.options.each do |option| %>
+        <th>
+          <%= option.name %>
+        </th>
+      <% end %>
       <th>Price</th>
       <th>Sku</th>
       <th>Quantity</th>
@@ -70,6 +75,11 @@
             <%= cl_image_tag variant.image.key, :width=>60, :crop=>"fill" %>
           <% end %>
         </td>
+        <% variant.product_variant_options.each do |option| %>
+          <td>
+            <%= option.value %>
+          </td>
+        <% end %>
         <td><%= variant.price %></td>
         <td><%= variant.sku %></td>
         <td><%= variant.quantity %></td>

@@ -1,9 +1,10 @@
 class Admin::ProductVariantsController < ApplicationController
   before_action :authenticate_user!, :global_admin_role_required
   before_action :set_product_variant, only: %i[ show edit update destroy ]
+  before_action :set_product
 
   def index
-    @variants = ProductVariant.all
+    @variants = @product.variants
   end
 
   def show
@@ -11,7 +12,7 @@ class Admin::ProductVariantsController < ApplicationController
 
   def new
     @variant = ProductVariant.new
-    @product = Product.find(params[:product_id])
+   
     @product.product_options.each do |production_option|
       @variant.product_variant_options.build([product_option_id: production_option.id])
     end
@@ -58,6 +59,9 @@ class Admin::ProductVariantsController < ApplicationController
   end
 
   private
+    def set_product
+      @product = Product.find(params[:product_id])
+    end
     def set_product_variant
       @variant = ProductVariant.find(params[:id])
     end
