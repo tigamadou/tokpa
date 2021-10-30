@@ -169,7 +169,8 @@ def create_brands
 
     puts 'Seeding brands...'
     elements.each do |element|
-        Brand.create(name: element, slug: element.parameterize)
+        brand = Brand.create(name: element, slug: element.parameterize, activated: true)
+        brand.image.attach(io: File.open("app/assets/images/brand.jpg"), filename: 'brand.jpg',  identify: false)
     end
 
     puts "#{elements.count} brands seeded"
