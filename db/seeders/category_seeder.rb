@@ -742,12 +742,14 @@ def create_categories
     puts 'seeding categories...'
     subcat = 0
     categories.map do |category|
-        cat = Category.create(name: category.keys[0].to_s, slug: category.keys[0].to_s.parameterize)
+        cat = Category.create(name: category.keys[0].to_s, slug: category.keys[0].to_s.parameterize, activated: true)
         cat.image.attach(io: File.open("app/assets/images/#{category.keys[0].to_s.parameterize}/1.jpg"), filename: 'empty.jpg',  identify: false)
         Subcategory.create(name: category.keys[0].to_s, slug: category.keys[0].to_s.parameterize, category_id: cat.id)
-        category.values[0].map do |subcategorie|
-            Subcategory.create(name: subcategorie, slug: subcategorie.parameterize, category_id: cat.id)
-            subcat += 1
+        category.values[0].map.with_index do |subcategorie,index|
+            if index <20
+                Subcategory.create(name: subcategorie, slug: subcategorie.parameterize, category_id: cat.id)
+                subcat += 1
+            end
         end
         
     end

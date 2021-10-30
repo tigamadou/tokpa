@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
   
   
-  mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
  
-  # resources :product_variant_options
-  # resources :options
-  # resources :cart_products
   
-  # resources :order_products
-  # resources :orders
+  
  
-  # resources :addresses
+  get 'categories/index'
+  get 'categories/show'
+  mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
+  
+  get '/query', to: 'home#search', as: :search
+  resources :categories, only: %i[show   index]
+  # get '/categories', to: 'categories#index', as: :categories
+  # get '/category/:category', to: 'categories#show', as: :categeory
+  get '/category/:category/:subcategories', to: 'subcategory#show', as: :subcategories
+  get '/category/:category/:subcategory', to: 'subcategory#show', as: :subcategory
+
+  get '/vendors/', to: 'vendor#index', as: :vendors
+  get '/vendors/:vendor', to: 'vendor#index', as: :vendor
   
   
   
@@ -22,6 +29,7 @@ Rails.application.routes.draw do
   
   scope '/account' do
     get '/edit', to: 'user#edit'
+    get '/cart', to: 'user#cart'
     patch '/update', to: 'user#update'
     put '/update', to: 'user#update'
 
@@ -35,18 +43,11 @@ Rails.application.routes.draw do
     end
 
     
-    # scope '/vendor' do
-    #   get '/new', to: 'vendor#new'
-    #   get '/', to: 'vendor#show'
-    #   get '/edit', to: 'vendor#edit'
-    #   patch '/update', to: 'vendor#update'
-    #   put '/update', to: 'vendor#update'
-    # end
-
+    
     resources :orders
     resources :addresses
     resources :vendors
-    resources :carts
+    
   end
 
   namespace :admin do

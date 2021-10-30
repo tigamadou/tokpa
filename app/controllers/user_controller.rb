@@ -1,9 +1,11 @@
 class UserController < ApplicationController
 	before_action :authenticate_user!
   before_action :check_profile, :check_vendor
+  layout "account"
   def index
-		
-    
+  end
+
+  def cart
   end
 
   private

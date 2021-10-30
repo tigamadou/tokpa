@@ -11,7 +11,7 @@ def create_vendor(user)
         registration_number: Faker::IDNumber.valid
     )
     UserVendor.create(user_id: user.id, vendor_id: vendor.id)
-    create_products(10, vendor)
+    create_products(5, vendor)
 end
 
 

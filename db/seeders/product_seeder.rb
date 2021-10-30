@@ -26,7 +26,7 @@ def create_products(n, vendor)
             ]
         )
         if(prod.save)
-            create_variants(rand(1..5),prod)
+            create_variants(2,prod)
         end   
         
     end
