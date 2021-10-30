@@ -55,19 +55,7 @@
         <%= link_to 'Tokpa', root_path, class: "navbar-brand fs-1"%>
       </div>
       <div class="header-center">
-        <div class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
-          <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-          <%= form_with(model: @product, url: search_path, method: 'GET') do |form| %>
-            <div class="header-search-wrapper search-wrapper-wide">
-              <div class="select-custom">
-                <%= form.select(:category_id, options_for_select(@categories.collect{ |v| [v.name,v.id] }),{:include_blank => "All Departments"}) %>
-              </div>
-              <label for="q" class="sr-only">Search</label>
-              <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required>
-              <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-            </div>
-          <% end %>
-        </div>
+        <%= render partial: 'layouts/search_form' %>
       </div>
       <div class="header-right">
         <div class="header-dropdown-link">
