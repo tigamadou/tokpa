@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :subcategory
   belongs_to :brand
   belongs_to :vendor
+  has_one :category, through: :subcategory
 
   has_many :variants, foreign_key: 'product_id',class_name: 'ProductVariant', dependent: :destroy 
   has_many :product_variant_options, through: :variants, dependent: :destroy 

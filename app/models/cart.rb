@@ -1,7 +1,14 @@
 class Cart < ApplicationRecord
-  validates :quantity, presence: true
   
-  belongs_to :user
-  has_many :product
-  has_many :products, through: :product
+  
+  has_many :cart_products
+  has_many :products, through: :cart_products
+
+  def sub_total
+    sum = 0
+    self.cart_products.each do |product|
+      sum+= product.total_price
+    end
+    return sum
+  end
 end

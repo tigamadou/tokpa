@@ -5,20 +5,20 @@ Rails.application.routes.draw do
   
   
  
-  get 'categories/index'
-  get 'categories/show'
+
   mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
   
   get '/query', to: 'home#search', as: :search
-  resources :categories, only: %i[show   index]
-  # get '/categories', to: 'categories#index', as: :categories
-  # get '/category/:category', to: 'categories#show', as: :categeory
-  get '/category/:category/:subcategories', to: 'subcategory#show', as: :subcategories
+  resources :categories, only: %i[show   index]  
+  get '/category/:category/', to: 'subcategory#show', as: :subcategories
   get '/category/:category/:subcategory', to: 'subcategory#show', as: :subcategory
+  resources :products, only: %i[show   index]  
 
   get '/vendors/', to: 'vendor#index', as: :vendors
   get '/vendors/:vendor', to: 'vendor#index', as: :vendor
   
+  post '/cart',to: 'cart#create',as: :create_cart
+  post '/add_to_cart',to: 'cart#save',as: :save_cart
   
   
   root 'home#index'

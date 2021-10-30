@@ -13,3 +13,10 @@
  *= require_self
  */
 
+.product-image-gallery{
+    display: block;
+    flex: auto;
+    .product-gallery-item{
+        flex: auto;
+    }
+}

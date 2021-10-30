@@ -1,131 +1,99 @@
- <%= render partial: "layouts/navbar" %>
-<%= render partial: "messages/notice" %>
+<%= render partial: "layouts/navbar" %>
 <main class="main">
-  <div class="mb-lg-2"></div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xl-9 col-xxl-8 offset-lg-3 offset-xxl-2">
-        <div class="intro-slider-container slider-container-ratio mb-2">
-          <div class="intro-slider owl-carousel owl-simple owl-nav-inside" data-toggle="owl" data-owl-options='{
-                                    "nav": false, 
-                                    "dots": true
-                                }'>
-            <div class="intro-slide">
-              <figure class="slide-image">
-                <picture>
-                  <source media="(max-width: 480px)" srcset="assets/images/demos/demo-14/slider/slide-1-480w.jpg">
-                  <img src="assets/images/demos/demo-14/slider/slide-1.jpg" alt="Image Desc">
-                </picture>
-              </figure>
-              <!-- End .slide-image -->
-              <div class="intro-content">
-                <h3 class="intro-subtitle">New Arrivals</h3>
-                <!-- End .h3 intro-subtitle -->
-                <h1 class="intro-title text-white">
-                  The New Way <br>
-                  To Buy Furniture
-                </h1>
-                <!-- End .intro-title -->
-                <div class="intro-text text-white">
-                  Spring Collections 2019
-                </div>
-                <!-- End .intro-text -->
-                <a href="category.html" class="btn btn-primary">
-                  <span>Discover Now</span>
-                  <i class="icon-long-arrow-right"></i>
-                </a>
-              </div>
-              <!-- End .intro-content -->
+  <div class="intro-slider-container">
+    <div class="intro-slider owl-carousel owl-simple owl-nav-inside" data-toggle="owl" data-owl-options='{
+                        "nav": false,
+                        "responsive": {
+                            "992": {
+                                "nav": true
+                            }
+                        }
+                    }'>
+      <div class="intro-slide" style="background-image: url(assets/images/demos/demo-13/slider/slide-1.png);">
+        <div class="container intro-content">
+          <div class="row">
+            <div class="col-auto offset-lg-3 intro-col">
+              <h3 class="intro-subtitle">Trade-In Offer</h3>
+              <!-- End .h3 intro-subtitle -->
+              <h1 class="intro-title">MacBook Air <br>
+                Latest Model
+                <span>
+                  <sup class="font-weight-light">from</sup>
+                  <span class="text-primary">$999<sup>,99</sup></span>
+                </span>
+              </h1>
+              <!-- End .intro-title -->
+              <a href="category.html" class="btn btn-outline-primary-2">
+                <span>Shop Now</span>
+                <i class="icon-long-arrow-right"></i>
+              </a>
             </div>
-            <!-- End .intro-slide -->
-            <div class="intro-slide">
-              <figure class="slide-image">
-                <picture>
-                  <source media="(max-width: 480px)" srcset="assets/images/demos/demo-14/slider/slide-2-480w.jpg">
-                  <img src="assets/images/demos/demo-14/slider/slide-2.jpg" alt="Image Desc">
-                </picture>
-              </figure>
-              <!-- End .slide-image -->
-              <div class="intro-content">
-                <h3 class="intro-subtitle">Hottest Deals</h3>
-                <!-- End .h3 intro-subtitle -->
-                <h1 class="intro-title">
-                  <span>Wherever You Go</span> <br>
-                  DJI Mavic 2 Pro
-                </h1>
-                <!-- End .intro-title -->
-                <div class="intro-price">
-                  <sup>from</sup>
-                  <span>
-                    $1,948<sup>.99</sup>
-                  </span>
-                </div>
-                <!-- End .intro-price -->
-                <a href="category.html" class="btn btn-primary">
-                  <span>Discover Here</span>
-                  <i class="icon-long-arrow-right"></i>
-                </a>
-              </div>
-              <!-- End .intro-content -->
-            </div>
-            <!-- End .intro-slide -->
-            <div class="intro-slide">
-              <figure class="slide-image">
-                <picture>
-                  <source media="(max-width: 480px)" srcset="assets/images/demos/demo-14/slider/slide-3-480w.jpg">
-                  <img src="assets/images/demos/demo-14/slider/slide-3.jpg" alt="Image Desc">
-                </picture>
-              </figure>
-              <!-- End .slide-image -->
-              <div class="intro-content">
-                <h3 class="intro-subtitle">Limited Quantities</h3>
-                <!-- End .h3 intro-subtitle -->
-                <h1 class="intro-title">
-                  Refresh Your <br>
-                  Wardrobe
-                </h1>
-                <!-- End .intro-title -->
-                <div class="intro-text">
-                  Summer Collection 2019
-                </div>
-                <!-- End .intro-text -->
-                <a href="category.html" class="btn btn-primary">
-                  <span>Discover Now</span>
-                  <i class="icon-long-arrow-right"></i>
-                </a>
-              </div>
-              <!-- End .intro-content -->
-            </div>
-            <!-- End .intro-slide -->
+            <!-- End .col-auto offset-lg-3 -->
           </div>
-          <!-- End .intro-slider owl-carousel owl-simple -->
-          <span class="slider-loader"></span><!-- End .slider-loader -->
+          <!-- End .row -->
         </div>
-        <!-- End .intro-slider-container -->
+        <!-- End .container intro-content -->
       </div>
-      <!-- End .col-xl-9 col-xxl-10 -->
-      <div class="col-xl-3 col-xxl-2 d-none d-xxl-block">
-        <div class="banner banner-overlay  banner-content-stretch ">
-          <a href="#">
-            <img src="assets/images/demos/demo-14/banners/banner-1.png" alt="Banner img desc">
-          </a>
-          <div class="banner-content text-right">
-            <div class="price text-center">
-              <sup class="text-white">from</sup>
-              <span class="text-white">
-                <strong>$199</strong><sup class="text-white">,99</sup>
-              </span>
+      <!-- End .intro-slide -->
+      <div class="intro-slide" style="background-image: url(assets/images/demos/demo-13/slider/slide-2.jpg);">
+        <div class="container intro-content">
+          <div class="row">
+            <div class="col-auto offset-lg-3 intro-col">
+              <h3 class="intro-subtitle">Trevel & Outdoor</h3>
+              <!-- End .h3 intro-subtitle -->
+              <h1 class="intro-title">Original Outdoor <br>
+                Beanbag
+                <span>
+                  <sup class="font-weight-light line-through">$89,99</sup>
+                  <span class="text-primary">$29<sup>,99</sup></span>
+                </span>
+              </h1>
+              <!-- End .intro-title -->
+              <a href="category.html" class="btn btn-outline-primary-2">
+                <span>Shop Now</span>
+                <i class="icon-long-arrow-right"></i>
+              </a>
             </div>
-            <a href="#" class="banner-link">Discover Now <i class="icon-long-arrow-right"></i></a>
+            <!-- End .col-auto offset-lg-3 -->
           </div>
-          <!-- End .banner-content -->
+          <!-- End .row -->
         </div>
-        <!-- End .banner banner-overlay -->
+        <!-- End .container intro-content -->
       </div>
-      <!-- End .col-xl-3 col-xxl-2 -->
+      <!-- End .intro-slide -->
+      <div class="intro-slide" style="background-image: url(assets/images/demos/demo-13/slider/slide-3.jpg);">
+        <div class="container intro-content">
+          <div class="row">
+            <div class="col-auto offset-lg-3 intro-col">
+              <h3 class="intro-subtitle">Fashion Promotions</h3>
+              <!-- End .h3 intro-subtitle -->
+              <h1 class="intro-title">Tan Suede <br>
+                Biker Jacket
+                <span>
+                  <sup class="font-weight-light line-through">$240,00</sup>
+                  <span class="text-primary">$180<sup>,99</sup></span>
+                </span>
+              </h1>
+              <!-- End .intro-title -->
+              <a href="category.html" class="btn btn-outline-primary-2">
+                <span>Shop Now</span>
+                <i class="icon-long-arrow-right"></i>
+              </a>
+            </div>
+            <!-- End .col-auto offset-lg-3 -->
+          </div>
+          <!-- End .row -->
+        </div>
+        <!-- End .container intro-content -->
+      </div>
+      <!-- End .intro-slide -->
     </div>
-    <!-- End .row -->
+    <!-- End .owl-carousel owl-simple -->
+    <span class="slider-loader"></span><!-- End .slider-loader -->
   </div>
+  <!-- End .intro-slider-container -->
+  <div class="mb-4"></div>
+  <!-- End .mb-2 -->
   <div class="page-content">
     <div class="container-fluid">
       <div class="categories-page">
@@ -176,30 +144,11 @@
             </div>
           </div>
           <div class="row">
-            <% @categories.offset(1).limit(1).each do |category| %>
-              <div class="col-lg-2">
-                <%= render 'home/category_card', category: category, width: 400, height: 1500%>
+            <% @categories.each do |category| %>
+              <div class="col-lg-3">
+                <%= render 'categories/category_card', category: category, width:800, height: 400%>
               </div>
             <% end %>
-            <div class="col-lg-10">
-              <div class="row">
-                <% @categories.offset(0).limit(1).each do |category| %>
-                  <div class="col-lg-8">
-                    <%= render 'home/category_card', category: category, width:800, height: 200%>
-                  </div>
-                <% end %>
-                <% @categories.offset(2).limit(1).each do |category| %>
-                  <div class="col-lg-4">
-                    <%= render 'home/category_card', category: category, width:800, height: 400%>
-                  </div>
-                <% end %>
-                <% @categories.offset(3).each do |category| %>
-                  <div class="col-lg-4">
-                    <%= render 'home/category_card', category: category, width:800, height: 400%>
-                  </div>
-                <% end %>
-              </div>
-            </div>
           </div>
         </div>
       </div>

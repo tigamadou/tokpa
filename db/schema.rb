@@ -108,11 +108,9 @@ ActiveRecord::Schema.define(version: 2021_10_24_232921) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.decimal "total", null: false
-    t.bigint "user_id", null: false
+    t.decimal "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -307,7 +305,6 @@ ActiveRecord::Schema.define(version: 2021_10_24_232921) do
   add_foreign_key "address_vendors", "vendors"
   add_foreign_key "cart_products", "carts"
   add_foreign_key "cart_products", "products"
-  add_foreign_key "carts", "users"
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "vendors"
   add_foreign_key "order_products", "orders"
