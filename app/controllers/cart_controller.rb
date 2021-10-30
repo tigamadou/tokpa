@@ -1,6 +1,7 @@
 class CartController < ApplicationController
-  before_action :set_cart
+  before_action :set_cart,:set_shop_datas
   def show
+    @cart = @current_cart
   end
 
   
@@ -9,13 +10,12 @@ class CartController < ApplicationController
   end
 
   def create    
-    # byebug
     chosen_product = Product.find(params[:cart][:product_id])
     current_cart = @current_cart
   
     if current_cart.products.include?(chosen_product)
       @cart_product = current_cart.cart_products.find_by(:product_id => chosen_product)     
-      @cart_product.quantity += 1
+      @cart_product.quantity += params[:cart][:quantity].to_i
     else
       @cart_product = CartProduct.new
       @cart_product.cart = current_cart
@@ -24,7 +24,7 @@ class CartController < ApplicationController
   
     
     @cart_product.save
-    redirect_to product_path(chosen_product.slug)
+    redirect_to show_cart_path
     
     
 
@@ -57,7 +57,7 @@ class CartController < ApplicationController
 
   private
     def set_cart
-      session[:cart]= [] if !session[:cart]
+      
     end
 
     def cart_params

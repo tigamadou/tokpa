@@ -8,24 +8,23 @@ Rails.application.routes.draw do
 
   mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
   
+  root 'home#index'
   get '/query', to: 'home#search', as: :search
-  resources :categories, only: %i[show   index]  
   get '/category/:category/', to: 'subcategory#show', as: :subcategories
   get '/category/:category/:subcategory', to: 'subcategory#show', as: :subcategory
-  resources :products, only: %i[show   index]  
-
   get '/vendors/', to: 'vendor#index', as: :vendors
   get '/vendors/:vendor', to: 'vendor#index', as: :vendor
-  
+  get '/cart', to: 'cart#show', as: :show_cart
   post '/cart',to: 'cart#create',as: :create_cart
-  post '/add_to_cart',to: 'cart#save',as: :save_cart
-  
-  
-  root 'home#index'
-  devise_for :users, controllers: { sessions: "session",registrations:'users/registrations'}  
-  
-  
   get '/account', to: 'user#index', as: :user_root
+  devise_for :users, controllers: { sessions: "session",registrations:'users/registrations'}  
+  resources :categories, only: %i[show   index]  
+  resources :products, only: %i[show   index]  
+
+  
+  
+  
+  
   
   scope '/account' do
     get '/edit', to: 'user#edit'
