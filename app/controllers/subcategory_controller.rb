@@ -1,8 +1,14 @@
 class SubcategoryController < ApplicationController
-  before_action :set_shop_datas
+  before_action :set_shop_datas, :set_subcategory
   def index
   end
 
   def show
+  end
+
+  private
+  def set_subcategory
+    @subcategory = Subcategory.includes([:products,:category]).where("subcategories.slug = '#{params[:subcategory]}'").references(:subcategories, :products).first
+    
   end
 end
