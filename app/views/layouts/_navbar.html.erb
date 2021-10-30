@@ -113,13 +113,11 @@
                             </div>
                             <div class="col-md-4">
                               <div class="banner banner-overlay">
-                                <a href="category.html" class="banner banner-menu">
+                                <%= link_to  category_path(category.slug), class: 'banner banner-menu' do %>
                                   <% if category.image.attached? %>
-                                    <%= link_to  category_path(category.slug), class: 'icon-laptop' do %>
-                                      <%= cl_image_tag category.image.key, :width=>280,:height => 440, :crop=>"fill" %>
-                                    <% end %>
+                                    <%= cl_image_tag category.image.key, :width=>280,:height => 440, :crop=>"fill" %>
                                   <% end %>
-                                </a>
+                                <% end %>
                               </div>
                             </div>
                           </div>
