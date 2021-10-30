@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "session",registrations:'users/registrations'}  
   resources :categories, only: %i[show   index]  
   resources :products, only: %i[show   index]  
+  resources :cart_products, only: [:destroy]
 
   
   

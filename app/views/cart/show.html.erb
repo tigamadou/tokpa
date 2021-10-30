@@ -28,74 +28,46 @@
                         <h3 class="product-title">
                           <%= link_to "#{cart_product.product.name}", product_path(cart_product.product.slug)  %>
                         </h3>
-                        <!-- End .product-title -->
                       </div>
-                      <!-- End .product -->
                     </td>
                     <td class="price-col"> <%= cart_product.product.variants.first.price%></td>
                     <td class="quantity-col">
                       <div class="cart-product-quantity">
                         <input type="number" class="form-control" value="<%= cart_product.quantity %>" min="1"  step="1" data-decimals="0" disabled>
                       </div>
-                      <!-- End .cart-product-quantity -->
                     </td>
                     <td class="total-col"><%= cart_product.total_price%></td>
-                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
+                    <td class="remove-col">
+                      <%= link_to cart_product, method: :delete, class: 'btn-remove', method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        <i class="icon-close"></i>
+                      <% end %>
+                    </td>
                   </tr>
                 <% end %>
               </tbody>
             </table>
-            <!-- End .table table-wishlist -->
-            <div class="cart-bottom">
-              <div class="cart-discount">
-                <form action="#">
-                  <div class="input-group">
-                    <input type="text" class="form-control" required placeholder="coupon code">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
-                    </div>
-                    <!-- .End .input-group-append -->
-                  </div>
-                  <!-- End .input-group -->
-                </form>
-              </div>
-              <!-- End .cart-discount -->
-              <a href="#" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i class="icon-refresh"></i></a>
-            </div>
-            <!-- End .cart-bottom -->
           </div>
-          <!-- End .col-lg-9 -->
           <aside class="col-lg-3">
             <div class="summary summary-cart">
               <h3 class="summary-title">Cart Total</h3>
-              <!-- End .summary-title -->
               <table class="table table-summary">
                 <tbody>
                   <tr class="summary-subtotal">
                     <td>Subtotal:</td>
                     <td><%= @cart.sub_total%></td>
                   </tr>
-                  <!-- End .summary-shipping-estimate -->
                   <tr class="summary-total">
                     <td>Total:</td>
                     <td><%= @cart.sub_total%></td>
                   </tr>
-                  <!-- End .summary-total -->
                 </tbody>
               </table>
-              <!-- End .table table-summary -->
               <a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</a>
             </div>
-            <!-- End .summary -->
-            <a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
+            <%= link_to 'CONTINUE SHOPPING', root_path, class: 'btn btn-outline-dark-2 btn-block mb-3'%>
           </aside>
-          <!-- End .col-lg-3 -->
         </div>
-        <!-- End .row -->
       </div>
-      <!-- End .container -->
     </div>
-    <!-- End .cart -->
   </div>
-  <!-- End .page-content -->
-</main><!-- End .main -->
+</main>

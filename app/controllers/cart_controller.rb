@@ -15,13 +15,13 @@ class CartController < ApplicationController
   
     if current_cart.products.include?(chosen_product)
       @cart_product = current_cart.cart_products.find_by(:product_id => chosen_product)     
-      @cart_product.quantity += params[:cart][:quantity].to_i
+      
     else
       @cart_product = CartProduct.new
       @cart_product.cart = current_cart
       @cart_product.product = chosen_product
     end
-  
+    @cart_product.quantity += params[:cart][:quantity].to_i
     
     @cart_product.save
     redirect_to show_cart_path
