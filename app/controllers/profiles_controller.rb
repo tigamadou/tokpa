@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  layout "account"
+  
   before_action :authenticate_user!
   before_action :set_profile, only: %i[ show edit update destroy ]
 

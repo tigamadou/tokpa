@@ -4,31 +4,25 @@ class AddressesController < ApplicationController
 
   before_action :set_address, only: %i[ show edit update destroy ]
 
-  # GET /addresses or /addresses.json
   def index
     @addresses = current_user.profile.addresses
   end
 
-  # GET /addresses/1 or /addresses/1.json
   def show
   end
 
-  # GET /addresses/new
   def new
     @address = Address.new
   end
 
-  # GET /addresses/1/edit
   def edit
   end
 
-  # POST /addresses or /addresses.json
   def create
     @address = Address.new(address_params)
 
     respond_to do |format|
       if @address.save
-        # current_user.profile.address_profiles.build(id: @address.id)
         AddressProfile.create(profile_id: current_user.profile.id, address_id: @address.id)
         
         format.html { redirect_to @address, notice: "Address was successfully created." }
@@ -40,7 +34,6 @@ class AddressesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /addresses/1 or /addresses/1.json
   def update
     respond_to do |format|
       if @address.update(address_params)
@@ -53,7 +46,6 @@ class AddressesController < ApplicationController
     end
   end
 
-  # DELETE /addresses/1 or /addresses/1.json
   def destroy
     @address.destroy
     respond_to do |format|
@@ -63,12 +55,10 @@ class AddressesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_address
       @address = Address.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def address_params
       params.require(:address).permit(:name, :line_1, :line_2, :country, :city, :zip, :long, :lat)
     end

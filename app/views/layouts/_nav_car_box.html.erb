@@ -35,7 +35,11 @@
       </div>
       <div class="dropdown-cart-action">
         <%= link_to 'View Cart', show_cart_path, class: 'btn btn-primary' %>
-        <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+        <% if @current_cart.sub_total > 0 %>
+          <%= link_to new_order_path, class:'btn btn-outline-primary-2' do %>
+            <span>Checkout</span><i class="icon-long-arrow-right"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>
