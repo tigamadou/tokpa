@@ -1,5 +1,8 @@
-<h1>Options</h1>
-<table>
+<div class='d-flex justify-content-between align-items-center'>
+  <h1>Options</h1>
+  <%= link_to 'New Option', new_admin_option_path, class: 'btn btn-primary' %>
+</div>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,4 +23,3 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'New Option', new_admin_option_path %>

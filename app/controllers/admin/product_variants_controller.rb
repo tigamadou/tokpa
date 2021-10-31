@@ -2,7 +2,7 @@ class Admin::ProductVariantsController < ApplicationController
   before_action :authenticate_user!, :global_admin_role_required
   before_action :set_product_variant, only: %i[ show edit update destroy ]
   before_action :set_product
-
+  layout 'admin'
   def index
     @variants = @product.variants
   end

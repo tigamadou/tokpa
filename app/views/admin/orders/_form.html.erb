@@ -1,8 +1,7 @@
-<%= form_with(model: order) do |form| %>
+<%= form_with(model: order, url: url) do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
       <ul>
         <% order.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,32 +9,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :reference %>
-    <%= form.text_field :reference %>
+    <%= form.text_field :reference, class: "form-control" %>
   </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :total %>
-    <%= form.text_field :total %>
+    <%= form.text_field :total, class: "form-control"  %>
   </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :paid %>
     <%= form.check_box :paid %>
   </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.text_field :user_id, class: "form-control"  %>
   </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :vendor_id %>
-    <%= form.text_field :vendor_id %>
+    <%= form.text_field :vendor_id, class: "form-control" %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

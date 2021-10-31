@@ -1,5 +1,8 @@
-<h1>Brands</h1>
-<table>
+<div class='d-flex justify-content-between align-items-center'>
+  <h1>Brands</h1>
+  <%= link_to 'New Brand', new_admin_brand_path, class: 'btn btn-primary' %>
+</div>
+<table class="table">
   <thead>
     <tr>
       <th>Image</th>
@@ -26,4 +29,3 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'New Brand', new_admin_brand_path %>

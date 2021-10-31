@@ -1,4 +1,6 @@
+<div class="mb-2">
+  <%= link_to 'Back', admin_options_path, class: 'btn btn-light' %>
+  <%= link_to 'Show', admin_option_path(@option), class: 'btn btn-primary' %>
+</div>
 <h1>Editing Option</h1>
 <%= render 'form', option: @option, url: admin_option_path(@option) %>
-<%= link_to 'Show', admin_option_path(@option) %> |
-<%= link_to 'Back', admin_options_path %>

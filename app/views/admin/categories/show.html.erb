@@ -14,7 +14,7 @@
 </p>
 <br/>
 <h1>Subcategories</h1>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -38,5 +38,5 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Edit', edit_admin_category_path(@category) %> |
-<%= link_to 'Back', admin_categories_path %>
+<%= link_to 'Edit', edit_admin_category_path(@category), class: 'btn btn-primary' %> |
+<%= link_to 'Back', admin_categories_path, class: 'btn btn-primary' %>

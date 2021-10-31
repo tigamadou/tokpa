@@ -1,11 +1,13 @@
-<p id="notice"><%= notice %></p>
-<h1>Products</h1>
-<table>
+<div class='d-flex justify-content-between align-items-center'>
+  <h1>Products</h1>
+  <%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary' %>
+</div>
+<table class="table ">
   <thead>
     <tr>
       <th>Name</th>
       <th>Slug</th>
-      <th>Description</th>
+      <th style="width:15%">Description</th>
       <th>Active</th>
       <th>Available</th>
       <th>Validated</th>
@@ -20,7 +22,7 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= product.slug %></td>
-        <td><%= product.description %></td>
+        <td><%= product.description.truncate(50) %></td>
         <td><%= product.active %></td>
         <td><%= product.available %></td>
         <td><%= product.validated %></td>
@@ -35,4 +37,3 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'New Product', new_admin_product_path %>

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Tokpa</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to admin_dashboard_url, class: 'nav-link'  do%>
+            Dasboard
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to admin_brands_url, class: 'nav-link'  do%>
+            Brands
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to admin_categories_url, class: 'nav-link'  do%>
+            Categpries
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to admin_products_url, class: 'nav-link'  do%>
+            Products
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to admin_options_url, class: 'nav-link'  do%>
+            Options
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to admin_orders_url, class: 'nav-link'  do%>
+            Orders
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

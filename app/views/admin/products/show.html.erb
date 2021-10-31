@@ -1,57 +1,77 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-<p>
-  <strong>Slug:</strong>
-  <%= @product.slug %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-<p>
-  <strong>Active:</strong>
-  <%= @product.active %>
-</p>
-<p>
-  <strong>Available:</strong>
-  <%= @product.available %>
-</p>
-<p>
-  <strong>Validated:</strong>
-  <%= @product.validated %>
-</p>
-<p>
-  <strong>Category:</strong>
-  <%= @product.subcategory.category.name %>
-</p>
-<p>
-  <strong>Subcategory:</strong>
-  <%= @product.subcategory.name %>
-</p>
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand.name %>
-</p>
-<p>
-  <strong>Vendor:</strong>
-  <%= @product.vendor.name %>
-</p>
-<%= link_to 'Edit', edit_admin_product_path(@product) %> |
-<%= link_to 'Back', admin_products_path %>
-<h1>Options <%=@product.product_options.count %></h1>
-<% @product.product_options.each_with_index do  |product_option,index|%>
-  <p>
-    <strong> Name </strong>
-    <%= product_option.option.name %>
-  </p>
-<% end %>
-<h1>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-primary' %>
+    <%= link_to 'Back', admin_products_path, class: 'btn btn-light'  %>
+    <table class="table">
+      <tr>
+        <td><strong>Name:</strong>
+          <%= @product.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Description:</b></p>
+          <%= @product.description  %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table class="table">
+            <tr>
+              <td>Active : <%= @product.active  %></td>
+              <td>Available: <%= @product.available %></td>
+              <td>Validated:   <%= @product.validated %></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table class="table">
+            <tr>
+              <td>
+                <p>
+                  <strong>Category:</strong>
+                  <%= @product.subcategory.category.name %>
+                </p>
+              </td>
+              <td>
+                <p>
+                  <strong>Subcategory:</strong>
+                  <%= @product.subcategory.name %>
+                </p>
+              </td>
+              <td>
+                <p>
+                  <strong>Brand:</strong>
+                  <%= @product.brand.name %>
+                </p>
+              </td>
+              <td>
+                <p>
+                  <strong>Vendor:</strong>
+                  <%= @product.vendor.name %>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="mb-3">
+  <h3>Options <%=@product.product_options.count %></h3>
+  <% @product.product_options.each_with_index do  |product_option,index|%>
+    <p class="btn btn-light btn-rounded">
+      <%= product_option.option.name %>
+    </p>
+  <% end %>
+</div>
+<h3>
   <%= link_to "Product Variants #{@product.variants.count}", admin_product_variants_path(@product)%>
-</h1>
-<table>
+</h3>
+<table class="table">
   <thead>
     <tr>
       <th>Image</th>

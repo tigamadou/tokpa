@@ -1,7 +1,7 @@
 class Admin::OptionsController < ApplicationController
   before_action :authenticate_user!, :global_admin_role_required
   before_action :set_admin_option, only: %i[ show edit update destroy ]
-
+  layout 'admin'
   def index
     @options = Option.all
   end

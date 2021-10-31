@@ -9,68 +9,68 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :active %>
     <%= form.check_box :active %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :available %>
     <%= form.check_box :available %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :validated %>
     <%= form.check_box :validated %>
   </div>
   <% if action_name == "new" ||  action_name == "create" %>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :vendor %>
-      <%= form.select(:vendor_id, options_for_select(Vendor.all.collect{ |v| [v.name,v.id] }),{:include_blank => "Select Vendor"}) %>
+      <%= form.select(:vendor_id, options_for_select(Vendor.all.collect{ |v| [v.name,v.id] }),{:include_blank => "Select Vendor"}, class: 'form-control') %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :brand %>
-      <%= form.select(:brand_id, options_for_select(Brand.all.collect{ |v| [v.name,v.id] }),{:include_blank => "Select Brand"}) %>
+      <%= form.select(:brand_id, options_for_select(Brand.all.collect{ |v| [v.name,v.id] }),{:include_blank => "Select Brand"}, class: 'form-control') %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :subcategory %>
-      <%= form.select(:subcategory_id, options_for_select(Subcategory.all.collect{ |v| [v.name,v.id] }),{:include_blank => "Select Subcategory"}) %>
+      <%= form.select(:subcategory_id, options_for_select(Subcategory.all.collect{ |v| [v.name,v.id] }),{:include_blank => "Select Subcategory"}, class: 'form-control') %>
     </div>
   <% end %>
   <% if action_name == "edit" %>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :vendor %>
-      <%= form.select(:vendor_id, options_for_select(Vendor.all.collect{ |v| [v.name,v.id] },[product.vendor.name,product.vendor.id ]),{:include_blank => "Select Vendor"},disabled: true) %>
+      <%= form.select(:vendor_id, options_for_select(Vendor.all.collect{ |v| [v.name,v.id] },[product.vendor.name,product.vendor.id ]),{:include_blank => "Select Vendor"},disabled: true, class: 'form-control') %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :brand %>
-      <%= form.select(:brand_id, options_for_select(Brand.all.collect{ |v| [v.name,v.id] },[product.brand.name,product.brand.id ]),{:include_blank => "Select Brand"}) %>
+      <%= form.select(:brand_id, options_for_select(Brand.all.collect{ |v| [v.name,v.id] },[product.brand.name,product.brand.id ]),{:include_blank => "Select Brand"}, class: 'form-control') %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :subcategory %>
-      <%= form.select(:subcategory_id, options_for_select(Subcategory.all.collect{ |v| [v.name,v.id] },[product.subcategory.name,product.subcategory.id ]),{:include_blank => "Select Subcategory"}) %>
+      <%= form.select(:subcategory_id, options_for_select(Subcategory.all.collect{ |v| [v.name,v.id] },[product.subcategory.name,product.subcategory.id ]),{:include_blank => "Select Subcategory"}, class: 'form-control') %>
     </div>
   <% end %>
   <h1>Options <%=product.product_options.count %></h1>
   <%= form.fields_for :product_options do |product_option_form| %>
-    <div class="field">
+    <div class="form-group">
       <%= product_option_form.label :product_options %>
-      <%= product_option_form.select(:option_id, Option.all.collect{ |v| [v.name,v.id] },{:include_blank => "Select Option"}) %>
+      <%= product_option_form.select(:option_id, Option.all.collect{ |v| [v.name,v.id] },{:include_blank => "Select Option"}, class: 'form-control') %>
     </div>
     <% if product.product_variant_options.count == 0%>
-      <div class="field">
+      <div class="form-group">
         <%= product_option_form.label :destroy %>
         <%= product_option_form.check_box :_destroy %>
       </div>
     <% end %>
   <% end %>
-  <div class="actions">
+  <div class="form-group">
     <%= form.submit %>
   </div>
 <% end %>

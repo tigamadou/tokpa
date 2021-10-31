@@ -15,31 +15,31 @@
       <%= cl_image_tag variant.image.key, :width=>500, :crop=>"fill" %>
     <% end %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image,class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
-    <%= form.text_field :price, required: :true %>
+    <%= form.text_field :price, required: :true,class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :sku %>
-    <%= form.text_field :sku, required: :true %>
+    <%= form.text_field :sku, required: :true,class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity, required: :true %>
+    <%= form.number_field :quantity, required: :true,class: 'form-control' %>
   </div>
   <h1>Options <%=@product.options.count %></h1>
   <%= form.fields_for :product_variant_options do |option_form| %>
-    <div class="field">
+    <div class="form-group">
       <%= option_form.label "#{ProductOption.find(option_form.object.product_option_id).option.name}" %>
       <%= option_form.hidden_field :product_option_id,value: "#{option_form.object.product_option_id }" %>
-      <%= option_form.text_field :value, required: :true %>
+      <%= option_form.text_field :value, required: :true,class: 'form-control' %>
     </div>
   <% end %>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save',class: 'btn btn-primary' %>
   </div>
 <% end %>
