@@ -1,4 +1,4 @@
-class Users::SessionController < Devise::SessionsController
+class Users::SessionsController < Devise::SessionsController
     layout "devise"
     after_action :after_login, :only => :create
     before_action :after_logout, :only => :destroy

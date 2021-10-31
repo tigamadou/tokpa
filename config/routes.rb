@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/guest/user', to: 'home#guest_user', as: :guest_user
   get '/guest/admin', to: 'home#guest_admin', as: :guest_admin
 
-  devise_for :users, controllers: { sessions:'users/session',registrations:'users/registrations'}  
+  devise_for :users, controllers: { sessions:'users/sessions',registrations:'users/registrations'}  
   resources :categories, only: %i[show   index]  
   resources :products, only: %i[show   index]  
   resources :cart_products, only: [:destroy]
