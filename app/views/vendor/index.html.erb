@@ -1,51 +1,46 @@
-<%= render partial: "layouts/navbar" %>
-<main class="main pt-2">
-  <div class="page-content">
-    <div class="container">
-      <div class="products mb-3">
-        <% @vendors.each do |vendor| %>
-          <div class="product product-list">
-            <div class="row">
-              <div class="col-6 col-lg-3">
-                <figure class="product-media">
-                  <% if vendor.verified %>
-                    <span class="product-label label-new">Verified</span>
-                  <% end %>
-                  <%= link_to  vendor_path(vendor) do %>
-                    <% if vendor.image.attached? %>
-                      <%= cl_image_tag vendor.image.key, :width=> 500,:height => 500, :crop=>"fill", class: 'product-image' %>
-                    <% end %>
-                  <% end %>
-                </figure>
+<div class="container">
+  <div class="products mb-3">
+    <% @vendors.each do |vendor| %>
+      <div class="product product-list">
+        <div class="row">
+          <div class="col-6 col-lg-3">
+            <figure class="product-media">
+              <% if vendor.verified %>
+                <span class="product-label label-new">Verified</span>
+              <% end %>
+              <%= link_to  vendor_path(vendor) do %>
+                <% if vendor.image.attached? %>
+                  <%= cl_image_tag vendor.image.key, :width=> 500,:height => 500, :crop=>"fill", class: 'product-image' %>
+                <% end %>
+              <% end %>
+            </figure>
+          </div>
+          <div class="col-lg-6">
+            <div class="product-body product-action-inner">
+              <!-- End .product-cat -->
+              <h3 class="product-title">
+                <%= link_to "#{vendor.name}", vendor_path(vendor) %>
+              </h3>
+              <!-- End .product-title -->
+              <div class="product-content">
+                <p>
+                  <%= vendor.description.truncate(100)%>
+                </p>
               </div>
-              <div class="col-lg-6">
-                <div class="product-body product-action-inner">
-                  <!-- End .product-cat -->
-                  <h3 class="product-title">
-                    <%= link_to "#{vendor.name}", vendor_path(vendor) %>
-                  </h3>
-                  <!-- End .product-title -->
-                  <div class="product-content">
-                    <p>
-                      <%= vendor.description.truncate(100)%>
-                    </p>
-                  </div>
-                  <!-- End .product-content -->
-                  <div class="product-nav product-nav-thumbs">
-                    <% vendor.products.each do |product| %>
-                      <%= link_to  product_path(product.slug) do %>
-                        <% if product.variants.first.image.attached? %>
-                          <%= cl_image_tag product.variants.first.image.key, :width=> 60,:height => 60, :crop=>"fill" %>
-                        <% end %>
-                      <% end %>
+              <!-- End .product-content -->
+              <div class="product-nav product-nav-thumbs">
+                <% vendor.products.each do |product| %>
+                  <%= link_to  product_path(product.slug) do %>
+                    <% if product.variants.first.image.attached? %>
+                      <%= cl_image_tag product.variants.first.image.key, :width=> 60,:height => 60, :crop=>"fill" %>
                     <% end %>
-                  </div>
-                </div>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>
-        <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-</main>
+</div>

@@ -54,12 +54,10 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.where(slug: params[:id]).first
     end
 
-    # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:name, :slug, :description, :active, :available, :validated, :subcategory_id, :brand_id, :vendor_id)
     end

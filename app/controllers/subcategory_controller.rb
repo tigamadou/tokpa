@@ -1,5 +1,5 @@
 class SubcategoryController < ApplicationController
-  before_action :set_shop_datas, :set_subcategory
+  before_action :set_subcategory
   def index
   end
 

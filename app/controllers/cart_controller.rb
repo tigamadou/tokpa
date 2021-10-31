@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  before_action :set_cart,:set_shop_datas
+  before_action :set_cart
   def show
     @cart = @current_cart
   end

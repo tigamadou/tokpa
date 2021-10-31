@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_shop_datas, :set_category
+  before_action :set_category
   
   def index
   end

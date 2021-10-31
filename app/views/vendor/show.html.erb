@@ -1,59 +1,54 @@
-<%= render partial: "layouts/navbar" %>
-<main class="main">
-  <div class="page-content">
-    <div class="container">
-      <div class="vendor_page">
-        <div class="vandor_page_header" style="background-image: url(<%= cl_image_path @vendor.cover.key %>)">
-          <div class="vendor_header_content">
-            <div class="vendor_image">
+<div class="container">
+  <div class="vendor_page">
+    <div class="vandor_page_header" style="background-image: url(<%= cl_image_path @vendor.cover.key %>)">
+      <div class="vendor_header_content">
+        <div class="vendor_image">
+        </div>
+      </div>
+    </div>
+    <div class="vendor_details">
+      <div class="row">
+        <div class="col-md-3 ">
+          <% if @vendor.image.attached? %>
+            <%= cl_image_tag @vendor.image.key, :width=> 500,:height => 500, :crop=>"fill", class: 'product-image' %>
+          <% end %>
+        </div>
+        <div class="col-md-9">
+          <h1 class="page-title"><%= @vendor.name %></h1>
+          <p>
+            <%= @vendor.description %>
+          </p>
+          <div class="row mb-2">
+            <div class="col">
+              <table class="table">
+                <tr>
+                  <td>Legal Name</th>
+                  <td><%= @vendor.legal_name %></td>
+                </tr>
+                <tr>
+                  <td>Incorporation Date</th>
+                  <td>incorporation_date</td>
+                </tr>
+                <tr>
+                  <td>Registration Address</th>
+                  <td><%= @vendor.registration_address %></td>
+                </tr>
+                <tr>
+                  <td>Registration Number</th>
+                  <td><%= @vendor.registration_number %></td>
+                </tr>
+              </table>
             </div>
           </div>
-        </div>
-        <div class="vendor_details">
-          <div class="row">
-            <div class="col-md-3 ">
-              <% if @vendor.image.attached? %>
-                <%= cl_image_tag @vendor.image.key, :width=> 500,:height => 500, :crop=>"fill", class: 'product-image' %>
-              <% end %>
-            </div>
-            <div class="col-md-9">
-              <h1 class="page-title"><%= @vendor.name %></h1>
-              <p>
-                <%= @vendor.description %>
-              </p>
-              <div class="row mb-2">
-                <div class="col">
-                  <table class="table">
-                    <tr>
-                      <td>Legal Name</th>
-                      <td><%= @vendor.legal_name %></td>
-                    </tr>
-                    <tr>
-                      <td>Incorporation Date</th>
-                      <td>incorporation_date</td>
-                    </tr>
-                    <tr>
-                      <td>Registration Address</th>
-                      <td><%= @vendor.registration_address %></td>
-                    </tr>
-                    <tr>
-                      <td>Registration Number</th>
-                      <td><%= @vendor.registration_number %></td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-              <h3>Products (<%= @vendor.products.count %> )          
-                <h3>
-                  <div class="products justify-content-center">
-                    <div class="row">
-                      <% @vendor.products.take(20).each do |product| %>
-                        <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                          <%= render 'products/card', product: product %>
-                        </div>
-                      <% end %>
+          <h3>Products (<%= @vendor.products.count %> )          
+            <h3>
+              <div class="products justify-content-center">
+                <div class="row">
+                  <% @vendor.products.take(20).each do |product| %>
+                    <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                      <%= render 'products/card', product: product %>
                     </div>
-                  </div>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -61,3 +56,5 @@
         </div>
       </div>
     </div>
+  </div>
+</div>

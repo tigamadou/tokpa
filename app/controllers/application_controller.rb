@@ -1,13 +1,9 @@
 class ApplicationController < ActionController::Base
-    before_action :current_cart
+    before_action :current_cart,:set_shop_datas
     def global_admin_role_required
         redirect_to root_path if !current_user.has_role?(:admin)
     end
-    def set_shop_datas
-        @categories = Category.where(activated: true)
-        @brands = Brand.where(activated: true)
-    end
-
+   
     
 
   private
@@ -26,4 +22,9 @@ class ApplicationController < ActionController::Base
         session[:cart_id] = @current_cart.id
       end
     end
+    def set_shop_datas
+      @categories = Category.where(activated: true)
+      @brands = Brand.where(activated: true)
+  end
+
 end
