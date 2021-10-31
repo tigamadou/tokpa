@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy 
   has_many :addresses, through: :profile, dependent: :destroy 
-  has_one :cart,  dependent: :destroy 
+  
   
 
   has_many :favorites,  dependent: :destroy 
