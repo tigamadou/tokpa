@@ -9,7 +9,6 @@ class Product < ApplicationRecord
   
   validates :name, presence: :true
   validates :description, presence: :true
-  validates :name, presence: :true
   validates :product_options, presence: :true
   has_many :product_options, inverse_of: :product, dependent: :delete_all 
   has_many :options, through: :product_options
