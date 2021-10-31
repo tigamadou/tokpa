@@ -4,7 +4,7 @@ def create_products(n, vendor)
         name= Faker::Lorem.sentence
         name[0] = name[0,1].upcase
         
-        prod = Product.new(
+        product = Product.new(
             name: name,
             slug: name.parameterize,
             description: Faker::Lorem.paragraph_by_chars,
@@ -25,7 +25,7 @@ def create_products(n, vendor)
                 }
             ]
         )
-        if(prod.save)
+        if(product.save)
             create_variants(2,product)
         end   
         

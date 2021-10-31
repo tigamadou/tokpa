@@ -5,6 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
+.env
 /.bundle
 
 # Ignore all logfiles and tempfiles.
@@ -34,4 +35,3 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-.env

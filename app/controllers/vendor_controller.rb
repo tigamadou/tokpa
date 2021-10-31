@@ -6,6 +6,7 @@ class VendorController < ApplicationController
 
   def show
     @vendor = Vendor.find(params[:id])
+    @favorite = current_user.favorites.find_by(vendor_id: @vendor.id)
   end
   private
 

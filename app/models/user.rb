@@ -16,7 +16,7 @@ class User < ApplicationRecord
   
   
 
-  has_many :favorites,  dependent: :destroy 
+  has_many :favorites, class_name: 'Favorite', foreign_key: 'user_id', dependent: :destroy
   has_many :favorite_vendors,  through: :favorites, source: :vendor
   
 

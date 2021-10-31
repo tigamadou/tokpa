@@ -6,9 +6,11 @@ class FavoriteController < ApplicationController
     end
   
     def destroy
-      favorite = current_user.favorites.find_by(vendor_id: params[:vendor_id]).destroy
+      favorite = current_user.favorites.find_by(id: params[:id])
+      vendor = favorite.vendor
+      favorite.destroy      
       flash[:primary] = " Unfollowed"
-      redirect_to vendor_path Vendor.find(params[:vendor_id])
+      redirect_to vendor_path vendor
     end
   
    
