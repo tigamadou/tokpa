@@ -17,17 +17,14 @@
           </div>
           <div class="col-lg-6">
             <div class="product-body product-action-inner">
-              <!-- End .product-cat -->
               <h3 class="product-title">
                 <%= link_to "#{vendor.name}", vendor_path(vendor) %>
               </h3>
-              <!-- End .product-title -->
               <div class="product-content">
                 <p>
                   <%= vendor.description.truncate(100)%>
                 </p>
               </div>
-              <!-- End .product-content -->
               <div class="product-nav product-nav-thumbs">
                 <% vendor.products.each do |product| %>
                   <%= link_to  product_path(product.slug) do %>
