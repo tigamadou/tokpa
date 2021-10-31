@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :global_customer_role_required
 
   before_action :set_address, only: %i[ show edit update destroy ]
 
@@ -26,10 +26,8 @@ class AddressesController < ApplicationController
         AddressProfile.create(profile_id: current_user.profile.id, address_id: @address.id)
         
         format.html { redirect_to @address, notice: "Address was successfully created." }
-        format.json { render :show, status: :created, location: @address }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @address.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,10 +36,8 @@ class AddressesController < ApplicationController
     respond_to do |format|
       if @address.update(address_params)
         format.html { redirect_to @address, notice: "Address was successfully updated." }
-        format.json { render :show, status: :ok, location: @address }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @address.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,7 +46,6 @@ class AddressesController < ApplicationController
     @address.destroy
     respond_to do |format|
       format.html { redirect_to addresses_url, notice: "Address was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

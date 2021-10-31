@@ -1,6 +1,6 @@
 class CartProductsController < ApplicationController
   before_action :set_cart_product, only: %i[ show edit update destroy ]
-
+  
   def index
     @cart_products = CartProduct.all
   end

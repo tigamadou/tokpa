@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :global_customer_role_required
   before_action :set_profile, only: %i[ show edit update destroy ]
 
   def index

@@ -71,11 +71,20 @@
               <% end %>
             </div>
           <% else %>
-            <div class="dropdown compare-dropdown">
-              <a href="<%= user_root_path %>" class=""  title="Login" >
-                <span class="compare-txt"> Account</span>
-              </a>
-            </div>
+            <% if current_user.has_role? :customer %>
+              <div class="dropdown compare-dropdown">
+                <a href="<%= user_root_path %>" class=""  title="Login" >
+                  <span class="compare-txt"> Account</span>
+                </a>
+              </div>
+            <% end %>
+            <% if current_user.has_role? :admin %>
+              <div class="dropdown compare-dropdown">
+                <a href="<%= admin_dashboard_path %>" class=""  title="Login" >
+                  <span class="compare-txt"> Administration</span>
+                </a>
+              </div>
+            <% end %>
             <div class="dropdown compare-dropdown">
               <a href="<%= destroy_user_session_path %>" class="" data-method="delete"  title="Login" >
                 <span class="compare-txt"> Sign Out</span>

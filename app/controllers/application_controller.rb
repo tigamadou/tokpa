@@ -2,12 +2,15 @@ class ApplicationController < ActionController::Base
     before_action :current_cart,:set_shop_datas
     
     def global_admin_role_required
-        redirect_to root_path if !current_user.has_role?(:admin)
+        redirect_to root_path, flash[:alert] = "Access denied!." if !current_user.has_role?(:admin)
     end
 
     def global_customer_role_required
-      redirect_to root_path if !current_user.has_role?(:customer)
-  end
+      if !current_user.has_role?(:customer)
+        flash[:danger] = "Access denied!." 
+        redirect_to root_path
+      end
+    end
    
     
 

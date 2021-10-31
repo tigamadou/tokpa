@@ -24,7 +24,7 @@ class CartController < ApplicationController
     @cart_product.quantity += params[:cart][:quantity].to_i
     
     @cart_product.save
-    redirect_to show_cart_path
+    redirect_to show_cart_path, notice: 'Product added to card!'
     
     
 
