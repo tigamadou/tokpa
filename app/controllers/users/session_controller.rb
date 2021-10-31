@@ -1,7 +1,8 @@
-class SessionController < Devise::SessionsController
+class Users::SessionController < Devise::SessionsController
+    layout "devise"
     after_action :after_login, :only => :create
     before_action :after_logout, :only => :destroy
-    layout 'application'
+    
     def after_login        
         current_user.profile.update(online: true) if current_user.profile
         

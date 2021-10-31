@@ -19,6 +19,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "rolify"
 gem 'mailgun-ruby', '~>1.2.5'
 gem 'devise'
+gem 'devise-i18n'
 gem 'cloudinary'
 gem 'simple_form'
 gem 'rspec-rails'
