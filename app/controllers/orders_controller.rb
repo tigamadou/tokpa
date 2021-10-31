@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :global_customer_role_required
   before_action :set_order, only: %i[ show edit update destroy ]
-
+  before_action :check_profile, :check_vendor
   def index
     @orders = Order.all
   end

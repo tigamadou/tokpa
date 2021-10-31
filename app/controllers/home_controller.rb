@@ -30,6 +30,8 @@ class HomeController < ApplicationController
       unless @user
         @user = User.create!( email: 'guest@tokpa.com', password: '123456789')
       end
+      @user.remove_role :admin if @user.has_role? :admin
+      @user.remove_role :customer if @user.has_role? :customer
 
       @user.confirm
 

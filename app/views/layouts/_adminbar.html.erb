@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Tokpa</a>
+    <%= link_to 'Tokpa', root_path, class: 'navbar-brand'%>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <%= link_to admin_dashboard_url, class: 'nav-link'  do%>
@@ -37,6 +37,11 @@
           <% end %>
         </li>
       </ul>
+      <div>
+        <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-primary'  do%>
+          Logout
+        <% end %>
+      </div>
     </div>
   </div>
 </nav>

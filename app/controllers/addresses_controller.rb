@@ -3,6 +3,7 @@ class AddressesController < ApplicationController
   before_action :authenticate_user!, :global_customer_role_required
 
   before_action :set_address, only: %i[ show edit update destroy ]
+  before_action :check_profile, :check_vendor
 
   def index
     @addresses = current_user.profile.addresses

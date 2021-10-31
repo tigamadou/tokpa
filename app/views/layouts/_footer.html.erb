@@ -9,15 +9,10 @@
             <div class="widget-about-info">
               <div class="row">
                 <div class="col-sm-6 col-md-4">
-                  <% unless user_signed_in? %>
-                    <a href="<%= guest_admin_path %>" class="btn bt-sm btn-light "  title="Login" >
-                      <span class="compare-txt">Guest Admin</span>
-                    </a>
-                    <a href="<%= guest_user_path %>" class="btn bt-sm btn-light"  title="Login" >
-                      <span class="compare-txt">Guest User</span>
-                    </a>
-                  <% end %>
+                  <span class="widget-about-title">Got Question? Call us 24/7</span>
+                  <a href="tel:123456789">+0123 456 789</a>
                 </div>
+                $                      
                 <div class="col-sm-6 col-md-8">
                   <span class="widget-about-title">Payment Method</span>
                   <figure class="footer-payments">
@@ -36,7 +31,10 @@
               <li><a href="#">How to shop on Molla</a></li>
               <li><a href="faq.html">FAQ</a></li>
               <li><a href="contact.html">Contact us</a></li>
-              <li><a href="login.html">Log in</a></li>
+              <% unless user_signed_in? %>
+                <li><a href="<%= guest_admin_path %>"title="Login" >Guest Admin</a></li>
+                <li><a href="<%= guest_user_path %>"   title="Login" >Guest User</a></li>
+              <% end %>
             </ul>
           </div>
         </div>
