@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     
     resources :orders
     resources :addresses
-    resources :vendors, as: :mycompany
+    # resources :vendors, as: :mycompany
     
   end
 

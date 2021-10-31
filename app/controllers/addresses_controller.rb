@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  layout "account"
+  
   before_action :authenticate_user!
 
   before_action :set_address, only: %i[ show edit update destroy ]

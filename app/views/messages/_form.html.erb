@@ -1,0 +1,8 @@
+<div class="alert alert-danger alert-light">
+  <p><%= pluralize(element.errors.count, "error") %> prohibited this address from being saved:</p>
+  <ul>
+    <% element.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>

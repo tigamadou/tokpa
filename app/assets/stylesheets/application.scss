@@ -61,3 +61,6 @@
             z-index: 1;
         }
     }
+.field_with_errors .form-control{
+    border: 1px solid red;
+}

@@ -11,9 +11,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%= render partial: "messages/notice" %>
     <div class="page-wrapper">
       <%= render partial: "layouts/navbar" %>
-      <%= render partial: "messages/notice" %>
       <main class="main">
         <div class="page-content">
           <%= yield %>

@@ -1,5 +1,9 @@
-<h1>New Address</h1>
-
-<%= render 'form', address: @address %>
-
-<%= link_to 'Back', addresses_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>New Address</h1>
+      <%= link_to 'Back', addresses_path, class: 'btn btn-light' %>
+      <%= render 'form', address: @address %>
+    </div>
+  </div>
+</div>
