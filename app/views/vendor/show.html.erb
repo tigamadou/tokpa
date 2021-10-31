@@ -14,7 +14,18 @@
           <% end %>
         </div>
         <div class="col-md-9">
-          <h1 class="page-title"><%= @vendor.name %></h1>
+          <div class="d-flex justify-content-between align-items-center">
+            <h1 class="page-title"><%= @vendor.name %></h1>
+            <% if user_signed_in? && current_user.favorites.find_by(vendor_id: @vendor.id)%>
+              <%= link_to destroy_favorite_path(@vendor), method: :delete, class: 'btn btn-light btn-sm' do%>
+                <i class="icon-plust"></i> UnFollow
+              <% end %>
+            <% else %>
+              <%= link_to create_favorite_path(@vendor), method: :post, class: 'btn btn-primary btn-sm' do%>
+                <i class="icon-plust"></i>Follow 
+              <% end %>
+            <% end %>
+          </div>
           <p>
             <%= @vendor.description %>
           </p>

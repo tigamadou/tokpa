@@ -10,7 +10,7 @@ def create_products(n, vendor)
             description: Faker::Lorem.paragraph_by_chars,
             vendor_id: vendor.id,
             brand_id: rand(1..165),
-            subcategory_id: 1,
+            subcategory_id: rand(1..165),
             active: true,
             validated: true,
             available: true,

@@ -50,7 +50,10 @@ Rails.application.routes.draw do
     
     resources :orders
     resources :addresses
-    # resources :vendors, as: :mycompany
+    
+    resources :vendors, as: :mycompany
+    post '/favorite/:vendor_id', to: 'favorite#create', as: :create_favorite
+    delete '/favorite/:vendor_id', to: 'favorite#destroy', as: :destroy_favorite
     
   end
 
