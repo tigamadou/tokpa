@@ -1,0 +1,13 @@
+<div class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
+  <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
+  <%= form_with(model: @search, url: search_path, method: 'GET') do |form| %>
+    <div class="header-search-wrapper search-wrapper-wide">
+      <div class="select-custom">
+        <%= form.select(:category_id, options_for_select(@categories.collect{ |v| [v.name,v.id] }),{:include_blank => "All Departments"}) %>
+      </div>
+      <label for="q" class="sr-only">Search</label>
+      <%= form.search_field :q, class: 'form-control', placeholder: 'Search product...' %>
+      <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+    </div>
+  <% end %>
+</div>

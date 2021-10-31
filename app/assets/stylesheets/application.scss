@@ -1,0 +1,120 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require_tree .
+ *= require_self
+ */
+
+.product-image-gallery{
+    display: block;
+    flex: auto;
+    .product-gallery-item{
+        flex: auto;
+    }
+}
+
+
+    .vendor_page{
+
+        .vandor_page_header{
+            margin-bottom: 16px;
+            position: relative;
+            height: 300px;
+            display: flex;
+          
+            background-size: cover;
+            background-position: center;
+            .vendor_header_content{
+                flex: 1;
+                background: linear-gradient(to bottom, rgba(#000, 0.01) 30%, rgba(#333,0.3));
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                padding:16px 16px 0px 0px;
+                .page-title{
+                    color: #fff;
+                }
+            }
+            .vendor_image{
+                width: 200px;
+                padding: 16px;
+                
+                position: relative;
+                z-index: 1;
+                img{
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .vendor_details{
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+    }
+.field_with_errors .form-control{
+    border: 1px solid red;
+}
+
+.alert-danger {
+    background-color: #FF5C58;
+}
+
+.alert-notice{
+    background-color: #3399FF;
+    color: #fff;
+}
+.mainbanner{
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    .overlay{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-image: linear-gradient(to bottom, rgba(#000, 0.05), rgba(#000, 0.4));
+        display: flex;
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            .title{
+                font-size: 8rem;
+                font-weight: 900;
+                color: #000;
+                background-color: #fff;
+                margin: 0;
+                padding: 8px 16px;
+            }
+            .subtitle{
+                color: #fff;
+                background-color: #FF4848;
+                padding: 8px 16px;
+                
+               
+            }
+        }
+    }
+}
+.logo{
+    background: #000;
+    color: yellow;
+    font-size: 3rem;
+    font-weight: 900;
+    padding: 4px 16px;
+    text-transform: uppercase;
+}

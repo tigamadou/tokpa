@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  image: MyString
+  cover: MyString
+  online: false
+  legal_name: MyString
+  incorporation_date: 2021-10-24
+  registration_date: 2021-10-24
+  registration_address: MyString
+  registration_number: MyString
+  verified: false
+  activated: false
+
+two:
+  name: MyString
+  description: MyText
+  image: MyString
+  cover: MyString
+  online: false
+  legal_name: MyString
+  incorporation_date: 2021-10-24
+  registration_date: 2021-10-24
+  registration_address: MyString
+  registration_number: MyString
+  verified: false
+  activated: false

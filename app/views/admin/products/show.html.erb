@@ -1,0 +1,115 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-primary' %>
+    <%= link_to 'Back', admin_products_path, class: 'btn btn-light'  %>
+    <table class="table">
+      <tr>
+        <td><strong>Name:</strong>
+          <%= @product.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Description:</b></p>
+          <%= @product.description  %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table class="table">
+            <tr>
+              <td>Active : <%= @product.active  %></td>
+              <td>Available: <%= @product.available %></td>
+              <td>Validated:   <%= @product.validated %></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table class="table">
+            <tr>
+              <td>
+                <p>
+                  <strong>Category:</strong>
+                  <%= @product.subcategory.category.name %>
+                </p>
+              </td>
+              <td>
+                <p>
+                  <strong>Subcategory:</strong>
+                  <%= @product.subcategory.name %>
+                </p>
+              </td>
+              <td>
+                <p>
+                  <strong>Brand:</strong>
+                  <%= @product.brand.name %>
+                </p>
+              </td>
+              <td>
+                <p>
+                  <strong>Vendor:</strong>
+                  <%= @product.vendor.name %>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="mb-3">
+  <h3>Options <%=@product.product_options.count %></h3>
+  <% @product.product_options.each_with_index do  |product_option,index|%>
+    <p class="btn btn-light btn-rounded">
+      <%= product_option.option.name %>
+    </p>
+  <% end %>
+</div>
+<h3>
+  <%= link_to "Product Variants #{@product.variants.count}", admin_product_variants_path(@product)%>
+</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <% @product.options.each do |option| %>
+        <th>
+          <%= option.name %>
+        </th>
+      <% end %>
+      <th>Price</th>
+      <th>Sku</th>
+      <th>Quantity</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @product.variants.each do |variant| %>
+      <tr>
+        <td>
+          <% if variant.image.attached? %>
+            <%= cl_image_tag variant.image.key, :width=>60, :crop=>"fill" %>
+          <% end %>
+        </td>
+        <% variant.product_variant_options.each do |option| %>
+          <td>
+            <%= option.value %>
+          </td>
+        <% end %>
+        <td><%= variant.price %></td>
+        <td><%= variant.sku %></td>
+        <td><%= variant.quantity %></td>
+        <td><%= variant.product_id %></td>
+        <td><%= link_to 'Show', admin_product_variant_path(variant.product, variant)  %></td>
+        <td><%= link_to 'Edit', edit_admin_product_variant_path(variant.product, variant) %></td>
+        <td><%= link_to 'Destroy', admin_product_variant_path(variant.product, variant), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Product Variant', new_admin_product_variant_path(@product) %>

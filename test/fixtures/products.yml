@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  slug: MyString
+  description: MyText
+  active: false
+  available: false
+  validated: false
+  subcategory: one
+  brand: one
+  vendor: one
+
+two:
+  name: MyString
+  slug: MyString
+  description: MyText
+  active: false
+  available: false
+  validated: false
+  subcategory: two
+  brand: two
+  vendor: two

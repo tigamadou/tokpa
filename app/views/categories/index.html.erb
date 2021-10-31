@@ -1,0 +1,18 @@
+<main class="main">
+  <div class="page-content">
+    <div class="mb-2"></div>
+    <div class="container-fluid">
+      <div class="categories-page">
+        <div class="container-fluid">
+          <div class="row">
+            <% @categories.each do |category| %>
+              <div class="col-lg-3">
+                <%= render 'categories/category_card', category: category, width:800, height: 400%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

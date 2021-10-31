@@ -1,0 +1,68 @@
+<%= form_with(model: vendor, url: url) do |form| %>
+  <% if vendor.errors.any? %>
+    <%= render 'messages/form', element: vendor %>
+  <% end %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+  <div class="field">
+    <%= form.label :cover %>
+    <%= form.file_field :cover %>
+  </div>
+  <div class="field">
+    <%= form.label :legal_name %>
+    <%= form.text_field :legal_name %>
+  </div>
+  <div class="field">
+    <%= form.label :incorporation_date %>
+    <%= form.date_select :incorporation_date %>
+  </div>
+  <div class="field">
+    <%= form.label :registration_date %>
+    <%= form.date_select :registration_date %>
+  </div>
+  <div class="field">
+    <%= form.label :registration_address %>
+    <%= form.text_field :registration_address %>
+  </div>
+  <div class="field">
+    <%= form.label :registration_number %>
+    <%= form.text_field :registration_number %>
+  </div>
+  <% if action_name == "new" %>
+    <div class="field">
+      <%= form.label :user %>
+      <%= select_tag(:user_id, options_for_select(@users.collect{ |v| [v.profile.first_name,v.id] })) %>
+    </div>
+  <% end %>
+  <% if action_name == "create" %>
+    <div class="field">
+      <%= form.label :user %>
+      <%= select_tag(:user_id, options_for_select(@users.collect{ |v| [v.profile.first_name,v.id] },[vendor.user.profile.first_name,vendor.user.id ]),disabled:true) %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :verified %>
+    <%= form.check_box :verified %>
+  </div>
+  <div class="field">
+    <%= form.label :activated %>
+    <%= form.check_box :activated %>
+  </div>
+  <div class="field">
+    <%= form.label :online %>
+    <%= form.check_box :online %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

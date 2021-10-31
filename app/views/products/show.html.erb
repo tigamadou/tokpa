@@ -1,0 +1,66 @@
+<main class="main">
+  <div class="page-content">
+    <div class="container">
+      <div class="mb-2"></div>
+      <div class="product-details-top">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="product-gallery product-gallery-vertical">
+              <div class="row">
+                <figure class="product-main-image">
+                  <% if @product.variants.first.image.attached? %>
+                    <%= cl_image_tag @product.variants.first.image.key, :width=> 500,:height => 500, :crop=>"fill" %>
+                  <% end %>
+                  <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                    <i class="icon-arrows"></i>
+                  </a>
+                </figure>
+                <div id="product-zoom-gallery" class="product-image-gallery">
+                  <% @product.variants.each do |variant| %>
+                    <% if @product.variants.first.image.attached? %>
+                      <a class="product-gallery-item" href="#" data-image="assets/images/products/single/1.jpg" data-zoom-image="assets/images/products/single/1-big.jpg">
+                        <%= cl_image_tag variant.image.key, :width=> 100,:height => 100, :crop=>"fill" %>
+                      </a>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="product-details">
+              <h1 class="product-title"><%= @product.name %></h1>
+              <div class="product-price">
+                <%= @product.variants.first.price%>
+              </div>
+              <div class="product-content">
+                <p>
+                  <%= @product.description %>
+                </p>
+              </div>
+              <%= form_with(model: @cart, url: create_cart_path, method: 'POST') do |form| %>
+                <div class="details-filter-row details-row-size">
+                  <label for="qty">Qty:</label>
+                  <div class="product-details-quantity">
+                    <%= form.hidden_field :total, value: @product.variants.first.price %>
+                    <%= form.hidden_field :product_id, value: @product.id %>
+                    <%= form.number_field :quantity, class: 'form-control',value: "1", min: "1",step:"1", required: true%>
+                  </div>
+                </div>
+                <div class="product-details-action">
+                  <%= form.submit 'add to cart', class: 'btn-product btn-cart' %>
+                </div>
+              <% end %>
+              <div class="product-details-footer">
+                <div class="product-cat">
+                  <span>Category:</span>
+                  <%= link_to "#{@product.category.name}", category_path(@product.category.slug)  %>,
+                  <%= link_to "#{@product.subcategory.name}", subcategory_path(@product.category.slug, @product.subcategory.slug)  %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

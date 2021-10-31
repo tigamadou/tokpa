@@ -1,0 +1,10 @@
+require 'rails_helper'
+
+RSpec.describe UserVendor, type: :model do
+  describe 'associations' do
+    
+    it { should belong_to(:user)}
+    it { should belong_to(:vendor)}   
+
+  end
+end

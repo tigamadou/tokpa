@@ -1,0 +1,16 @@
+<main class="main">
+  <div class="mb-lg-2"></div>
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="products justify-content-center">
+        <div class="row">
+          <% @category.products.each do |product| %>
+            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
+              <%= render 'products/card', product: product %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

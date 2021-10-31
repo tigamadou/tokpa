@@ -16,10 +16,19 @@ gem 'mini_magick'
 gem 'rexml'
 gem 'faker'
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem "rolify"
+gem 'mailgun-ruby', '~>1.2.5'
+gem 'devise'
+gem 'cloudinary'
+gem 'simple_form'
+gem 'rspec-rails'
+gem 'spring-commands-rspec'
+gem 'factory_bot_rails'
+gem 'launchy'
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
+  
 end
 
 group :development do
@@ -27,13 +36,14 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'letter_opener_web'
+  gem 'devise-specs'
 end
 
 group :test do
   gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

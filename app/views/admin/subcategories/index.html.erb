@@ -1,0 +1,27 @@
+<h1>Subcategories</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Slug</th>
+      <th>Activated</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subcategories.each do |subcategory| %>
+      <tr>
+        <td><%= subcategory.name %></td>
+        <td><%= subcategory.slug %></td>
+        <td><%= subcategory.activated %></td>
+        <td><%= subcategory.category.name %></td>
+        <td><%= link_to 'Show', admin_subcategory_path(subcategory) %></td>
+        <td><%= link_to 'Edit', edit_admin_category_subcategory_path(subcategory.category, subcategory) %></td>
+        <td><%= link_to 'Destroy', admin_subcategory_path(subcategory), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Subcategory', new_admin_category_subcategory_path %>
