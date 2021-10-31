@@ -1,14 +1,7 @@
 <%= form_with(model: subcategory, url: url) do |form| %>
   <%= form.hidden_field :category_id , value: params[:category_id]%>
   <% if subcategory.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(subcategory.errors.count, "error") %> prohibited this subcategory from being saved:</h2>
-      <ul>
-        <% subcategory.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render 'messages/form', element: subcategory%>
   <% end %>
   <div class="field">
     <%= form.label :name %>

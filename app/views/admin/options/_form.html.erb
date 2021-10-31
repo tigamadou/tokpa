@@ -1,13 +1,6 @@
 <%= form_with(model: option, url: url) do |form| %>
   <% if option.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(option.errors.count, "error") %> prohibited this option from being saved:</h2>
-      <ul>
-        <% option.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render 'messages/form', element: option%>
   <% end %>
   <div class="field">
     <%= form.label :name %>

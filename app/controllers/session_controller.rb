@@ -1,7 +1,7 @@
 class SessionController < Devise::SessionsController
     after_action :after_login, :only => :create
     before_action :after_logout, :only => :destroy
-    before_action :set_shop_datas
+    layout 'application'
     def after_login        
         current_user.profile.update(online: true) if current_user.profile
         

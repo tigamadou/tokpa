@@ -1,13 +1,6 @@
 <%= form_with(model: brand, url: url) do |form| %>
   <% if brand.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
-      <ul>
-        <% brand.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render 'messages/form', element: brand%>
   <% end %>
   <div class="field">
     <%= form.label :name %>

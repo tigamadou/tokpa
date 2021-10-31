@@ -1,13 +1,6 @@
 <%= form_with(model: vendor, url: url) do |form| %>
   <% if vendor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
-      <ul>
-        <% vendor.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render 'messages/form', element: vendor %>
   <% end %>
   <div class="field">
     <%= form.label :name %>
