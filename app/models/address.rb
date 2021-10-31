@@ -6,4 +6,5 @@ class Address < ApplicationRecord
     validates :zip, presence: true
 
     has_many :address_profiles,  dependent: :destroy 
+    has_many :address_vendors,  dependent: :destroy 
 end
