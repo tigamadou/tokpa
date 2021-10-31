@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get '/query', to: 'home#search', as: :search
   get '/category/:category/', to: 'subcategory#show', as: :subcategories
   get '/category/:category/:subcategory', to: 'subcategory#show', as: :subcategory
-  get '/vendors/', to: 'vendor#index', as: :vendors
-  get '/vendors/:vendor', to: 'vendor#index', as: :vendor
+  get '/companies/', to: 'vendor#index', as: :vendors
+  get '/companies/:id', to: 'vendor#show', as: :vendor
   get '/cart', to: 'cart#show', as: :show_cart
   post '/cart',to: 'cart#create',as: :create_cart
   get '/account', to: 'user#index', as: :user_root
@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     
     resources :orders
     resources :addresses
-    resources :vendors
+    resources :vendors, as: :mycompany
     
   end
 

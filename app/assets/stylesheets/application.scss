@@ -20,3 +20,44 @@
         flex: auto;
     }
 }
+
+
+    .vendor_page{
+
+        .vandor_page_header{
+            margin-bottom: 16px;
+            position: relative;
+            height: 300px;
+            display: flex;
+          
+            background-size: cover;
+            background-position: center;
+            .vendor_header_content{
+                flex: 1;
+                background: linear-gradient(to bottom, rgba(#000, 0.01) 30%, rgba(#333,0.3));
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                padding:16px 16px 0px 0px;
+                .page-title{
+                    color: #fff;
+                }
+            }
+            .vendor_image{
+                width: 200px;
+                padding: 16px;
+                
+                position: relative;
+                z-index: 1;
+                img{
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .vendor_details{
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+    }

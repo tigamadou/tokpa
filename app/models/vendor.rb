@@ -1,6 +1,6 @@
 class Vendor < ApplicationRecord
-    has_one_attached :image
-    has_one_attached :cover
+    has_one_attached :image, dependent: :destroy
+    has_one_attached :cover, dependent: :destroy
     validates :name, presence: true, uniqueness: true
     validates :description, presence: true
     validates :legal_name, presence: true

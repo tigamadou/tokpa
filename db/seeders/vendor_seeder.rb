@@ -8,9 +8,14 @@ def create_vendor(user)
         incorporation_date: Faker::Date.between(from: '1990-01-01', to: Date.today) ,
         registration_date: Faker::Date.between(from: '1990-01-01', to: Date.today) ,
         registration_address: Faker::Address.full_address,
-        registration_number: Faker::IDNumber.valid
+        registration_number: Faker::IDNumber.valid,
+        activated: true,
+        verified: true,
+        online: true
     )
     UserVendor.create(user_id: user.id, vendor_id: vendor.id)
+    vendor.image.attach(io: File.open("app/assets/images/500x500.png"), filename: '500x500.png',  identify: false)
+    vendor.cover.attach(io: File.open("app/assets/images/1200x280.png"), filename: '1200x280.png',  identify: false)
     create_products(5, vendor)
 end
 
