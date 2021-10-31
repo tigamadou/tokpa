@@ -18,12 +18,12 @@
             <h1 class="page-title"><%= @vendor.name %></h1>
             <% if user_signed_in?%>
               <% if  @favorite %>
-                <%= link_to destroy_favorite_path(@favorite), method: :delete, class: 'btn btn-light btn-sm' do%>
-                  <i class="icon-plust"></i> UnFollow
+                <%= link_to destroy_favorite_path(@favorite), method: :delete, class: 'btn btn-primary btn-sm' do%>
+                  <i class="icon-heart"></i> UnFollow
                 <% end %>
               <% else %>
-                <%= link_to create_favorite_path(@vendor), method: :post, class: 'btn btn-primary btn-sm' do%>
-                  <i class="icon-plust"></i>Follow 
+                <%= link_to create_favorite_path(@vendor), method: :post, class: 'btn btn-light  btn-sm' do%>
+                  <i class="icon-heart"></i>Follow 
                 <% end %>
               <% end %>
             <% end %>
