@@ -126,5 +126,6 @@ Rails.application.configure do
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
-    
+  config.action_mailer.default_url_options = { :host => 'tokpa0.herokuapp.com' }
+
 end
