@@ -9,9 +9,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context 'fails' do
-
-     
+    context 'fails' do   
 
       it 'when email is not provided' do
         task = User.new( password: '123456')
