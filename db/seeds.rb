@@ -8,4 +8,4 @@ initDefaultUser
 create_brands
 create_options
 create_categories
-create_vendors 5
+create_vendors 50
