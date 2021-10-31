@@ -34,7 +34,7 @@
             <% end %>
             <% if current_user.has_role? :admin %>
               <div class="dropdown compare-dropdown">
-                <a href="<%= admin_dashboard_path %>" class=""  title="Login" >
+                <a href="<%= rails_admin.dashboard_path %>" class=""  title="Login" >
                   <span class="compare-txt"> Administration</span>
                 </a>
               </div>
