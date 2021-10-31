@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get '/cart', to: 'cart#show', as: :show_cart
   post '/cart',to: 'cart#create',as: :create_cart
   get '/account', to: 'user#index', as: :user_root
+
+  get '/guest/user', to: 'home#guest_user', as: :guest_user
+  get '/guest/admin', to: 'home#guest_admin', as: :guest_admin
+
   devise_for :users, controllers: { sessions: "session",registrations:'users/registrations'}  
   resources :categories, only: %i[show   index]  
   resources :products, only: %i[show   index]  
