@@ -73,3 +73,48 @@
     background-color: #3399FF;
     color: #fff;
 }
+.mainbanner{
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    .overlay{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-image: linear-gradient(to bottom, rgba(#000, 0.05), rgba(#000, 0.4));
+        display: flex;
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            .title{
+                font-size: 8rem;
+                font-weight: 900;
+                color: #000;
+                background-color: #fff;
+                margin: 0;
+                padding: 8px 16px;
+            }
+            .subtitle{
+                color: #fff;
+                background-color: #FF4848;
+                padding: 8px 16px;
+                
+               
+            }
+        }
+    }
+}
+.logo{
+    background: #000;
+    color: yellow;
+    font-size: 3rem;
+    font-weight: 900;
+    padding: 4px 16px;
+    text-transform: uppercase;
+}
