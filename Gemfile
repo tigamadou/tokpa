@@ -21,9 +21,15 @@ gem 'mailgun-ruby', '~>1.2.5'
 gem 'devise'
 gem 'cloudinary'
 gem 'simple_form'
+ gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'launchy'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  
 end
 
 group :development do
@@ -32,6 +38,7 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
   gem 'letter_opener_web'
+  gem 'devise-specs'
 end
 
 group :test do
