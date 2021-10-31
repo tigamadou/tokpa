@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
  
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
   
   root 'home#index'
@@ -57,26 +58,26 @@ Rails.application.routes.draw do
     
   end
 
-  namespace :admin do
-    get '/', to: 'dashboard#index', as:  :dashboard
-    resources :options
-    resources :orders 
-    resources :users
-    resources :brands
-    resources :addresses
-    resources :subcategories, only: %i[show   destroy]
-    resources :categories do
-      resources :subcategories, only: %i[index create new edit update]
-    end
+  # namespace :admin do
+  #   get '/', to: 'dashboard#index', as:  :dashboard
+  #   resources :options
+  #   resources :orders 
+  #   resources :users
+  #   resources :brands
+  #   resources :addresses
+  #   resources :subcategories, only: %i[show   destroy]
+  #   resources :categories do
+  #     resources :subcategories, only: %i[index create new edit update]
+  #   end
 
-    resources :vendors 
-    resources :products do
-      resources :product_variants, as: 'variants', path: 'variants' do
-        resources :product_variant_options, as: 'options', path: 'otpions'
-      end
-    end
+  #   resources :vendors 
+  #   resources :products do
+  #     resources :product_variants, as: 'variants', path: 'variants' do
+  #       resources :product_variant_options, as: 'options', path: 'otpions'
+  #     end
+  #   end
 
-  end
+  # end
 
   
 end
