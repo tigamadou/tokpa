@@ -1,6 +1,6 @@
 require_relative 'product_seeder'
 
-def create_vendor(user)
+def create_vendor(user, category)
     vendor = Vendor.create(
         name: Faker::Company.name,
         description: Faker::Lorem.paragraph_by_chars,
@@ -16,16 +16,19 @@ def create_vendor(user)
     UserVendor.create(user_id: user.id, vendor_id: vendor.id)
     vendor.image.attach(io: File.open("app/assets/images/500x500.png"), filename: '500x500.png',  identify: false)
     vendor.cover.attach(io: File.open("app/assets/images/1200x280.png"), filename: '1200x280.png',  identify: false)
-    create_products(2, vendor)
+    create_products(5, vendor, category)
 end
 
 
 
-def create_vendors(n)
-    n.times do 
+def create_vendors()
+    puts '  Seeding vendors...'
+    Category.all.each do |category|
+
         user = create_user()
         user.add_role :vendor
         create_profile user
-        create_vendor user
+        create_vendor user, category
     end
+   
 end

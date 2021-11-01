@@ -169,7 +169,8 @@ en:
       wrong_length:
         one: is the wrong length (should be 1 character)
         other: is the wrong length (should be %{count} characters)
-      please_set_up_your_profile: Please set up your profile.
+      please_set_up_your_profile: Please set up your profile
+      ressource_access_denied: Oups. Sorry You can't access this ressource
     template:
       body: 'There were problems with the following fields:'
       header:
@@ -332,3 +333,4 @@ en:
       created: "%{model}% created"
       updated: "%{model}% edited "
       destroyed: "%{model}% Destroyed"
+    you_need_a_model: You first need to have a(n) %{model}

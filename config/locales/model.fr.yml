@@ -53,7 +53,7 @@ fr:
         paid:  Payé
       product_option: Option produit
       product_varuant_option:
-        value: Vlaeur
+        value: Valeur
       product_variant:
         price: Prix
         sku: SKU

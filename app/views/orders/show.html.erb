@@ -1,29 +1,94 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Reference:</strong>
-  <%= @order.reference %>
-</p>
-
-<p>
-  <strong>Total:</strong>
-  <%= @order.total %>
-</p>
-
-<p>
-  <strong>Paid:</strong>
-  <%= @order.paid %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @order.user_id %>
-</p>
-
-<p>
-  <strong>Vendor:</strong>
-  <%= @order.vendor_id %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<main class="main">
+  <div class="page-content">
+    <div class="cart">
+      <div class="container">
+        <%= render 'user/account_nav'%>
+        <%= link_to t('defaults.back'), orders_path, class: 'btn btn-light' %>
+        <div class="row">
+          <div class="col-lg-9">
+            <table class="table table-cart table-mobile">
+              <thead>
+                <tr>
+                  <th><%= Product.human_attribute_name('name')%></th>
+                  <th><%= ProductVariant.human_attribute_name('price')%></th>
+                  <th><%= ProductVariant.human_attribute_name('quantity')%></th>
+                  <th><%= Order.human_attribute_name('total')%></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @order.order_products.each do |order_product|%>
+                  <tr>
+                    <td class="product-col">
+                      <div class="product">
+                        <figure class="product-media">
+                          <% if order_product.product.variants.first.image.attached? %>
+                            <%= cl_image_tag order_product.product.variants.first.image.key, :width=> 500,:height => 500, :crop=>"fill", class: 'product-image' %>
+                          <% end %>
+                        </figure>
+                        <h3 class="product-title">
+                          <%= link_to "#{order_product.product.name}", product_path(order_product.product.slug)  %>
+                        </h3>
+                      </div>
+                    </td>
+                    <td class="price-col"> <%= order_product.product.variants.first.price%></td>
+                    <td class="quantity-col">
+                      <div class="cart-product-quantity">
+                        <input type="number" class="form-control" value="<%= order_product.quantity %>" min="1"  step="1" data-decimals="0" disabled>
+                      </div>
+                    </td>
+                    <td class="total-col"><%= order_product.total%></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th><%= Address.human_attribute_name('name')%></th>
+                  <th><%= Address.human_attribute_name('line_1')%></th>
+                  <th><%= Address.human_attribute_name('line_2')%></th>
+                  <th><%= Address.human_attribute_name('country')%></th>
+                  <th><%= Address.human_attribute_name('city')%></th>
+                  <th><%= Address.human_attribute_name('zip')%></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% current_user.addresses.each do |address| %>
+                  <tr>
+                    <td><%= address.name %></td>
+                    <td><%= address.line_1 %></td>
+                    <td><%= address.line_2 %></td>
+                    <td><%= address.country %></td>
+                    <td><%= address.city %></td>
+                    <td><%= address.zip %></td>
+                    <td><%= address.long %></td>
+                    <td><%= address.lat %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <br>
+          </div>
+          <aside class="col-lg-3">
+            <div class="summary summary-cart">
+              <h3 class="summary-title">Order Total</h3>
+              <table class="table table-summary">
+                <tbody>
+                  <tr class="summary-subtotal">
+                    <td>Subtotal:</td>
+                    <td><%= @order.total%></td>
+                  </tr>
+                  <tr class="summary-total">
+                    <td>Total:</td>
+                    <td><%= @order.total%></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -4,27 +4,27 @@
   <% end %>
   <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control' %>
+    <%= form.text_field :name, class: 'form-control',placeholder: Address.human_attribute_name('name') %>
   </div>
-  <div class="form-group"">
+  <div class="form-group">
     <%= form.label :line_1 %>
-    <%= form.text_field :line_1, class: 'form-control' %>
+    <%= form.text_field :line_1, class: 'form-control',placeholder: Address.human_attribute_name('line_1') %>
   </div>
-  <div class="form-group"">
+  <div class="form-group">
     <%= form.label :line_2 %>
-    <%= form.text_field :line_2, class: 'form-control' %>
+    <%= form.text_field :line_2, class: 'form-control',placeholder: Address.human_attribute_name('line_2') %>
   </div>
-  <div class="form-group"">
+  <div class="form-group">
     <%= form.label :country %>
-    <%= form.text_field :country, class: 'form-control' %>
+    <%= form.text_field :country, class: 'form-control',placeholder: "Benin" %>
   </div>
-  <div class="form-group"">
+  <div class="form-group">
     <%= form.label :city %>
-    <%= form.text_field :city, class: 'form-control' %>
+    <%= form.text_field :city, class: 'form-control',placeholder: "Cotonou" %>
   </div>
-  <div class="form-group"">
+  <div class="form-group">
     <%= form.label :zip %>
-    <%= form.text_field :zip, class: 'form-control' %>
+    <%= form.text_field :zip, class: 'form-control',placeholder: "00229" %>
   </div>
   <div class="actions">
     <%= form.submit t('helpers.submit.submit', model: Address.model_name.human ), class: 'btn btn-primary' %>
