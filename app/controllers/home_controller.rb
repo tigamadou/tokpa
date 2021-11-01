@@ -26,14 +26,13 @@ class HomeController < ApplicationController
   
   private
   def set_guest
-      @user =  User.find_by(email: 'guest@tokpa.com')
-      unless @user
-        @user = User.create!( email: 'guest@tokpa.com', password: '123456789')
-      end
-      @user.remove_role :admin if @user.has_role? :admin
-      @user.remove_role :customer if @user.has_role? :customer
-
-      @user.confirm
+    
+    @user = User.create(
+        email: "gues_#{Time.now.to_i}_#{Faker::Internet.email}",
+        password: '123456789'
+    )
+      
+    @user.confirm
 
   end
   
