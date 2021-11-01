@@ -315,6 +315,7 @@ fr:
     price: "Prix"
     subtotal: "Soustotal"
     proceed_to_checkout: "Valider ma commande"
+    to_checkout: "Commande"
     continue-shopping: "Continuer mes achats"
     search_results: "Résultat(s)"
     filters: "Filtres"

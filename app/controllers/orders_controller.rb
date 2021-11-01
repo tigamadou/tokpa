@@ -13,10 +13,8 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @order.paid= false
-    @order.user_id = current_user.id
-    session[:new_order]= true    
-    redirect_to new_address_path, notice: t('defaults.you_need_a_model',model: Address.model_name.human) if current_user.addresses.count == 0 
+    
+    # redirect_to new_address_path, notice: t('defaults.you_need_a_model',model: Address.model_name.human) if current_user.addresses.count == 0 
   end
 
   def edit
@@ -33,6 +31,7 @@ class OrdersController < ApplicationController
         @current_cart.cart_products.each do |cart_product|
           OrderProduct.create(quantity: cart_product.quantity, total: cart_product.product.variants.first.price*cart_product.quantity ,order_id: @order.id, product_id: cart_product.product_id)
         end
+        @current_cart.destroy
         format.html { redirect_to orders_path, notice: t('defaults.actions.messages.created', model: Order.model_name.human) }
         format.json { render :show, status: :created, location: @order }
       else
