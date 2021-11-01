@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'User signs in' do
+  before(:each) do
+    I18n.locale = :en
+  end
   scenario 'with valid credentials' do
     user = create :user
     

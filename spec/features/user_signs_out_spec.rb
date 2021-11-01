@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'User signs out' do
+  before(:each) do
+    I18n.locale = :en
+  end
   scenario 'user signed in' do
     user = create :user
     user.confirm
