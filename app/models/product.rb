@@ -6,6 +6,8 @@ class Product < ApplicationRecord
 
   has_many :variants, foreign_key: 'product_id',class_name: 'ProductVariant', dependent: :destroy 
   has_many :product_variant_options, through: :variants, dependent: :destroy 
+  has_many :cart_products, dependent: :destroy
+  has_many :order_products, dependent: :destroy
   
   validates :name, presence: :true
   validates :description, presence: :true

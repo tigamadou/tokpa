@@ -12,7 +12,7 @@ class Vendor < ApplicationRecord
     
     has_many :address_vendor, dependent: :destroy 
     has_many :addresses, through: :address_vendor, dependent: :destroy 
-    has_many :order, dependent: :destroy 
+    
     has_many :products, dependent: :destroy 
 
     has_many :favorites, class_name: 'Favorite', foreign_key: 'vendor_id', dependent: :destroy
