@@ -1,4 +1,5 @@
 <main class="main">
+  <%= render 'layouts/pagetitle',title: t("defaults.product") %>
   <div class="page-content">
     <div class="container">
       <div class="mb-2"></div>
@@ -40,7 +41,7 @@
               </div>
               <%= form_with(model: @cart, url: create_cart_path, method: 'POST') do |form| %>
                 <div class="details-filter-row details-row-size">
-                  <label for="qty">Qty:</label>
+                  <label for="qty"><%= t('defaults.quantity')%>:</label>
                   <div class="product-details-quantity">
                     <%= form.hidden_field :total, value: @product.variants.first.price %>
                     <%= form.hidden_field :product_id, value: @product.id %>
@@ -48,14 +49,13 @@
                   </div>
                 </div>
                 <div class="product-details-action">
-                  <%= form.submit 'add to cart', class: 'btn-product btn-cart' %>
+                  <%= form.submit t('defaults.add_to_cart'), class: 'btn-product btn-cart' %>
                 </div>
               <% end %>
               <div class="product-details-footer">
                 <div class="product-cat">
-                  <span>Category:</span>
-                  <%= link_to "#{@product.category.name}", category_path(@product.category.slug)  %>,
-                  <%= link_to "#{@product.subcategory.name}", subcategory_path(@product.category.slug, @product.subcategory.slug)  %>
+                  <span><%= t('defaults.category')%>:</span>
+                  <%= link_to t("categories.#{@product.category.slug}"), category_path(@product.category.slug)  %>,
                 </div>
               </div>
             </div>

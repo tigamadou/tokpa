@@ -2,7 +2,7 @@
   <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
     <i class="icon-shopping-cart"></i>
     <span class="cart-count"><%= @current_cart.products.count%></span>
-    <span class="cart-txt">Cart</span>
+    <span class="cart-txt"><%=  t("defaults.cart")%></span>
   </a>
   <% if !@current_cart.products.nil?%>
     <div class="dropdown-menu dropdown-menu-right">

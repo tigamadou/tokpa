@@ -243,6 +243,8 @@ fr:
         - Barossa
   devise:
     sign_in: "Connexion"
+    sign_out: "Déconnexion"
+    sign_up: "Inscription"
   home:
     welcome_to_tokpa: "Bienvenue sur Tokpa"
     intro : " Ici, vous pouvez parcourir tous les produits disponibles auprès de vos vendeurs locaux sur le marché Dantokpa. Passez votre commande en ligne et contactez le vendeur pour payer à l'enlèvement de votre marchandise. " 
@@ -290,3 +292,19 @@ fr:
     help: "Aide"
     terms_of_use: "Conditions d'utilisation"
     shop_now: 'Achetez maintenant'
+    home: "Accueil"
+    categories: "Catégories"
+    category: "Catégorie"
+    subcategories: "Sous catégories"
+    products: "Produits"
+    product: "Produit"
+    vendors: 'Marchands'
+    vendor: 'Marchands'
+    search_product: 'Cherchez un produit...'
+    all_categories: 'Toutes les categories'
+    cart: "Panier"
+    account: "Compte"
+    administration: "Administration"
+    add_to_cart: "Ajouter au panier"
+    quantity: "Quantité"
+    

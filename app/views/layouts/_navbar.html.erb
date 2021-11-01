@@ -16,32 +16,32 @@
           <% if !user_signed_in? %>
             <div class="dropdown compare-dropdown">
               <a href="<%= new_user_session_path %>" class=""  title="Login" >
-                <span class="compare-txt">Login</span>
+                <span class="compare-txt"><%= t("devise.sign_in")%></span>
               </a>
             </div>
             <div class="dropdown compare-dropdown">
-              <%= link_to  new_user_registration_path, class: "dropdown-toggle",title:"Register" do %>
-                <span class="compare-txt">Register</span>
+              <%= link_to  new_user_registration_path, class: "dropdown-toggle",title: t("devise.sign_up") do %>
+                <span class="compare-txt"><%= t("devise.sign_up")%></span>
               <% end %>
             </div>
           <% else %>
             <% if current_user.has_role? :customer %>
               <div class="dropdown compare-dropdown">
                 <a href="<%= user_root_path %>" class=""  title="Login" >
-                  <span class="compare-txt"> Account</span>
+                  <span class="compare-txt"> <%= t("defaults.account")%></span>
                 </a>
               </div>
             <% end %>
             <% if current_user.has_role? :admin %>
               <div class="dropdown compare-dropdown">
                 <a href="<%= rails_admin.dashboard_path %>" class=""  title="Login" >
-                  <span class="compare-txt"> Administration</span>
+                  <span class="compare-txt"> <%= t("defaults.administration")%></span>
                 </a>
               </div>
             <% end %>
             <div class="dropdown compare-dropdown">
               <a href="<%= destroy_user_session_path %>" class="" data-method="delete"  title="Login" >
-                <span class="compare-txt"> Sign Out</span>
+                <span class="compare-txt"> <%= t("devise.sign_out")%></span>
               </a>
             </div>
           <% end %>
@@ -55,7 +55,7 @@
       <div class="header-left">
         <div class="dropdown category-dropdown " data-visible="true">
           <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-display="static" title="Browse Categories">
-            Browse Categories
+            <%= t("devise.all_categories")%>
           </a>
           <div class="dropdown-menu">
             <nav class="side-nav">
@@ -100,7 +100,7 @@
                     <% end %>
                   </li>
                 <% end %>
-                <li><%= link_to "All Categories", categories_path %></li>
+                <li><%= link_to t("defaults.all_categories"), categories_path %></li>
               </ul>
             </nav>
           </div>
@@ -110,13 +110,13 @@
         <nav class="main-nav">
           <ul class="menu ">
             <li>
-              <%= link_to "Home", root_path, class: 'sf-with-ul' %>
+              <%= link_to  t("defaults.home"), root_path, class: 'sf-with-ul' %>
             </li>
             <li>
-              <%= link_to "Categories", categories_path, class: 'sf-with-ul' %>
+              <%= link_to  t("defaults.categories"), categories_path, class: 'sf-with-ul' %>
             </li>
             <li>
-              <%= link_to "Vendors", vendors_path, class: 'sf-with-ul' %>
+              <%= link_to t("defaults.vendors"), vendors_path, class: 'sf-with-ul' %>
             </li>
           </ul>
         </nav>
