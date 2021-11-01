@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
 
     def check_profile
-      redirect_to new_profile_path, notice: "Please set up your profile."  if !current_user.profile
+      redirect_to new_profile_path, notice:  t('errors.messages.please_set_up_your_profile')  if !current_user.profile
     end
   
     def check_vendor

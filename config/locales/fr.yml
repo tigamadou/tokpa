@@ -143,6 +143,7 @@ fr:
       wrong_length:
         one: ne fait pas la bonne longueur (doit comporter un seul caractère)
         other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+      please_set_up_your_profile: Veuillez créer votre profil.
     template:
       body: 'Veuillez vérifier les champs suivants : '
       header:
@@ -245,6 +246,9 @@ fr:
     sign_in: "Connexion"
     sign_out: "Déconnexion"
     sign_up: "Inscription"
+    email: 'Email'
+    password: 'Mot de passe'
+    password_confirmation: "Confirmation du mot de passe"
   home:
     welcome_to_tokpa: "Bienvenue sur Tokpa"
     intro : " Ici, vous pouvez parcourir tous les produits disponibles auprès de vos vendeurs locaux sur le marché Dantokpa. Passez votre commande en ligne et contactez le vendeur pour payer à l'enlèvement de votre marchandise. " 

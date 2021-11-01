@@ -76,9 +76,9 @@ en:
          actived: active
       user_vendor: user vendor
       user:
-        email: email
-        password: password
-        remember_me: remember_me
+        email: Email 
+        password: Password 
+        remember_me: Remember me
       vendor:
         name: name
         description: description
