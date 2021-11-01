@@ -34,10 +34,10 @@
         <span class="cart-total-price"><%= @current_cart.sub_total%></span>
       </div>
       <div class="dropdown-cart-action">
-        <%= link_to 'View Cart', show_cart_path, class: 'btn btn-primary' %>
+        <%= link_to t('defaults.view_cart'), show_cart_path, class: 'btn btn-primary' %>
         <% if @current_cart.sub_total > 0 %>
           <%= link_to new_order_path, class:'btn btn-outline-primary-2' do %>
-            <span>Checkout</span><i class="icon-long-arrow-right"></i>
+            <span><%= t('defaults.to_checkout')%></span><i class="icon-long-arrow-right"></i>
           <% end %>
         <% end %>
       </div>

@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
     
     
-    resources :orders
+    resources :orders, only: %i[index show create new destroy]
     resources :addresses
     
     resources :vendors, as: :mycompany

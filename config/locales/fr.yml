@@ -144,6 +144,7 @@ fr:
         one: ne fait pas la bonne longueur (doit comporter un seul caractère)
         other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
       please_set_up_your_profile: Veuillez créer votre profil.
+      ressource_access_denied: Oups. Désolez vous ne pouvez pas accéder à cette ressource
     template:
       body: 'Veuillez vérifier les champs suivants : '
       header:
@@ -314,6 +315,7 @@ fr:
     price: "Prix"
     subtotal: "Soustotal"
     proceed_to_checkout: "Valider ma commande"
+    to_checkout: "Commande"
     continue-shopping: "Continuer mes achats"
     search_results: "Résultat(s)"
     filters: "Filtres"
@@ -333,3 +335,4 @@ fr:
         created: "%{model} créé(e)"
         updated: "%{model} sauvegardé(e)"
         destroyed: "%{model} Supprimé"
+    you_need_a_model: Vous devez créer d'abord un(e) %{model}

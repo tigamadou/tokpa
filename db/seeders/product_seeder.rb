@@ -1,4 +1,4 @@
-def create_products(n, vendor)
+def create_products(n, vendor, category)
     n.times do 
 
         name= Faker::Lorem.sentence
@@ -9,8 +9,8 @@ def create_products(n, vendor)
             slug: name.parameterize,
             description: Faker::Lorem.paragraph_by_chars,
             vendor_id: vendor.id,
-            brand_id: rand(1..165),
-            subcategory_id: rand(1..165),
+            brand_id: 1,
+            subcategory_id: category.subcategories.first.id,
             active: true,
             validated: true,
             available: true,
@@ -26,7 +26,7 @@ def create_products(n, vendor)
             ]
         )
         if(product.save)
-            create_variants(2,product)
+            create_variants(1,product)
         end   
         
     end

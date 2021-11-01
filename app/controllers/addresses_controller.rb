@@ -26,6 +26,7 @@ class AddressesController < ApplicationController
       if @address.save
         AddressProfile.create(profile_id: current_user.profile.id, address_id: @address.id)
         
+        format.html { redirect_to new_order_path, notice: t('defaults.actions.messages.created', model: Address.model_name.human)} if session[:new_order]
         format.html { redirect_to @address, notice: t('defaults.actions.messages.created', model: Address.model_name.human)}
       else
         format.html { render :new, status: :unprocessable_entity }
