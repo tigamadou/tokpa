@@ -1,42 +1,6 @@
 <div class="container">
   <%= render 'user/account_nav'%>
-  <h1>Editing Profile</h1>
-  <%= form_with(model: @profile, url: update_profile_path) do |form| %>
-    <% if @profile.errors.any? %>
-      <%= render 'messages/form', element: @profile%>
-    <% end %>
-    <div class="row">
-      <div class="col-md-3">
-        <% if @profile.image.attached? %>
-          <%= cl_image_tag @profile.image.key, :width=>300, :crop=>"fill" %>
-        <% end %>
-        <div class="form-group">
-          <%= form.label :image %>
-          <%= form.file_field :image, class: 'form-control' %>
-        </div>
-      </div>
-      <div class="col-md-9">
-        <div class="form-group">
-          <%= form.label :first_name %>
-          <%= form.text_field :first_name, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= form.label :last_name %>
-          <%= form.text_field :last_name, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= form.label :phone_1 %>
-          <%= form.text_field :phone_1, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= form.label :phone_2 %>
-          <%= form.text_field :phone_2, class: 'form-control' %>
-        </div>
-        <div class="actions">
-          <%= form.submit %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <%= link_to 'Back', user_root_path %>
+  <%= link_to t('defaults.back'), user_root_path, class: 'btn btn-light' %>
+  <h1><%= t('defaults.edit',model: Profile.model_name.human)%></h1>
+  <%= render 'form', profile: @profile, url: update_profile_path %>
 </div>

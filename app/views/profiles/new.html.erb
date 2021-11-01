@@ -1,6 +1,6 @@
 <div class="container">
   <%= render 'user/account_nav'%>
-  <h1>New Profile</h1>
-  <%= render 'form', profile: @profile %>
-  <%= link_to 'Back', user_root_path %>
+  <%= link_to t('defaults.back'), user_root_path, class: 'btn btn-light' %>
+  <h1><%= t('defaults.new',model: Profile.model_name.human)%></h1>
+  <%= render 'form', profile: @profile, url: create_profile_path %>
 </div>

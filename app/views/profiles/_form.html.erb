@@ -1,35 +1,37 @@
-<%= form_with(model: profile, url: create_profile_path) do |form| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-      <ul>
-        <% profile.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= form_with(model: profile, url: url) do |form| %>
+  <div class="row">
+    <div class="col-md-3">
+      <% if @profile.image.attached? %>
+        <%= cl_image_tag @profile.image.key, :width=>300, :crop=>"fill" %>
+      <% end %>
+      <div class="form-group">
+        <%= form.label :image %>
+        <%= form.file_field :image, class: 'form-control' %>
+      </div>
     </div>
-  <% end %>
-  <div class="form-group">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= form.label :phone_1 %>
-    <%= form.text_field :phone_1, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= form.label :phone_2 %>
-    <%= form.text_field :phone_2, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= form.label :image %>
-    <%= form.file_field :image, class: 'form-control' %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
+    <div class="col-md-9">
+      <% if profile.errors.any? %>
+        <%= render 'messages/form', element: profile%>
+      <% end %>
+      <div class="form-group">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name, class: 'form-control', placeholder: Profile.human_attribute_name('first_name')%>
+      </div>
+      <div class="form-group">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name, class: 'form-control', placeholder: Profile.human_attribute_name('first_name') %>
+      </div>
+      <div class="form-group">
+        <%= form.label :phone_1 %>
+        <%= form.text_field :phone_1, class: 'form-control', placeholder: "+229 123456789" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :phone_2 %>
+        <%= form.text_field :phone_2, class: 'form-control', placeholder: "+229 123456789" %>
+      </div>
+      <div class="actions">
+        <%= form.submit t('helpers.submit.submit', model: Profile.model_name.human ), class: 'btn btn-primary'  %>
+      </div>
+    </div>
   </div>
 <% end %>
