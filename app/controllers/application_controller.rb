@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
       end
     end
     def set_shop_datas
-      @categories = Category.where(activated: true)
+      @categories = Category.includes(:subcategories).where(activated: true)
       @brands = Brand.where(activated: true)
   end
 

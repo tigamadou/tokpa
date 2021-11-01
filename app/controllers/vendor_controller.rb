@@ -1,6 +1,6 @@
 class VendorController < ApplicationController
   def index
-    @vendors = Vendor.where(online: true, verified: true, activated: true).includes(image_attachment: :blob,cover_attachment: :blob);
+    @vendors = Vendor.includes(:products, image_attachment: :blob,cover_attachment: :blob).where(online: true, verified: true, activated: true)
     # byebug
   end
 

@@ -28,15 +28,6 @@
                       <%= vendor.description.truncate(100)%>
                     </p>
                   </div>
-                  <div class="product-nav product-nav-thumbs">
-                    <% vendor.products.take(12).each do |product| %>
-                      <%= link_to  product_path(product.slug) do %>
-                        <% if product.variants.first.image.attached? %>
-                          <%= cl_image_tag product.variants.first.image.key, :width=> 60,:height => 60, :crop=>"fill" %>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-                  </div>
                 </div>
               </div>
             </div>
