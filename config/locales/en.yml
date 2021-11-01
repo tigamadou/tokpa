@@ -277,7 +277,7 @@ en:
     apparel-textiles-accessories: "Apparel,Textiles & Accessories"
   footer:
     process:
-    modo: "West Africa's biggest market in your pocket. "
     got_a_question_call_us: "Got Question? Call us 24/7"
   defaults:
+    modo: "West Africa's largest market comes to you"
     payment_methods: "Payment Methods"

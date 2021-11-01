@@ -269,10 +269,10 @@ fr:
       confirm_your_order_online: "Confirmez votre commande en ligne"
       pay_on_pick_up: "Payer au retrais de votre marchandise"
       pay_when_you_pick_up_at_the_vendor_place: "Payez lorsque vous récupérez votre commande chez le vendeur"
-    modo: "Le plus grand marché de l'afrique de l'ouest dans votre poche."
     got_a_question_call_us: "Vous avez une question ? Appelez-nous 24/7"
     links:
   defaults:
+    modo: "Le plus grand marché de l'afrique de l'ouest vient chez vous"
     payment_methods: "Méthodes de paiement"
     information: "Information"
     about_us: "A propos"
@@ -289,3 +289,4 @@ fr:
     view_cart: "Voir panier"
     help: "Aide"
     terms_of_use: "Conditions d'utilisation"
+    shop_now: 'Achetez maintenant'

@@ -62,7 +62,7 @@
               <ul class="menu-vertical sf-arrows">
                 <% @categories.take(10).each do |category| %>
                   <li class="megamenu-container">
-                    <%= link_to "#{category.name.truncate(25)}", category_path(category.slug) %>
+                    <%= link_to t("categories.#{category.slug}").truncate(25), category_path(category.slug), title: t("categories.#{category.slug}") %>
                     <% if category.subcategories.count > 0 %>
                       <div class="megamenu">
                         <div class="row no-gutters">
