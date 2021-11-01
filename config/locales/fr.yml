@@ -307,4 +307,12 @@ fr:
     administration: "Administration"
     add_to_cart: "Ajouter au panier"
     quantity: "Quantité"
-    
+    price: "Prix"
+    subtotal: "Soustotal"
+    proceed_to_checkout: "Valider ma commande"
+    continue-shopping: "Continuer mes achats"
+    search_results: "Résultat(s)"
+    filters: "Filtres"
+    sort_by: "Trier par"
+    price_lowest: "Prix Croissant"
+    price_highest: "Prix Décroissant"

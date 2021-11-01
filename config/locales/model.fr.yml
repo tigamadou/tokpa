@@ -1,93 +1,93 @@
 fr:
   activerecord:
     models:
-      address_profile: profile address
-      address_vendor: vendor address
-      address: address
-      brand: brand,
-      cart_product: cart product
-      cart: cart
-      category: category
-      favorite: favorite
-      option: option
-      order: order
-      product_option: product option
-      product_varuant_option: product variant option
-      product_variant: product_variant
-      product: product
-      profile: profile
-      role: role
-      subcategory: subcategory
-      user_vendor: user vendor
-      user: user
-      vendor: vendor
+      address_profile: Adresse profil
+      address_vendor: Adresse marchand
+      address: Adresse
+      brand: Marque,
+      cart_product: Produit panier
+      cart: Panier
+      category: Catégorie
+      favorite: Favori
+      option: Option
+      order: Commande
+      product_option: Option produit
+      product_varuant_option: Option variant produit
+      product_variant: Variant produit
+      product: Produit
+      profile: Profil
+      role: Rôle
+      subcategory: Sous catégories
+      user_vendor: Utilisateur marchand
+      user: Utilisateurs
+      vendor: Marchands
     attributes:
-      address_profile: profile address
-      address_vendor: vendor address
+      address_profile: Adresse profil
+      address_vendor: Adresse marchan
       address:
-        name: name
-        line_1: line_1
-        line_2: line_2
-        country: country
-        city: city
-        zip: zip
-        long: long
-        lat: lat
+        name: Nom
+        line_1: Ligne 1
+        line_2: Ligne 2
+        country: Pays
+        city: Ville
+        zip: Code postal
+        long: longitude
+        lat: latitude
       brand:
-        name: name
-        image: image
-        activated: activated
-      cart_product: cart product
+        name: Nom
+        image: Image
+        activated: Activé
+      cart_product: Produit panier
       cart:
         total: total
       category:
-        name: name
-        image: image
-        activated: activated
-      favorite: favorite
+        name: Nom
+        image: Image
+        activated: Activé
+      favorite: Favori
       option:
-        name: name
+        name: Nom
       order:
-        reference: reference
-        total: total
-        paid:  paid
-      product_option: product option
+        reference: Référence
+        total: Total
+        paid:  paPayéid
+      product_option: Option produit
       product_varuant_option:
-        value: value
+        value: Vlaeur
       product_variant:
-        price: price
-        sku: sku
-        image: image
-        quantity: quantity
+        price: Prix
+        sku: SKU
+        image: Image
+        quantity: Quantité
       product:
-        name: name
-        description: description
-        active: active
-        available: available
-        validated: validated
+        name: Nom
+        description: Description
+        active: Actif
+        available: Disponible
+        validated: Validé
       profile:
-        first_name: first_name
-        last_name: last_name
-        phone_1: phone_1
-        phone_2: phone_2
-        image: image
+        first_name: Prénom
+        last_name: Nom
+        phone_1: Téléphone 1
+        phone_2: Téléphone 2
+        image: image de profil
       subcategory:
-         name: name
-         actived: active
-      user_vendor: user vendor
+         name: Nom
+         actived: Activé
+      user_vendor: Utilisateur marchand
       user:
         email: Adresse Email
         password: Mot de passe
         remember_me: Resté connecté
       vendor:
-        name: name
-        description: description
-        cover:  cover
-        online: online
-        legal_name: legal_name
-        incorporation_date: incorporation_date
-        registration_date: registration_date
-        registration_address: registration_address
-        registration_number: registration_number
-        verified: verified
-        activated: activated
+        name: Nom
+        description: Description
+        cover:  Image de couverture
+        online: Pubié
+        legal_name: Nom légal
+        incorporation_date: Date de constitution
+        registration_date: Date d'enregistrement
+        registration_address: Adresse d'enregistrement
+        registration_number: Numéro d(enregistrement)
+        verified: Vérifié
+        activated: Activé

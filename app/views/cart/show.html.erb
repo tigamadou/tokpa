@@ -1,4 +1,5 @@
 <main class="main">
+  <%= render 'layouts/pagetitle',title: t("defaults.cart") %>
   <div class="page-content mt-2">
     <div class="cart">
       <div class="container">
@@ -7,10 +8,10 @@
             <table class="table table-cart table-mobile">
               <thead>
                 <tr>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
+                  <th><%= t('defaults.product')%></th>
+                  <th><%= t('defaults.price')%></th>
+                  <th><%= t('defaults.quantiy')%></th>
+                  <th><%= t('defaults.total')%></th>
                   <th></th>
                 </tr>
               </thead>
@@ -48,11 +49,11 @@
           </div>
           <aside class="col-lg-3">
             <div class="summary summary-cart">
-              <h3 class="summary-title">Cart Total</h3>
+              <h3 class="summary-title"><%= t('defaults.cart_total')%> </h3>
               <table class="table table-summary">
                 <tbody>
                   <tr class="summary-subtotal">
-                    <td>Subtotal:</td>
+                    <td><%= t('defaults.subtotal')%>:</td>
                     <td><%= @cart.sub_total%></td>
                   </tr>
                   <tr class="summary-total">
@@ -62,10 +63,10 @@
                 </tbody>
               </table>
               <% if @cart.sub_total > 0 %>
-                <%= link_to 'PROCEED TO CHECKOUT', new_order_path, class:'btn btn-outline-primary-2 btn-order btn-block' %>
+                <%= link_to t('defaults.proceed_to_checkout'), new_order_path, class:'btn btn-outline-primary-2 btn-order btn-block' %>
               <% end %>
             </div>
-            <%= link_to 'CONTINUE SHOPPING', root_path, class: 'btn btn-outline-dark-2 btn-block mb-3'%>
+            <%= link_to t('defaults.continue_shopping'), root_path, class: 'btn btn-outline-dark-2 btn-block mb-3'%>
           </aside>
         </div>
       </div>
