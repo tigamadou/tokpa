@@ -1,22 +1,75 @@
 <footer class="footer footer-2">
   <div class="footer-middle">
+    <div class="container mb-3">
+      <div class="icon-boxes-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-lg-3">
+              <div class="icon-box icon-box-side">
+                <span class="icon-box-icon">
+                  <i class="icon-rocket"></i>
+                </span>
+                <div class="icon-box-content">
+                  <h3 class="icon-box-title"><%= t("footer.process.find_your_product")%></h3>
+                  <!-- End .icon-box-title -->
+                  <p><%= t("footer.process.browser_all_our_products_and_vendors")%></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="icon-box icon-box-side">
+                <span class="icon-box-icon">
+                  <i class="icon-cart"></i>
+                </span>
+                <div class="icon-box-content">
+                  <h3 class="icon-box-title"><%= t("footer.process.make_your_order")%></h3>
+                  <p><%= t("footer.process.confirm_your_order_online")%></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="icon-box icon-box-side">
+                <span class="icon-box-icon">
+                  <i class="icon-info-circle"></i>
+                </span>
+                <div class="icon-box-content">
+                  <h3 class="icon-box-title"><%= t("footer.process.pay_on_pick_up")%></h3>
+                  <!-- End .icon-box-title -->
+                  <p><%= t("footer.process.pay_when_you_pick_up_at_the_vendor_place")%></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="icon-box icon-box-side">
+                <span class="icon-box-icon">
+                  <i class="icon-life-ring"></i>
+                </span>
+                <div class="icon-box-content">
+                  <h3 class="icon-box-title">We Support</h3>
+                  <p>24/7 amazing support services</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12 col-lg-4">
           <div class="widget widget-about">
             <%= link_to 'Tokpa', root_path, class: "footer-logo" %>
-            <p>TOKPA is an online market place. </p>
+            <p><%= t("footer.modo")%> </p>
             <div class="widget-about-info">
               <div class="row">
                 <div class="col-sm-6 col-md-4">
-                  <span class="widget-about-title">Got Question? Call us 24/7</span>
-                  <a href="tel:123456789">+0123 456 789</a>
+                  <span class="widget-about-title"><%= t("footer.got_a_question_call_us")%></span>
+                  <a href="tel:123456789">+229 123 456</a>
                 </div>
-                $                      
                 <div class="col-sm-6 col-md-8">
-                  <span class="widget-about-title">Payment Method</span>
+                  <span class="widget-about-title"><%= t("defaults.payment_methods")%></span>
                   <figure class="footer-payments">
-                    <img src="assets/images/payments.png" alt="Payment methods" width="272" height="20">
+                    <img src="/images/payments.png" alt="Payment methods" width="272" height="20">
                   </figure>
                 </div>
               </div>
@@ -25,58 +78,45 @@
         </div>
         <div class="col-sm-4 col-lg-2">
           <div class="widget">
-            <h4 class="widget-title">Information</h4>
+            <h4 class="widget-title"><%= t("defaults.information")%></h4>
             <ul class="widget-list">
-              <li><a href="about.html">About US</a></li>
-              <li><a href="#">How to shop on Molla</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="contact.html">Contact us</a></li>
+              <li><a href="about.html"><%= t("defaults.about_us")%></a></li>
+              <li><a href="#"><%= t("defaults.how_to_shop_on_tokpa")%></a></li>
+              <li><a href="faq.html"><%= t("defaults.faq")%></a></li>
+              <li><a href="contact.html"><%= t("defaults.contact_us")%></a></li>
               <% unless user_signed_in? %>
-                <li><a href="<%= guest_admin_path %>"title="Login" >Guest Admin</a></li>
-                <li><a href="<%= guest_user_path %>"   title="Login" >Guest User</a></li>
+                <li><a href="<%= guest_admin_path %>"title="Login" ><%= t("defaults.guest_admin")%></a></li>
+                <li><a href="<%= guest_user_path %>"   title="Login" ><%= t("defaults.guest_user")%></a></li>
               <% end %>
             </ul>
           </div>
         </div>
         <div class="col-sm-4 col-lg-2">
           <div class="widget">
-            <h4 class="widget-title">Customer Service</h4>
+            <h4 class="widget-title"><%= t("defaults.customer_service")%></h4>
             <ul class="widget-list">
-              <li><a href="#">Payment Methods</a></li>
-              <li><a href="#">Money-back guarantee!</a></li>
-              <li><a href="#">Returns</a></li>
-              <li><a href="#">Shipping</a></li>
-              <li><a href="#">Terms and conditions</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#"><%= t("defaults.payment_methods")%></a></li>
+              <li><a href="#"><%= t("defaults.money_back_guarantee")%></a></li>
+              <li><a href="#"><%= t("defaults.returns")%></a></li>
+              <li><a href="#"><%= t("defaults.terms_and_conditions")%></a></li>
+              <li><a href="#"><%= t("defaults.privacy_policy")%></a></li>
             </ul>
           </div>
         </div>
-        <div class="col-sm-4 col-lg-2">
-          <div class="widget">
-            <h4 class="widget-title">My Account</h4>
-            <ul class="widget-list">
-              <li><a href="#">Sign In</a></li>
-              <li><a href="cart.html">View Cart</a></li>
-              <li><a href="#">My Wishlist</a></li>
-              <li><a href="#">Track My Order</a></li>
-              <li><a href="#">Help</a></li>
-            </ul>
+        <% if user_signed_in?%>
+          <div class="col-sm-4 col-lg-2">
+            <div class="widget">
+              <h4 class="widget-title">My Account</h4>
+              <ul class="widget-list">
+                <li><a href="#"><%= t("devise.sign_in")%></a></li>
+                <li>
+                  <%= link_to t("defaults.view_cart"), show_cart_path%>
+                </li>
+                <li><a href="#"><%= t("defaults.help")%></a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="col-sm-6 col-lg-2">
-          <div class="widget widget-newsletter">
-            <h4 class="widget-title">Newsletter</h4>
-            <p>Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan.</p>
-            <form action="#">
-              <div class="input-group">
-                <input type="email" class="form-control" placeholder="Enter your Email Address" aria-label="Email Adress" required>
-                <div class="input-group-append">
-                  <button class="btn btn-dark" type="submit"><i class="icon-long-arrow-right"></i></button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -84,17 +124,8 @@
     <div class="container-fluid">
       <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p>
       <ul class="footer-menu">
-        <li><a href="#">Terms Of Use</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-      <div class="social-icons social-icons-color">
-        <span class="social-label">Social Icons</span>
-        <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
-        <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
-        <a href="#" class="social-icon social-instagram" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
-        <a href="#" class="social-icon social-youtube" title="Youtube" target="_blank"><i class="icon-youtube"></i></a>
-        <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+        <li><a href="#"><a href="#"><%= t("defaults.terms_of_use")%></a></li>
+        </ul>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>

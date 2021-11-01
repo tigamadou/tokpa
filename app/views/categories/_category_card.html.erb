@@ -5,7 +5,7 @@
     <% end %>
   <% end %>
   <%= link_to  category_path(category.slug), class: 'banner-link' do %>
-    <h3 class="banner-title" title="#{<%= category.name%>}"><%= category.name%></h3>
+    <h3 class="banner-title" title="#{<%= category.name%>}"><%= t("categories.#{category.slug}")%></h3>
     <span class="banner-link-text">Shop Now</span>
   <% end %>
 </div>

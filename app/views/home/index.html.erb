@@ -16,18 +16,19 @@
       <div class="categories-page">
         <div class="container-fluid">
           <div class="mb-4">
-            <h1>Welcome on Tokpa</h1>
+            <h1><%= t("home.welcome_to_tokpa")%></h1>
             <p>
-              Here you can browse all the products available from your locals vendors on the Dantokpa Market.
+              <%= t("home.intro")%>
             </p>
           </div>
-          <div class="row">
+          <h3><%= t("home.find_the_best_deals_of_the_market")%></h3>
+          <div class="row mb-2">
             <div class="col-lg-12 col-xxl-4-5col">
               <div class="row">
                 <div class="col-md-6">
                   <div class="banner banner-overlay">
                     <a href="#">
-                      <img src="assets/images/demos/demo-14/banners/banner-2.jpg" alt="Banner img desc">
+                      <img src="images/banners/banner-2.jpg" alt="Banner img desc">
                     </a>
                     <div class="banner-content">
                       <h4 class="banner-subtitle text-white d-none d-sm-block"><a href="#">Hottest Deals</a></h4>
@@ -41,7 +42,7 @@
                 <div class="col-md-6">
                   <div class="banner banner-overlay">
                     <a href="#">
-                      <img src="assets/images/demos/demo-14/banners/banner-3.png" alt="Banner img desc">
+                      <img src="images/banners/banner-3.png" alt="Banner img desc">
                     </a>
                     <div class="banner-content">
                       <h4 class="banner-subtitle text-white d-none d-sm-block"><a href="#">Deal of the Day</a></h4>
@@ -56,7 +57,7 @@
             <div class="col-12 col-xxl-5col d-none d-xxl-block">
               <div class="banner banner-overlay">
                 <a href="#">
-                  <img src="assets/images/demos/demo-14/banners/banner-4.jpg" alt="Banner img desc">
+                  <img src="images/banners/banner-4.jpg" alt="Banner img desc">
                 </a>
                 <div class="banner-content">
                   <h4 class="banner-subtitle text-white"><a href="#">Clearance</a></h4>
@@ -66,9 +67,10 @@
               </div>
             </div>
           </div>
+          <h3><%= t("home.browe_all_the_categories")%></h3>
           <div class="row">
             <% @categories.each do |category| %>
-              <div class="col-lg-3">
+              <div class="col-lg-4">
                 <%= render 'categories/category_card', category: category, width:800, height: 400%>
               </div>
             <% end %>
