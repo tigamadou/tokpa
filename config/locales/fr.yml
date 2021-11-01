@@ -334,3 +334,4 @@ fr:
         created: "%{model} créé(e)"
         updated: "%{model} sauvegardé(e)"
         destroyed: "%{model} Supprimé"
+    you_need_a_model: Vous devez créer d'abord un(e) %{model}

@@ -154,11 +154,9 @@ ActiveRecord::Schema.define(version: 2021_10_24_232921) do
     t.decimal "total", null: false
     t.boolean "paid", default: false
     t.bigint "user_id", null: false
-    t.bigint "vendor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
-    t.index ["vendor_id"], name: "index_orders_on_vendor_id"
   end
 
   create_table "product_options", force: :cascade do |t|
@@ -310,7 +308,6 @@ ActiveRecord::Schema.define(version: 2021_10_24_232921) do
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "users"
-  add_foreign_key "orders", "vendors"
   add_foreign_key "product_options", "options"
   add_foreign_key "product_options", "products"
   add_foreign_key "product_variant_options", "product_options"

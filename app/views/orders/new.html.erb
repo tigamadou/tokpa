@@ -9,10 +9,10 @@
               <table class="table table-cart table-mobile">
                 <thead>
                   <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
+                    <th><%= Product.human_attribute_name('name')%></th>
+                    <th><%= ProductVariant.human_attribute_name('price')%></th>
+                    <th><%= ProductVariant.human_attribute_name('quantity')%></th>
+                    <th><%= Order.human_attribute_name('total')%></th>
                     <th></th>
                   </tr>
                 </thead>
@@ -38,11 +38,6 @@
                         </div>
                       </td>
                       <td class="total-col"><%= cart_product.total_price%></td>
-                      <td class="remove-col">
-                        <%= link_to cart_product, method: :delete, class: 'btn-remove', method: :delete, data: { confirm: t('defaults.are_you_sure') } do %>
-                          <i class="icon-close"></i>
-                        <% end %>
-                      </td>
                     </tr>
                   <% end %>
                 </tbody>
@@ -51,14 +46,12 @@
                 <thead>
                   <tr>
                     <th ></th>
-                    <th>Name</th>
-                    <th>Line 1</th>
-                    <th>Line 2</th>
-                    <th>Country</th>
-                    <th>City</th>
-                    <th>Zip</th>
-                    <th>Long</th>
-                    <th>Lat</th>
+                    <th><%= Address.human_attribute_name('name')%></th>
+                    <th><%= Address.human_attribute_name('line_1')%></th>
+                    <th><%= Address.human_attribute_name('line_2')%></th>
+                    <th><%= Address.human_attribute_name('country')%></th>
+                    <th><%= Address.human_attribute_name('city')%></th>
+                    <th><%= Address.human_attribute_name('zip')%></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -97,6 +90,11 @@
               </div>
             </aside>
           </div>
+          <% if @current_cart.sub_total > 0 %>
+            <%= form.hidden_field :total,value: @current_cart.sub_total %>
+            <%= form.hidden_field :user_id,value: current_user.id %>
+            <%= button_to t('defaults.proceed_to_checkout'), new_order_path, class:'btn btn-primary btn-order ' %>
+          <% end %>
         <% end %>
       </div>
     </div>

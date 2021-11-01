@@ -49,6 +49,7 @@ class ApplicationController < ActionController::Base
 
     def check_session
       if session[:not_admin] 
+        session.delete(:not_admin)
         flash[:danger] = t('errors.messages.ressource_access_denied')
       end
 

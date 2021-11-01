@@ -333,3 +333,4 @@ en:
       created: "%{model}% created"
       updated: "%{model}% edited "
       destroyed: "%{model}% Destroyed"
+    you_need_a_model: You first need to have a(n) %{model}

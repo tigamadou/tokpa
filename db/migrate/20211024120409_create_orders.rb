@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.decimal :total, null: false
       t.boolean :paid, default: false
       t.references :user, null: false, foreign_key: true
-      t.references :vendor, null: false, foreign_key: true
+      # t.references :vendor, null: false, foreign_key: true
 
       t.timestamps
     end
