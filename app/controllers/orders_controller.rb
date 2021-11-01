@@ -24,7 +24,8 @@ class OrdersController < ApplicationController
     
     
     @order = Order.new(order_params)
-    @order.reference = "ORD#{@order.id}"
+    string_length = 8
+    @order.reference = "ORD#{rand(36**string_length).to_s(36)}".upcase
     
     respond_to do |format|
       if @order.save
