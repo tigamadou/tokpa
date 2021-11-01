@@ -122,10 +122,10 @@ Rails.application.configure do
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'tokpa0.herokuapp.com',
+    :domain         => 'spooky-village-69817.herokuapp.com/',
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'tokpa0.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'spooky-village-69817.herokuapp.com/' }
 
 end
