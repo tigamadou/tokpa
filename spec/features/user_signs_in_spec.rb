@@ -14,7 +14,7 @@ RSpec.feature 'User signs in' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
-    expect(page).to have_text 'Please set up your profile.'
+    expect(page).to have_text 'Please set up your profile'
     
   end
 

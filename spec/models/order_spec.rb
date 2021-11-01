@@ -8,7 +8,7 @@ RSpec.describe Order, type: :model do
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:reference)}
+    
     it { should validate_presence_of(:total)}
   end
 end
