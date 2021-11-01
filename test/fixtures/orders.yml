@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reference: MyString
+  total: 9.99
+  paid: false
+  user: one
+  vendor: one
+
+two:
+  reference: MyString
+  total: 9.99
+  paid: false
+  user: two
+  vendor: two

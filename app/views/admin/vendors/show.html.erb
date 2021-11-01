@@ -1,0 +1,59 @@
+<p>
+  <strong>User: </strong>
+  <%= @vendor.user.profile.first_name %>  <%= @vendor.user.profile.last_name %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @vendor.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @vendor.description %>
+</p>
+<p>
+  <% if @vendor.image && @vendor.image.attached? %>
+    <%= cl_image_tag @vendor.image.key, :width=>150, :crop=>"fill" %>
+  <% end %>
+</p>
+<p>
+  <% if @vendor.cover && @vendor.cover.attached? %>
+    <%= cl_image_tag @vendor.cover.key, :width=>900, :crop=>"fill" %>
+  <% end %>
+</p>
+<p>
+  <strong>Online:</strong>
+  <%= @vendor.online %>
+</p>
+<p>
+  <strong>Legal name:</strong>
+  <%= @vendor.legal_name %>
+</p>
+<p>
+  <strong>Incorporation date:</strong>
+  <%= @vendor.incorporation_date %>
+</p>
+<p>
+  <strong>Registration date:</strong>
+  <%= @vendor.registration_date %>
+</p>
+<p>
+  <strong>Registration address:</strong>
+  <%= @vendor.registration_address %>
+</p>
+<p>
+  <strong>Registration number:</strong>
+  <%= @vendor.registration_number %>
+</p>
+<p>
+  Followers : <%= @vendor.followers.count%>
+</p>
+<p>
+  <strong>Verified:</strong>
+  <%= @vendor.verified %>
+</p>
+<p>
+  <strong>Activated:</strong>
+  <%= @vendor.activated %>
+</p>
+<%= link_to 'Edit', edit_admin_vendor_path(@vendor) %> |
+<%= link_to 'Back', admin_vendors_path %>

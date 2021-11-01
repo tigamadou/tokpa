@@ -1,0 +1,39 @@
+<main class="main">
+  <%= render 'layouts/pagetitle',title: t("defaults.vendors") %>
+  <div class="page-content">
+    <div class="container">
+      <div class="products mb-3">
+        <% @vendors.each do |vendor| %>
+          <div class="product product-list">
+            <div class="row">
+              <div class="col-6 col-lg-2">
+                <figure class="product-media">
+                  <% if vendor.verified %>
+                    <span class="product-label label-new">Verified</span>
+                  <% end %>
+                  <%= link_to  vendor_path(vendor) do %>
+                    <% if vendor.image.attached? %>
+                      <%= cl_image_tag vendor.image.key, :width=> 500,:height => 500, :crop=>"fill", class: 'product-image' %>
+                    <% end %>
+                  <% end %>
+                </figure>
+              </div>
+              <div class="col-lg-6">
+                <div class="product-body product-action-inner">
+                  <h3 class="product-title">
+                    <%= link_to "#{vendor.name}", vendor_path(vendor) %>
+                  </h3>
+                  <div class="product-content">
+                    <p>
+                      <%= vendor.description.truncate(100)%>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

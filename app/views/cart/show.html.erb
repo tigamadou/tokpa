@@ -1,0 +1,75 @@
+<main class="main">
+  <%= render 'layouts/pagetitle',title: t("defaults.cart") %>
+  <div class="page-content mt-2">
+    <div class="cart">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9">
+            <table class="table table-cart table-mobile">
+              <thead>
+                <tr>
+                  <th><%= t('defaults.product')%></th>
+                  <th><%= t('defaults.price')%></th>
+                  <th><%= t('defaults.quantiy')%></th>
+                  <th><%= t('defaults.total')%></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @cart.cart_products.each do |cart_product|%>
+                  <tr>
+                    <td class="product-col">
+                      <div class="product">
+                        <figure class="product-media">
+                          <% if cart_product.product.variants.first.image.attached? %>
+                            <%= cl_image_tag cart_product.product.variants.first.image.key, :width=> 500,:height => 500, :crop=>"fill", class: 'product-image' %>
+                          <% end %>
+                        </figure>
+                        <h3 class="product-title">
+                          <%= link_to "#{cart_product.product.name}", product_path(cart_product.product.slug)  %>
+                        </h3>
+                      </div>
+                    </td>
+                    <td class="price-col"> <%= cart_product.product.variants.first.price%></td>
+                    <td class="quantity-col">
+                      <div class="cart-product-quantity">
+                        <input type="number" class="form-control" value="<%= cart_product.quantity %>" min="1"  step="1" data-decimals="0" disabled>
+                      </div>
+                    </td>
+                    <td class="total-col"><%= cart_product.total_price%></td>
+                    <td class="remove-col">
+                      <%= link_to cart_product, method: :delete, class: 'btn-remove', method: :delete, data: { confirm: t('defaults.are_you_sure') } do %>
+                        <i class="icon-close"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <aside class="col-lg-3">
+            <div class="summary summary-cart">
+              <h3 class="summary-title"><%= t('defaults.cart_total')%> </h3>
+              <table class="table table-summary">
+                <tbody>
+                  <tr class="summary-subtotal">
+                    <td><%= t('defaults.subtotal')%>:</td>
+                    <td><%= @cart.sub_total%></td>
+                  </tr>
+                  <tr class="summary-total">
+                    <td>Total:</td>
+                    <td><%= @cart.sub_total%></td>
+                  </tr>
+                </tbody>
+              </table>
+              <% if @cart.sub_total > 0 %>
+                <%= link_to t('defaults.proceed_to_checkout'), new_order_path, class:'btn btn-outline-primary-2 btn-order btn-block' %>
+              <% end %>
+            </div>
+            <%= link_to t('defaults.continue_shopping'), root_path, class: 'btn btn-outline-dark-2 btn-block mb-3'%>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

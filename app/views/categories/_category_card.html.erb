@@ -1,0 +1,11 @@
+<div class="banner banner-cat banner-badge">
+  <%= link_to  category_path(category.slug) do %>
+    <% if category.image.attached? %>
+      <%= cl_image_tag category.image.key, :width=> width,:height => height, :crop=>"fill", class: 'product-image' %>
+    <% end %>
+  <% end %>
+  <%= link_to  category_path(category.slug), class: 'banner-link' do %>
+    <h3 class="banner-title" title="<%= t("categories.#{category.slug}")%>"><%= t("categories.#{category.slug}")%></h3>
+    <span class="banner-link-text"><%= t("defaults.shop_now")%></span>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Image:</strong>
+  <% if @variant.image.attached? %>
+    <%= cl_image_tag @variant.image.key, :width=>150, :crop=>"fill" %>
+  <% end %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @variant.price %>
+</p>
+<p>
+  <strong>Sku:</strong>
+  <%= @variant.sku %>
+</p>
+<p>
+  <strong>Quantity:</strong>
+  <%= @variant.quantity %>
+</p>
+<p>
+  <strong>Product:</strong>
+  <%= @variant.product_id %>
+</p>
+<%= link_to 'Edit', edit_admin_product_variant_path(@variant.product, @variant) %> |
+<%= link_to 'Back', admin_product_variants_path %>

@@ -1,0 +1,93 @@
+fr:
+  activerecord:
+    models:
+      address_profile: Adresse profil
+      address_vendor: Adresse marchand
+      address: Adresse
+      brand: Marque,
+      cart_product: Produit panier
+      cart: Panier
+      category: Catégorie
+      favorite: Favori
+      option: Option
+      order: Commande
+      product_option: Option produit
+      product_varuant_option: Option variant produit
+      product_variant: Variant produit
+      product: Produit
+      profile: Profil
+      role: Rôle
+      subcategory: Sous catégories
+      user_vendor: Utilisateur marchand
+      user: Utilisateurs
+      vendor: Marchands
+    attributes:
+      address_profile: Adresse profil
+      address_vendor: Adresse marchan
+      address:
+        name: Nom
+        line_1: Ligne 1
+        line_2: Ligne 2
+        country: Pays
+        city: Ville
+        zip: Code postal
+        long: longitude
+        lat: latitude
+      brand:
+        name: Nom
+        image: Image
+        activated: Activé
+      cart_product: Produit panier
+      cart:
+        total: total
+      category:
+        name: Nom
+        image: Image
+        activated: Activé
+      favorite: Favori
+      option:
+        name: Nom
+      order:
+        reference: Référence
+        total: Total
+        paid:  Payé
+      product_option: Option produit
+      product_varuant_option:
+        value: Vlaeur
+      product_variant:
+        price: Prix
+        sku: SKU
+        image: Image
+        quantity: Quantité
+      product:
+        name: Nom
+        description: Description
+        active: Actif
+        available: Disponible
+        validated: Validé
+      profile:
+        first_name: Prénom
+        last_name: Nom
+        phone_1: Téléphone 1
+        phone_2: Téléphone 2
+        image: image de profil
+      subcategory:
+         name: Nom
+         actived: Activé
+      user_vendor: Utilisateur marchand
+      user:
+        email: Adresse Email
+        password: Mot de passe
+        remember_me: Resté connecté
+      vendor:
+        name: Nom
+        description: Description
+        cover:  Image de couverture
+        online: Pubié
+        legal_name: Nom légal
+        incorporation_date: Date de constitution
+        registration_date: Date d'enregistrement
+        registration_address: Adresse d'enregistrement
+        registration_number: Numéro d(enregistrement)
+        verified: Vérifié
+        activated: Activé

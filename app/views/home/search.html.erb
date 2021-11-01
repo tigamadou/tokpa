@@ -1,0 +1,91 @@
+<main class="main">
+  <%= render 'layouts/pagetitle',title: t("defaults.search_results") %>
+  <div class="page-content mt-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="toolbox">
+            <div class="toolbox-left">
+              <div class="toolbox-info">
+                <span><%= @results.count%> / <%= @results.count%> </span> <%= t("defaults.products") %>
+              </div>
+            </div>
+            <div class="toolbox-right">
+              <div class="toolbox-sort">
+                <label for="sortby"> <%= t("defaults.sort_by") %>:</label>
+                <div class="select-custom">
+                  <select name="sortby" id="sortby" class="form-control">
+                    <option value="popularity" selected="selected"> <%= t("defaults.price_lowest") %></option>
+                    <option value="rating"> <%= t("defaults.price_highest") %></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="products mb-3">
+            <div class="row ">
+              <% if @results && @results.count>0 %>
+                <% @results.each do |product| %>
+                  <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                    <%= render 'products/card', product: product %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <aside class="col-lg-3 order-lg-first">
+          <div class="sidebar sidebar-shop">
+            <div class="widget widget-clean">
+              <label><%=  t("categories.filters") %>:</label>
+              <a href="#" class="sidebar-filter-clear">Clean All</a>
+            </div>
+            <div class="widget widget-collapsible">
+              <h3 class="widget-title">
+                <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">
+                  <%=t('defaults.categories')%>
+                </a>
+              </h3>
+              <div class="collapse" id="widget-1">
+                <div class="widget-body">
+                  <div class="filter-items filter-items-count">
+                    <% @categories.each do |category| %>
+                      <div class="filter-item">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="<%= category.slug%>">
+                          <label class="custom-control-label" for="<%= category.slug%>"><%=  t("categories.#{category.slug}") %></label>
+                        </div>
+                        <span class="item-count"><%= @results.where(category: {id: category.id}).count%></span>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="widget widget-collapsible">
+              <h3 class="widget-title">
+                <a data-toggle="collapse" href="#widget-4" role="button" aria-expanded="true" aria-controls="widget-4">
+                  Brand
+                </a>
+              </h3>
+              <div class="collapse" id="widget-4">
+                <div class="widget-body">
+                  <div class="filter-items">
+                    <% @brands.each do |brand| %>
+                      <div class="filter-item">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="<%= brand.slug%>">
+                          <label class="custom-control-label" for="<%= brand.slug%>"><%= brand.name%></label>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>

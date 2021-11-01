@@ -1,0 +1,33 @@
+<div class="container">
+  <%= render 'user/account_nav'%>
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to t('defaults.back'), addresses_path, class: 'btn btn-light' %>
+      <p>
+        <strong><%= Address.human_attribute_name('name')%>:</strong>
+        <%= @address.name %>
+      </p>
+      <p>
+        <strong><%= Address.human_attribute_name('line_1')%>:</strong>
+        <%= @address.line_1 %>
+      </p>
+      <p>
+        <strong><%= Address.human_attribute_name('line_2')%>:</strong>
+        <%= @address.line_2 %>
+      </p>
+      <p>
+        <strong><%= Address.human_attribute_name('country')%>:</strong>
+        <%= @address.country %>
+      </p>
+      <p>
+        <strong><%= Address.human_attribute_name('city')%>:</strong>
+        <%= @address.city %>
+      </p>
+      <p>
+        <strong><%= Address.human_attribute_name('zip')%>:</strong>
+        <%= @address.zip %>
+      </p>
+      <%= link_to  t('defaults.edit'), edit_address_path(@address), class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

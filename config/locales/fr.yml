@@ -1,0 +1,335 @@
+---
+fr:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'La validation a échoué : %{errors}'
+        restrict_dependent_destroy:
+          has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record}
+            dépendant(e) existe
+          has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
+            dépendants existent
+  date:
+    abbr_day_names:
+    - dim
+    - lun
+    - mar
+    - mer
+    - jeu
+    - ven
+    - sam
+    abbr_month_names:
+    - 
+    - jan.
+    - fév.
+    - mar.
+    - avr.
+    - mai
+    - juin
+    - juil.
+    - août
+    - sept.
+    - oct.
+    - nov.
+    - déc.
+    day_names:
+    - dimanche
+    - lundi
+    - mardi
+    - mercredi
+    - jeudi
+    - vendredi
+    - samedi
+    formats:
+      default: "%d/%m/%Y"
+      long: "%e %B %Y"
+      short: "%e %b"
+    month_names:
+    - 
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ une heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ un mois
+        other: environ %{count} mois
+      about_x_years:
+        one: environ un an
+        other: environ %{count} ans
+      almost_x_years:
+        one: presqu'un an
+        other: presque %{count} ans
+      half_a_minute: une demi‑minute
+      less_than_x_seconds:
+        zero: moins d'une seconde
+        one: moins d'une seconde
+        other: moins de %{count} secondes
+      less_than_x_minutes:
+        zero: moins d'une minute
+        one: moins d'une minute
+        other: moins de %{count} minutes
+      over_x_years:
+        one: plus d'un an
+        other: plus de %{count} ans
+      x_seconds:
+        one: 1 seconde
+        other: "%{count} secondes"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_days:
+        one: 1 jour
+        other: "%{count} jours"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
+      x_years:
+        one: 1 an
+        other: "%{count} ans"
+    prompts:
+      second: Seconde
+      minute: Minute
+      hour: Heure
+      day: Jour
+      month: Mois
+      year: Année
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: doit être accepté(e)
+      blank: doit être rempli(e)
+      confirmation: ne concorde pas avec %{attribute}
+      empty: doit être rempli(e)
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: n'est pas valide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      model_invalid: 'Validation échouée : %{errors}'
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      other_than: doit être différent de %{count}
+      present: doit être vide
+      required: doit exister
+      taken: n'est pas disponible
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+      please_set_up_your_profile: Veuillez créer votre profil.
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: 'Impossible d''enregistrer ce(tte) %{model} : 1 erreur'
+        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+  helpers:
+    select:
+      prompt: Veuillez sélectionner
+    submit:
+      create: Créer un(e) %{model}
+      submit: Enregistrer ce(tte) %{model}
+      update: Modifier ce(tte) %{model}
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: milliard
+          million: million
+          quadrillion: million de milliards
+          thousand: millier
+          trillion: billion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: octet
+            other: octets
+          eb: Eo
+          gb: Go
+          kb: ko
+          mb: Mo
+          pb: Po
+          tb: To
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " et "
+      two_words_connector: " et "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%d %B %Y %Hh %Mmin %Ss"
+      long: "%A %d %B %Y %Hh%M"
+      short: "%d %b %Hh%M"
+    pm: pm
+  faker:
+    name:
+      first_name:
+        - Charlotte
+        - Ava
+        - Chloe
+        - Emily
+
+      # New faker fields
+      ocker_first_name:
+        - Bazza
+        - Bluey
+        - Davo
+        - Johno
+        - Shano
+        - Shazza
+      region:
+        - South East Queensland
+        - Wide Bay Burnett
+        - Margaret River
+        - Port Pirie
+        - Gippsland
+        - Elizabeth
+        - Barossa
+  devise:
+    sign_in: "Connexion"
+    sign_out: "Déconnexion"
+    sign_up: "Inscription"
+    email: 'Email'
+    password: 'Mot de passe'
+    password_confirmation: "Confirmation du mot de passe"
+  home:
+    welcome_to_tokpa: "Bienvenue sur Tokpa"
+    intro : " Ici, vous pouvez parcourir tous les produits disponibles auprès de vos vendeurs locaux sur le marché Dantokpa. Passez votre commande en ligne et contactez le vendeur pour payer à l'enlèvement de votre marchandise. " 
+    find_the_best_deals_of_the_market: "Trouvez les meilleures offre du marché"
+    browe_all_the_categories: "Parcourez toutes les catégories"
+  categories:
+    agriculture-food: "Agriculture & Alimentation "
+    apparel-textiles-accessories: "Vêtements, textiles et accessoires "
+    auto-transportation: "Automobile et transport"
+    bags-shoes-accessories: "Sacs, chaussures et accessoires"
+    electronics: "Electroniques"
+    electrical-equipment-components-telecoms: "Équipements électriques, composants et télécommunications"
+    gifts-sports-toys: "Cadeaux, Sports & Jouets"
+    health-beauty: "Santé & Beauté"
+    home-lights-construction: "Maison, lumières et construction"
+    machinery-industrial-parts-tools: "Machinerie, pièces et outils industriels"
+    metallurgy-chemicals-rubber-plastics: "Métallurgie, produits chimiques, caoutchouc et plastiques"
+    packaging-advertising-office: "Emballage, matériel de publicité et bureau"
+  footer:
+    process:
+      find_your_product: "Trouvez votre produit"
+      browser_all_our_products_and_vendors: "Parcourez tous nos produits et marchands"
+      make_your_order: "Faites votre commande"
+      confirm_your_order_online: "Confirmez votre commande en ligne"
+      pay_on_pick_up: "Payer au retrais de votre marchandise"
+      pay_when_you_pick_up_at_the_vendor_place: "Payez lorsque vous récupérez votre commande chez le vendeur"
+    got_a_question_call_us: "Vous avez une question ? Appelez-nous 24/7"
+    links:
+  defaults:
+    modo: "Le plus grand marché de l'afrique de l'ouest vient chez vous"
+    payment_methods: "Méthodes de paiement"
+    information: "Information"
+    about_us: "A propos"
+    how_to_shop_on_tokpa: "Comment acheter sur Tokpa"
+    faq: "FAQ"
+    contact_us: "Contactez-nous"
+    guest_admin: "Administrateur invité"
+    guest_user: "Utilisateur invité"
+    customer_service: "Service client"
+    money_back_guarantee: "Garantie de remboursement"
+    returns: "Retours"
+    terms_and_contitions: "Termes et conditions"
+    pricaty_policy: "Politique de confidentialité"
+    view_cart: "Voir panier"
+    help: "Aide"
+    terms_of_use: "Conditions d'utilisation"
+    shop_now: 'Achetez maintenant'
+    home: "Accueil"
+    categories: "Catégories"
+    category: "Catégorie"
+    subcategories: "Sous catégories"
+    products: "Produits"
+    product: "Produit"
+    vendors: 'Marchands'
+    vendor: 'Marchands'
+    search_product: 'Cherchez un produit...'
+    all_categories: 'Toutes les categories'
+    cart: "Panier"
+    account: "Compte"
+    administration: "Administration"
+    add_to_cart: "Ajouter au panier"
+    quantity: "Quantité"
+    price: "Prix"
+    subtotal: "Soustotal"
+    proceed_to_checkout: "Valider ma commande"
+    continue-shopping: "Continuer mes achats"
+    search_results: "Résultat(s)"
+    filters: "Filtres"
+    sort_by: "Trier par"
+    price_lowest: "Prix Croissant"
+    price_highest: "Prix Décroissant"
+    my_account: "Mon compte"
+    welcome: "Bienvenu %{name}"
+    new: Nouveau(elle) %{model}
+    show: Afficher 
+    edit: Modifier
+    destroy: Supprimer
+    back: Retour
+    are_you_sure: "Êtes vous sûre?"
+    actions:
+      messages:
+        created: "%{model} créé(e)"
+        updated: "%{model} sauvegardé(e)"
+        destroyed: "%{model} Supprimé"

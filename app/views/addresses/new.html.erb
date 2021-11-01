@@ -1,0 +1,10 @@
+<div class="container">
+  <%= render 'user/account_nav'%>
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to t('defaults.back'), addresses_path, class: 'btn btn-light' %>
+      <h1><%= t('defaults.new',model: Address.model_name.human)%></h1>
+      <%= render 'form', address: @address %>
+    </div>
+  </div>
+</div>

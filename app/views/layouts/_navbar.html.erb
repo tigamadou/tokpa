@@ -1,0 +1,126 @@
+<header class="header header-10 header-intro-clearance">
+  <div class="header-middle">
+    <div class="container">
+      <div class="header-left">
+        <button class="mobile-menu-toggler">
+          <span class="sr-only">Toggle mobile menu</span>
+          <i class="icon-bars"></i>
+        </button>
+        <%= link_to 'Tokpa', root_path, class: "logo"%>
+      </div>
+      <div class="header-center">
+        <%= render partial: 'layouts/search_form' %>
+      </div>
+      <div class="header-right">
+        <div class="header-dropdown-link">
+          <% if !user_signed_in? %>
+            <div class="dropdown compare-dropdown">
+              <a href="<%= new_user_session_path %>" class=""  title="Login" >
+                <span class="compare-txt"><%= t("devise.sign_in")%></span>
+              </a>
+            </div>
+            <div class="dropdown compare-dropdown">
+              <%= link_to  new_user_registration_path, class: "dropdown-toggle",title: t("devise.sign_up") do %>
+                <span class="compare-txt"><%= t("devise.sign_up")%></span>
+              <% end %>
+            </div>
+          <% else %>
+            <% if current_user.has_role? :customer %>
+              <div class="dropdown compare-dropdown">
+                <a href="<%= user_root_path %>" class=""  title="Login" >
+                  <span class="compare-txt"> <%= t("defaults.account")%></span>
+                </a>
+              </div>
+            <% end %>
+            <% if current_user.has_role? :admin %>
+              <div class="dropdown compare-dropdown">
+                <a href="<%= rails_admin.dashboard_path %>" class=""  title="Login" >
+                  <span class="compare-txt"> <%= t("defaults.administration")%></span>
+                </a>
+              </div>
+            <% end %>
+            <div class="dropdown compare-dropdown">
+              <a href="<%= destroy_user_session_path %>" class="" data-method="delete"  title="Login" >
+                <span class="compare-txt"> <%= t("devise.sign_out")%></span>
+              </a>
+            </div>
+          <% end %>
+          <%= render partial: 'layouts/nav_car_box' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-bottom sticky-header">
+    <div class="container">
+      <div class="header-left">
+        <div class="dropdown category-dropdown " data-visible="true">
+          <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-display="static" title="Browse Categories">
+            <%= t("devise.all_categories")%>
+          </a>
+          <div class="dropdown-menu">
+            <nav class="side-nav">
+              <ul class="menu-vertical sf-arrows">
+                <% @categories.take(10).each do |category| %>
+                  <li class="megamenu-container">
+                    <%= link_to t("categories.#{category.slug}").truncate(25), category_path(category.slug), title: t("categories.#{category.slug}") %>
+                    <% if category.subcategories.count > 0 %>
+                      <div class="megamenu">
+                        <div class="row no-gutters">
+                          <div class="col-md-8">
+                            <div class="menu-col">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <ul>
+                                    <% get_subcategories_pages(category, 1).each do |item| %>
+                                      <li><%= link_to "#{item.name}", subcategory_path(item.category.slug,item.slug) %></li>
+                                    <% end %>
+                                  </ul>
+                                </div>
+                                <div class="col-md-6">
+                                  <ul>
+                                    <% get_subcategories_pages(category, 2).each do |item| %>
+                                      <li><%= link_to "#{item.name}", subcategory_path(item.category.slug,item.slug) %></li>
+                                    <% end %>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4" >
+                            <div class="banner banner-overlay">
+                              <%= link_to  category_path(category.slug), class: 'banner banner-menu' do %>
+                                <% if category.image.attached? %>
+                                  <%= cl_image_tag category.image.key, :width=>280,:height => 440, :crop=>"fill" %>
+                                <% end %>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </li>
+                <% end %>
+                <li><%= link_to t("defaults.all_categories"), categories_path %></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="header-center">
+        <nav class="main-nav">
+          <ul class="menu ">
+            <li>
+              <%= link_to  t("defaults.home"), root_path, class: 'sf-with-ul' %>
+            </li>
+            <li>
+              <%= link_to  t("defaults.categories"), categories_path, class: 'sf-with-ul' %>
+            </li>
+            <li>
+              <%= link_to t("defaults.vendors"), vendors_path, class: 'sf-with-ul' %>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

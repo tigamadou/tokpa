@@ -1,0 +1,17 @@
+<%= form_with(model: subcategory, url: url) do |form| %>
+  <%= form.hidden_field :category_id , value: params[:category_id]%>
+  <% if subcategory.errors.any? %>
+    <%= render 'messages/form', element: subcategory%>
+  <% end %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :activated %>
+    <%= form.check_box :activated %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

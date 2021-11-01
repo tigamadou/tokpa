@@ -1,0 +1,131 @@
+<footer class="footer footer-2">
+  <div class="footer-middle">
+    <div class="container mb-3">
+      <div class="icon-boxes-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-lg-3">
+              <div class="icon-box icon-box-side">
+                <span class="icon-box-icon">
+                  <i class="icon-rocket"></i>
+                </span>
+                <div class="icon-box-content">
+                  <h3 class="icon-box-title"><%= t("footer.process.find_your_product")%></h3>
+                  <!-- End .icon-box-title -->
+                  <p><%= t("footer.process.browser_all_our_products_and_vendors")%></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="icon-box icon-box-side">
+                <span class="icon-box-icon">
+                  <i class="icon-cart"></i>
+                </span>
+                <div class="icon-box-content">
+                  <h3 class="icon-box-title"><%= t("footer.process.make_your_order")%></h3>
+                  <p><%= t("footer.process.confirm_your_order_online")%></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="icon-box icon-box-side">
+                <span class="icon-box-icon">
+                  <i class="icon-info-circle"></i>
+                </span>
+                <div class="icon-box-content">
+                  <h3 class="icon-box-title"><%= t("footer.process.pay_on_pick_up")%></h3>
+                  <!-- End .icon-box-title -->
+                  <p><%= t("footer.process.pay_when_you_pick_up_at_the_vendor_place")%></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="icon-box icon-box-side">
+                <span class="icon-box-icon">
+                  <i class="icon-life-ring"></i>
+                </span>
+                <div class="icon-box-content">
+                  <h3 class="icon-box-title">We Support</h3>
+                  <p>24/7 amazing support services</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 col-lg-4">
+          <div class="widget widget-about">
+            <%= link_to 'Tokpa', root_path, class: "footer-logo" %>
+            <p><%= t("defaults.modo")%> </p>
+            <div class="widget-about-info">
+              <div class="row">
+                <div class="col-sm-6 col-md-4">
+                  <span class="widget-about-title"><%= t("footer.got_a_question_call_us")%></span>
+                  <a href="tel:123456789">+229 123 456</a>
+                </div>
+                <div class="col-sm-6 col-md-8">
+                  <span class="widget-about-title"><%= t("defaults.payment_methods")%></span>
+                  <figure class="footer-payments">
+                    <img src="/images/payments.png" alt="Payment methods" width="272" height="20">
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-lg-2">
+          <div class="widget">
+            <h4 class="widget-title"><%= t("defaults.information")%></h4>
+            <ul class="widget-list">
+              <li><a href="about.html"><%= t("defaults.about_us")%></a></li>
+              <li><a href="#"><%= t("defaults.how_to_shop_on_tokpa")%></a></li>
+              <li><a href="faq.html"><%= t("defaults.faq")%></a></li>
+              <li><a href="contact.html"><%= t("defaults.contact_us")%></a></li>
+              <% unless user_signed_in? %>
+                <li><a href="<%= guest_admin_path %>"title="Login" ><%= t("defaults.guest_admin")%></a></li>
+                <li><a href="<%= guest_user_path %>"   title="Login" ><%= t("defaults.guest_user")%></a></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4 col-lg-2">
+          <div class="widget">
+            <h4 class="widget-title"><%= t("defaults.customer_service")%></h4>
+            <ul class="widget-list">
+              <li><a href="#"><%= t("defaults.payment_methods")%></a></li>
+              <li><a href="#"><%= t("defaults.money_back_guarantee")%></a></li>
+              <li><a href="#"><%= t("defaults.returns")%></a></li>
+              <li><a href="#"><%= t("defaults.terms_and_conditions")%></a></li>
+              <li><a href="#"><%= t("defaults.privacy_policy")%></a></li>
+            </ul>
+          </div>
+        </div>
+        <% if user_signed_in?%>
+          <div class="col-sm-4 col-lg-2">
+            <div class="widget">
+              <h4 class="widget-title">My Account</h4>
+              <ul class="widget-list">
+                <li><a href="#"><%= t("devise.sign_in")%></a></li>
+                <li>
+                  <%= link_to t("defaults.view_cart"), show_cart_path%>
+                </li>
+                <li><a href="#"><%= t("defaults.help")%></a></li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container-fluid">
+      <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p>
+      <ul class="footer-menu">
+        <li><a href="#"><a href="#"><%= t("defaults.terms_of_use")%></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>

@@ -1,0 +1,13 @@
+<h2><%= t(".forgot_your_password") %></h2>
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-group">
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email",class:'form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, t(".send_me_reset_password_instructions"),class:'btn btn-primary' %>
+  </div>
+<% end %>
