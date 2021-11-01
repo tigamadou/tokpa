@@ -18,7 +18,7 @@
         <td><%= subcategory.category.name %></td>
         <td><%= link_to 'Show', admin_subcategory_path(subcategory) %></td>
         <td><%= link_to 'Edit', edit_admin_category_subcategory_path(subcategory.category, subcategory) %></td>
-        <td><%= link_to 'Destroy', admin_subcategory_path(subcategory), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', admin_subcategory_path(subcategory), method: :delete, data: { confirm: t('defaults.are_you_sure') } %></td>
       </tr>
     <% end %>
   </tbody>

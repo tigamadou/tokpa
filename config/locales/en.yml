@@ -282,3 +282,53 @@ en:
   defaults:
     modo: "West Africa's largest market comes to you"
     payment_methods: "Payment Methods"
+    information: "Information"
+    about_us: "About Us"
+    how_to_shop_on_tokpa: "How to shop on Tokpa"
+    faq: "FAQ"
+    contact_us: "Contact us"
+    guest_admin: "Guest Admin"
+    guest_user: "Guest User"
+    customer_service: "Customer service"
+    money_back_guarantee: "Money-back guarantee"
+    returns: "Returns"
+    terms_and_contitions: "Terms and conditions"
+    pricaty_policy: "Privacy policy"
+    view_cart: "View Cart"
+    help: "Help"
+    terms_of_use: "Terms of use"
+    shop_now: 'Shop Now'
+    home: "Home"
+    categories: "Categories"
+    category: "Category"
+    subcategories: "Subcategories"
+    products: "Products"
+    product: "Product"
+    vendors: 'Vendors'
+    vendor: 'Vendor'
+    search_product: 'Search product...'
+    all_categories: 'All categories'
+    cart: "Cart"
+    account: "Account"
+    administration: "Administration"
+    add_to_cart: "Add to cart"
+    quantity: "Quantity"
+    price: "Price"
+    subtotal: "Subtotal"
+    proceed_to_checkout: "Proceed to checkout"
+    continue-shopping: "Continue shopping"
+    search_results: "Result(s)"
+    filters: "Filters"
+    sort_by: "Filter by"
+    price_lowest: "Lowest Price"
+    price_highest: "Highest Price"
+    my_account: "My account"
+    welcome: Welcome
+    new: New
+    show: Show
+    edit: Edit
+    destroy: Delete
+    actions:
+      created: "%{model}% created"
+      updated: "%{model}% edited "
+      destroyed: "%{model}% Destroyed"

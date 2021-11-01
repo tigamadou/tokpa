@@ -320,3 +320,16 @@ fr:
     sort_by: "Trier par"
     price_lowest: "Prix Croissant"
     price_highest: "Prix Décroissant"
+    my_account: "Mon compte"
+    welcome: "Bienvenu %{name}"
+    new: Nouveau(elle) %{model}
+    show: Afficher 
+    edit: Modifier
+    destroy: Supprimer
+    back: Retour
+    are_you_sure: "Êtes vous sûre?"
+    actions:
+      messages:
+        created: "%{model} créé(e)"
+        updated: "%{model} sauvegardé(e)"
+        destroyed: "%{model} Supprimé"

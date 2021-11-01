@@ -39,7 +39,7 @@
                       </td>
                       <td class="total-col"><%= cart_product.total_price%></td>
                       <td class="remove-col">
-                        <%= link_to cart_product, method: :delete, class: 'btn-remove', method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        <%= link_to cart_product, method: :delete, class: 'btn-remove', method: :delete, data: { confirm: t('defaults.are_you_sure') } do %>
                           <i class="icon-close"></i>
                         <% end %>
                       </td>

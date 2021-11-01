@@ -26,7 +26,7 @@ class AddressesController < ApplicationController
       if @address.save
         AddressProfile.create(profile_id: current_user.profile.id, address_id: @address.id)
         
-        format.html { redirect_to @address, notice: "Address was successfully created." }
+        format.html { redirect_to @address, notice: t('defaults.actions.messages.created', model: Address.model_name.human)}
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -36,7 +36,7 @@ class AddressesController < ApplicationController
   def update
     respond_to do |format|
       if @address.update(address_params)
-        format.html { redirect_to @address, notice: "Address was successfully updated." }
+        format.html { redirect_to @address, notice: t('defaults.actions.messages.updated', model: Address.model_name.human)  }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -46,7 +46,7 @@ class AddressesController < ApplicationController
   def destroy
     @address.destroy
     respond_to do |format|
-      format.html { redirect_to addresses_url, notice: "Address was successfully destroyed." }
+      format.html { redirect_to addresses_url, notice: t('defaults.actions.messages.destroyed', model: Address.model_name.human) }
     end
   end
 

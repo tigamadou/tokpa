@@ -23,7 +23,7 @@
                 <%= cl_image_tag cart_product.product.variants.first.image.key, :width=> 60,:height => 60, :crop=>"fill" %>
               <% end %>
             </figure>
-            <%= link_to cart_product, method: :delete, class: 'btn-remove',title: '"Remove Product', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= link_to cart_product, method: :delete, class: 'btn-remove',title: '"Remove Product', method: :delete, data: { confirm: t('defaults.are_you_sure') } do %>
               <i class="icon-close"></i>
             <% end %>
           </div>

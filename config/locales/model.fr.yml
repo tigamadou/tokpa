@@ -50,7 +50,7 @@ fr:
       order:
         reference: Référence
         total: Total
-        paid:  paPayéid
+        paid:  Payé
       product_option: Option produit
       product_varuant_option:
         value: Vlaeur

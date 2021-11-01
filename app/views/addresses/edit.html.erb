@@ -2,8 +2,8 @@
   <%= render 'user/account_nav'%>
   <div class="row">
     <div class="col-md-6">
-      <%= link_to 'Back', addresses_path, class: 'btn btn-light' %>
-      <%= link_to 'Show', @address, class: 'btn btn-light' %>
+      <%= link_to t('defaults.back'), addresses_path, class: 'btn btn-light' %>
+      <%= link_to t('defaults.show'), @address, class: 'btn btn-light' %>
       <h1>Editing Address</h1>
       <%= render 'form', address: @address %>
     </div>

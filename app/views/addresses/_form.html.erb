@@ -27,6 +27,6 @@
     <%= form.text_field :zip, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= form.submit 'Save', class: 'btn btn-primary' %>
+    <%= form.submit t('helpers.submit.submit', model: Address.model_name.human ), class: 'btn btn-primary' %>
   </div>
 <% end %>

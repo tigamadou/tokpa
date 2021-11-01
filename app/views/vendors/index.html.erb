@@ -43,7 +43,7 @@
         <td><%= vendor.activated %></td>
         <td><%= link_to 'Show', vendor %></td>
         <td><%= link_to 'Edit', edit_vendor_path(vendor) %></td>
-        <td><%= link_to 'Destroy', vendor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', vendor, method: :delete, data: { confirm: t('defaults.are_you_sure') } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -25,7 +25,7 @@
         <td><%= category.activated %></td>
         <td><%= link_to 'Show', admin_category_path(category) %></td>
         <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-        <td><%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: t('defaults.are_you_sure') } %></td>
       </tr>
     <% end %>
   </tbody>
