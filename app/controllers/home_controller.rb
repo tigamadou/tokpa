@@ -29,10 +29,11 @@ class HomeController < ApplicationController
     
     @user = User.create(
         email: "gues_#{Time.now.to_i}_#{Faker::Internet.email}",
-        password: '123456789'
+        password: '123456789',
+        confirmed_at: DateTime.now
     )
       
-    @user.confirm
+    
 
   end
   

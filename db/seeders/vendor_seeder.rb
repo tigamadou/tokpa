@@ -16,7 +16,7 @@ def create_vendor(user)
     UserVendor.create(user_id: user.id, vendor_id: vendor.id)
     vendor.image.attach(io: File.open("app/assets/images/500x500.png"), filename: '500x500.png',  identify: false)
     vendor.cover.attach(io: File.open("app/assets/images/1200x280.png"), filename: '1200x280.png',  identify: false)
-    create_products(50, vendor)
+    create_products(2, vendor)
 end
 
 
