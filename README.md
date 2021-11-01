@@ -1,5 +1,4 @@
 # Tokpa Market Place
-
 ![screenshot](./docs/screenshot.png)
 
 Tokpa is the simple name of Benin Internation market Dantokpa. Dantokpa is the most important market in Benin, but also the largest open-air market in West-Africa. This app is a market place for the market vendors. Thus, all the clients can do their shopping from their home.								
