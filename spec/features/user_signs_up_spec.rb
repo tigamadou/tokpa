@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'User signs up' do
+  before(:each) do
+    I18n.locale = :en
+  end
   scenario 'with valid data' do
     visit new_user_registration_path
 

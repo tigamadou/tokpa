@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Vendor, type: :model do
+  before(:each) do
+    I18n.locale = :en
+  end
   describe 'Validation tests' do
     context 'presence name ' do
       it 'fails if name not  provided' do 
