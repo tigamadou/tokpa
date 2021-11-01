@@ -40,6 +40,9 @@ RailsAdmin.config do |config|
   end
 
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user.has_role? :admin
+    session[:not_admin] = true unless current_user.has_role? :admin
+    redirect_to main_app.root_path unless current_user.has_role? :admin do 
+
+    end
   end
 end
