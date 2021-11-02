@@ -45,7 +45,7 @@
                   <div class="product-details-quantity">
                     <%= form.hidden_field :total, value: @product.variants.first.price %>
                     <%= form.hidden_field :product_id, value: @product.id %>
-                    <%= form.number_field :quantity, class: 'form-control',value: "1", min: "1",step:"1", required: true%>
+                    <%= form.number_field :quantity, class: 'form-control',value: "1", min: "1",step:"1", max: @product.variants.first.quantity, required: true%>
                   </div>
                 </div>
                 <div class="product-details-action">
