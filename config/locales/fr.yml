@@ -330,10 +330,12 @@ fr:
     destroy: Supprimer
     back: Retour
     are_you_sure: "Êtes vous sûre?"
+    not_available: "Non disponible"
     actions:
       messages:
         created: "%{model} créé(e)"
         updated: "%{model} sauvegardé(e)"
         destroyed: "%{model} Supprimé"
         order_created: "Votre commande a bien été enregistrée. Rendez-vous dans les locaux du marchand pour retirer vos produits et payer."
+        product_not_available_for_order: "Le produit %{product} n'est plus disponible. Veuillez le retirer de votre panier avant de continuer"
     you_need_a_model: Vous devez créer d'abord un(e) %{model}

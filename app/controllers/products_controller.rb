@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
 
   def show
     @cart = Cart.new
+    @not_available = false
+    @not_available = true if @product.variants.first.quantity == 0
   end
 
   def new

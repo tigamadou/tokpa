@@ -39,18 +39,24 @@
                   <%= @product.description %>
                 </p>
               </div>
-              <%= form_with(model: @cart, url: create_cart_path, method: 'POST') do |form| %>
-                <div class="details-filter-row details-row-size">
-                  <label for="qty"><%= t('defaults.quantity')%>:</label>
-                  <div class="product-details-quantity">
-                    <%= form.hidden_field :total, value: @product.variants.first.price %>
-                    <%= form.hidden_field :product_id, value: @product.id %>
-                    <%= form.number_field :quantity, class: 'form-control',value: "1", min: "1",step:"1", max: @product.variants.first.quantity, required: true%>
+              <% if !@not_available %>
+                <%= form_with(model: @cart, url: create_cart_path, method: 'POST') do |form| %>
+                  <div class="details-filter-row details-row-size">
+                    <label for="qty"><%= t('defaults.quantity')%>:</label>
+                    <div class="product-details-quantity">
+                      <%= form.hidden_field :total, value: @product.variants.first.price %>
+                      <%= form.hidden_field :product_id, value: @product.id %>
+                      <%= form.number_field :quantity, class: 'form-control',value: "1", min: "1",step:"1", max: @product.variants.first.quantity, required: true%>
+                    </div>
                   </div>
-                </div>
-                <div class="product-details-action">
-                  <%= form.submit t('defaults.add_to_cart'), class: 'btn-product btn-cart' %>
-                </div>
+                  <div class="product-details-action">
+                    <%= form.submit t('defaults.add_to_cart'), class: 'btn-product btn-cart' %>
+                  </div>
+                <% end %>
+              <% else %>
+                <button class="btn btn-warning disable mb-4" disabled>
+                  <%= t('defaults.not_available')%>
+                </button>
               <% end %>
               <div class="product-details-footer">
                 <div class="product-cat">

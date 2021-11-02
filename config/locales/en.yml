@@ -329,9 +329,12 @@ en:
     show: Show
     edit: Edit
     destroy: Delete
+    not_available: "Non disponible"
     actions:
-      created: "%{model}% created"
-      updated: "%{model}% edited "
-      destroyed: "%{model}% Destroyed"
-      order_created: "Your order has been registered. Go to the merchant's premises to collect your products and pay. "
+      messages:
+        created: "%{model}% created"
+        updated: "%{model}% edited "
+        destroyed: "%{model}% Destroyed"
+        order_created: "Your order has been registered. Go to the merchant's premises to collect your products and pay. "
+        product_not_available_for_order: "The product %{product} is no longer available. Please remove it from your basket before continuing" 
     you_need_a_model: You first need to have a(n) %{model}
