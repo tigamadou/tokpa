@@ -335,4 +335,5 @@ fr:
         created: "%{model} créé(e)"
         updated: "%{model} sauvegardé(e)"
         destroyed: "%{model} Supprimé"
+        order_created: "Votre commande a bien été enregistrée. Rendez-vous dans les locaux du marchand pour retirer vos produits et payer."
     you_need_a_model: Vous devez créer d'abord un(e) %{model}

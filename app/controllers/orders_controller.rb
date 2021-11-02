@@ -33,7 +33,12 @@ class OrdersController < ApplicationController
           OrderProduct.create(quantity: cart_product.quantity, total: cart_product.product.variants.first.price*cart_product.quantity ,order_id: @order.id, product_id: cart_product.product_id)
         end
         @current_cart.destroy
-        format.html { redirect_to orders_path, notice: t('defaults.actions.messages.created', model: Order.model_name.human) }
+        
+        format.html { 
+          flash[:notice]= t('defaults.actions.messages.created', model: Order.model_name.human)
+          flash[:success] = t('defaults.actions.messages.order_created')
+          redirect_to orders_path
+         }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new, status: :unprocessable_entity }
