@@ -56,6 +56,7 @@ class ProductsController < ApplicationController
   private
     def set_product
       @product = Product.where(slug: params[:id]).first
+      not_found if @product.nil?
     end
 
     def product_params

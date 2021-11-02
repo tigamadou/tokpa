@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     def check_vendor
       redirect_to new_vendor_path if current_user.has_role?(:vendor) && current_user.vendor.nil?
     end
+
+    def not_found
+      raise ActionController::RoutingError.new('Not Found')
+    end
    
     
 
