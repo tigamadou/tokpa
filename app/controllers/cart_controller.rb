@@ -24,7 +24,7 @@ class CartController < ApplicationController
     @cart_product.quantity += params[:cart][:quantity].to_i
     
     @cart_product.save
-    redirect_to show_cart_path, notice: 'Product added to card!'
+    redirect_to show_cart_path, notice: t('defaults.actions.messages.created', model: CartProduct.model_name.human)
     
     
 
@@ -38,7 +38,7 @@ class CartController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: "Cart was successfully updated." }
+        format.html { redirect_to @cart, notice: t('defaults.actions.messages.updated', model: Cart.model_name.human) }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class CartController < ApplicationController
   def destroy
     @cart.destroy
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: "Cart was successfully destroyed." }
+      format.html { redirect_to carts_url, notice: t('defaults.actions.messages.updated', model: CartProduct.model_name.human) }
       
     end
   end

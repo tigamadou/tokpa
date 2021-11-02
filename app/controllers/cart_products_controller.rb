@@ -20,7 +20,7 @@ class CartProductsController < ApplicationController
 
     respond_to do |format|
       if @cart_product.save
-        format.html { redirect_to @cart_product, notice: "Cart product was successfully created." }
+        format.html { redirect_to @cart_product, notice: t('defaults.actions.messages.created', model: CartProduct.model_name.human)}
         format.json { render :show, status: :created, location: @cart_product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,7 +32,7 @@ class CartProductsController < ApplicationController
   def update
     respond_to do |format|
       if @cart_product.update(cart_product_params)
-        format.html { redirect_to @cart_product, notice: "Cart product was successfully updated." }
+        format.html { redirect_to @cart_product, notice: t('defaults.actions.messages.updated', model: CartProduct.model_name.human) }
         format.json { render :show, status: :ok, location: @cart_product }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class CartProductsController < ApplicationController
   def destroy
     @cart_product.destroy
     respond_to do |format|
-      format.html { redirect_to show_cart_url, notice: "Cart product was successfully destroyed." }
+      format.html { redirect_to show_cart_url, notice: t('defaults.actions.messages.destroyed', model: CartProduct.model_name.human) }
       format.json { head :no_content }
     end
   end
