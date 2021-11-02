@@ -329,7 +329,7 @@ en:
     show: Show
     edit: Edit
     destroy: Delete
-    not_available: "Non disponible"
+    not_available: "Not available"
     actions:
       messages:
         created: "%{model}% created"
