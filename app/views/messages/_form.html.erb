@@ -1,5 +1,10 @@
 <div class="alert alert-danger mb-2">
-  <p><%= pluralize(element.errors.count, "error") %> prohibited this address from being saved:</p>
+  <p>
+    <%= 
+      t('errors.template.header.one', model: element.model_name.human) if element.errors.count == 1 
+      t('errors.template.header.other',count: element.errors.count, model: element.model_name.human)  if element.errors.count > 1
+    %>
+  </p>
   <ul>
     <% element.errors.each do |error| %>
       <li><%= error.full_message %></li>
