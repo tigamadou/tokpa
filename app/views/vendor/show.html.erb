@@ -22,11 +22,11 @@
                 <% if user_signed_in?%>
                   <% if  @favorite %>
                     <%= link_to destroy_favorite_path(@favorite), method: :delete, class: 'btn btn-primary btn-sm' do%>
-                      <i class="icon-heart"></i> UnFollow
+                      <i class="icon-heart"></i>
                     <% end %>
                   <% else %>
                     <%= link_to create_favorite_path(@vendor), method: :post, class: 'btn btn-light  btn-sm' do%>
-                      <i class="icon-heart"></i>Follow 
+                      <i class="icon-heart"></i>
                     <% end %>
                   <% end %>
                 <% end %>
